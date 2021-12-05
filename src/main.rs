@@ -1,3 +1,4 @@
+use colored::*;
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
@@ -18,15 +19,18 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         println!("You guessed :  {}", guess);
 
         match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small"),
-            Ordering::Greater => println!("Too big"),
+            Ordering::Less => println!("{}", "Too small ! ".red()),
+            Ordering::Greater => println!("{}","Too big!!!".red()),
             Ordering::Equal => {
-                println!("You win!");
+                println!("{}","You win!".blue());
                 break;
             }
         }
