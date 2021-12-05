@@ -1,12 +1,10 @@
 fn main() {
     // Control Flow
-    let mut counter = 0;
-    let result = loop {
-        counter += 1;
+    let mut number = 3;
+    while number != 0 {
+        println!("{}!", number);
 
-        if counter == 10 {
-            break counter;
-        }
-    };
-    println!("The result is {}", result);
+        number -= 1;
+    }
+    println!("LIFTOFF!!!!");
 }
