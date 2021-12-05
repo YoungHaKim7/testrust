@@ -1,12 +1,7 @@
 fn main() {
-    // Compound Types
-    let tup = ("Let's Get Rusty!", 100_000);
-    let (channel, sub_count) = tup;
-    let sub_count = tup.1;
+    my_function();
+}
 
-    let error_codes = [200, 404, 500];
-    let not_found = error_codes[1];
-    let x = error_codes[3];
-
-    let byte = [0; 8];
+fn my_function() {
+    println!("Another function.");
 }
