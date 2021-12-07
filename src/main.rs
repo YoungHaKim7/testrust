@@ -1,7 +1,5 @@
-fn main() {
-    // Line comment
+mod print;
 
-    /*
-        Block comment
-    */
+fn main() {
+    print::run();
 }
