@@ -1,12 +1,21 @@
-fn give_number(one: i32, two: i32) -> i32 {
-    let mutiplied_by_ten = {
-        let first_number = 10;
-        first_number * one * two
-    };
-    mutiplied_by_ten
+// mutability
+// shadowing 같은 이름을 다시 쓰는 것
+
+// immutable by default
+// mut = mutable
+
+fn double(input: i32) -> i32 {
+    input * 2
+}
+
+fn triple(input: i32) -> i32 {
+    input * 3
 }
 
 fn main() {
-    let my_number = give_number(9, 1);
-    println!("{}", my_number);
+    let x = 9;
+    let x = double(x);
+    let x = triple(x);
+
+    println!("{}", x);
 }
