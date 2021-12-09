@@ -1,7 +1,4 @@
 fn main() {
-    println!(
-        "Let me tell you
-    어떤 이야기를 
-    봅시다"
-    );
+    let my_variable = &9;
+    println!("{:p}", my_variable);
 }
