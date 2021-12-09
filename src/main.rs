@@ -1,3 +1,7 @@
 fn main() {
-    print!(r#"c:\thisdrive\new_drive"#); //raw text
+    println!(
+        "Let me tell you
+    어떤 이야기를 
+    봅시다"
+    );
 }
