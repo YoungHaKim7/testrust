@@ -1,8 +1,9 @@
-fn number() -> i32 {
-    8
-}
+// () - empty tuple, unit type (void)
+// expression-based languge
+
+fn empty_tuple() {}
 
 fn main() {
-    let my_number = number();
-    println!("{}", my_number);
+    let tuple = empty_tuple();
+    tuple
 }
