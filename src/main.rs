@@ -1,12 +1,12 @@
-// OWNERSHIP - 소유권
-
-fn return_it() -> &'static String {
-    let country = String::from("대한민국");
-    &country // return &String
-}
-
-// & = reference
+// & immutable reference / shared reference
+// &mut mutable reference / unique reference
+// & reference      / * dereference
 
 fn main() {
-    let my_country = return_it();
+    let mut my_number = 9;
+    let num_ref = &mut my_number;
+
+    *num_ref = 10;
+
+    println!("Number is now {}", my_number);
 }
