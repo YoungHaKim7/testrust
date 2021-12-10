@@ -1,9 +1,7 @@
-use std::mem::size_of;
-
 fn main() {
-    println!("Size of a char: {}", size_of::<char>()); // 4 bytes
-    println!("Size of string containing 'a': {}", "a".len()); // .len() gives the size of the string in bytes
-    println!("Size of string containing 'ß': {}", "ß".len());
-    println!("Size of string containing '国': {}", "国".len());
-    println!("Size of string containing '𓅱': {}", "𓅱".len());
+    // casting = simple type change using 'as'
+
+    let my_number = 'a' as u8;
+
+    println!("Hello, world! My number is {}", my_number);
 }
