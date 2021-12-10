@@ -1,8 +1,11 @@
 // attribute
-#[allow(non_upper_case_globals)]
-const high_score: i32 = 20;
-// static
+const HIGH_SCORE: i32 = 20; // global scope
+                            // static
+
+fn print_high_score() {
+    println!("The high score is {}", HIGH_SCORE);
+}
 
 fn main() {
-    let x = 8; //'let' binding: i32
+    print_high_score();
 }
