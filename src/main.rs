@@ -1,11 +1,11 @@
-// () - empty tuple, unit type (void)
-// expression-based languge
+// OWERSHIP - 소유권
 
-fn empty_tuple() {}
+// & = reference
 
-// Display {}
-// Debug print 디버그는 type이름과 properties 프로그램을 보기 위한 print
 fn main() {
-    let tuple = empty_tuple();
-    println!("{:?}", tuple);
+    let country = String::from("대한민국");
+    let ref_one = &country;
+    let ref_two = &country;
+
+    println!("Country is : {}", ref_one);
 }
