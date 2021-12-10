@@ -1,15 +1,9 @@
-// attribute
-const HIGH_SCORE: i32 = 20; // global scope
-static mut LOW_SCORE: i32 = 0; //unsafe
-                               // 'static lifetime
-
-fn print_high_score() {
-    println!("The high score is {}", HIGH_SCORE);
-}
+use std::mem::size_of;
 
 fn main() {
-    print_high_score();
-
-    let my_name = "David"; // &'static str
-    LOW_SCORE = 1;
+    println!("Size of a char: {}", size_of::<char>()); // 4 bytes
+    println!("Size of string containing 'a': {}", "a".len()); // .len() gives the size of the string in bytes
+    println!("Size of string containing 'ß': {}", "ß".len());
+    println!("Size of string containing '国': {}", "国".len());
+    println!("Size of string containing '𓅱': {}", "𓅱".len());
 }
