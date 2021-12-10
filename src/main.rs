@@ -1,4 +1,4 @@
-// OWERSHIP - 소유권
+// OWNERSHIP - 소유권
 
 // & = reference
 
