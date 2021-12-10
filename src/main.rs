@@ -1,4 +1,5 @@
 fn main() {
+    // method = .Function
     // reallocation
 
     // String
@@ -7,9 +8,9 @@ fn main() {
     // .push_str
     // .pop
     // .with_capacity
+    // allocation
 
-    // method = .Function
-    let mut my_name = "".to_string();
+    let mut my_name = String::with_capacity(26);
     println!(
         "Length is {} and capacity is : {}",
         my_name.len(),
@@ -23,6 +24,11 @@ fn main() {
     );
     my_name.push('!');
     my_name.push_str(" and I live in Seoul");
+    println!(
+        "Length is {} and capacity is : {}",
+        my_name.len(),
+        my_name.capacity()
+    my_name.push('a');
     println!(
         "Length is {} and capacity is : {}",
         my_name.len(),
