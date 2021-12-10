@@ -1,7 +1,5 @@
 fn main() {
-    // casting = simple type change using 'as'
-
-    let my_number = 'a' as u8;
-
-    println!("Hello, world! My number is {}", my_number);
+    let my_number = 9_u8;
+    let other_number = 10_000_000_000u64;
+    println!("{}  {}", my_number, other_number);
 }
