@@ -6,5 +6,9 @@
 fn main() {
     let my_number;
 
+    {
+        my_number = 9;
+    }
+
     println!("{}", my_number);
 }
