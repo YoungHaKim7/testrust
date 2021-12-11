@@ -1,13 +1,10 @@
-// OWNERSHIP
-// move semantics
-
-fn print_country(country_name: &String) {
-    println!("My country is {}", country_name);
+fn add_is_great(country_name: &mut String) {
+    country_name.push_str(" is great! ");
+    println!("Now it says: {}", country_name);
 }
 
 fn main() {
-    let country = "대 한 민 국! ".to_string();
-    print_country(&country);
-    print_country(&country);
-    print_country(&country);
+    let my_country = "캐나다".to_string();
+    add_is_great(&my_country); //by reference
+    add_is_great(&mut my_country); //by mutable reference
 }
