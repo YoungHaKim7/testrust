@@ -9,4 +9,8 @@
 > - 1강
 > - https://www.youtube.com/watch?v=W9DO6m8JSSs
 
+-Easy Rust eBook
+
+- https://dhghomon.github.io/easy_rust/
+<hr>
 - Rust 강의 집중!!
