@@ -1,4 +1,5 @@
 fn add_is_great(mut country_name: String) {
+    //take by value, declare as mutable
     country_name.push_str(" is great! ");
     println!("Now it says: {}", country_name);
 }
