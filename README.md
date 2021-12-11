@@ -5,12 +5,19 @@
 
 > - https://github.com/Dhghomon/easy_rust/
 
-> - 유튜브 주소
+> - 유튜브 주소(한글 강의)
 > - 1강
 > - https://www.youtube.com/watch?v=W9DO6m8JSSs
+
+<hr>
+
+> - 유튜브 주소(영어 강의)
+> - 1강
+> - https://www.youtube.com/watch?v=-lYeJeQ11OI&list=PLfllocyHVgsRwLkTAhG0E-2QxCf-ozBkk&index=1
 
 -Easy Rust eBook
 
 - https://dhghomon.github.io/easy_rust/
 <hr>
+
 - Rust 강의 집중!!
