@@ -1,3 +1,5 @@
+// It's trivial to copy the bytes
+
 // Ownership and copy types
 fn prints_number(number: i32) {
     println!("{}", number);
