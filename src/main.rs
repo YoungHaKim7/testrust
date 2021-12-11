@@ -1,6 +1,6 @@
 // Collection types: arrays, vectors (Vecs)
 // ARRAYS     [ ] all the same type
 fn main() {
-    let mut my_array = [0_u8; 640];
-    println!("{:?}", my_array);
+    let my_array = ["My", "array"];
+    println!("{}", my_array[1]);
 }
