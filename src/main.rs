@@ -1,6 +1,6 @@
-// Colloection types: arrays, vectors (Vecs)
+// Collection types: arrays, vectors (Vecs)
 // ARRAYS     [ ] all the same type
 fn main() {
-    let my_array = ["a"; 40];
+    let mut my_array = [0_u8; 640];
     println!("{:?}", my_array);
 }
