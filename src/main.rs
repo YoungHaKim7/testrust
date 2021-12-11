@@ -1,11 +1,10 @@
-fn add_is_great(mut country_name: String) -> String {
-    //take by value, declare as mutable
-    country_name.push_str(" is great! ");
-    println!("Now it says: {}", country_name);
-    country_name
+// Ownership and copy types
+fn prints_number(number: i32) {
+    println!("{}", number);
 }
 
 fn main() {
-    let my_country = "대한민국".to_string();
-    add_is_great(my_country);
+    let my_number = 8;
+    prints_number(my_number);
+    prints_number(my_number);
 }
