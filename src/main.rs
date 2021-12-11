@@ -19,4 +19,5 @@ fn main() {
     let my_country = "Austria".to_string();
     print_string(my_country.clone());
     print_string(my_country);
+    print_string(my_country);
 }
