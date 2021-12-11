@@ -5,7 +5,6 @@ fn main() {
 
     let three_to_five = &array_of_ten[2..5];
     let start_at_two = &array_of_ten[1..5];
-    let start_at_two = &array_of_ten[1..5];
     let end_at_five = &array_of_ten[..5];
     let everything = &array_of_ten[..];
 
