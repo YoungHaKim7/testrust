@@ -1,7 +1,10 @@
+// OWNERSHIP
+
+fn print_country(country_name: String) {
+    println!("My country is {}", country_name);
+}
+
 fn main() {
-    let mut number = 10;
-    let number_change = &mut number;
-    *number_change += 10;
-    let number_ref = &number;
-    println!("{}", number_ref);
+    let country = "대 한 민 국! ".to_string();
+    print_country(country);
 }
