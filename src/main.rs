@@ -1,7 +1,8 @@
-// Vecs ..... into()
+// TUPLES
 
 fn main() {
-    let my_vec: Vec<u8> = [1, 2, 3].into();
-    let my_vec2: Vec<_> = [9, 0, 10].into(); // Vec<_> means "choose the Vec type for me"
-                                             // Rust will choose Vec<i32>
+    let random_tuple = (7, 8, "This is a str", [7, 8, 9], vec![9, 8], 7.8);
+    let random_tuple_2 = (7, 8);
+
+    println!("{}", random_tuple.1 + random_tuple_2.0);
 }
