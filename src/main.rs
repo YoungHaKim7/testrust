@@ -1,9 +1,8 @@
 // Collection types:
 // ARRAYS     [ ] all the same type
 
-// &str
+// 어레이 많이 쓰는 용도는 buffer
 fn main() {
-    let array = ["One", "Two"];
-
-    array.ldodskjsdljeio();
+    let mut array = [0; 640];
+    println!("{:?}", array);
 }
