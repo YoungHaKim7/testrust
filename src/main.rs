@@ -1,11 +1,15 @@
-// Collection types:
-// ARRAYS     [ ] all the same type
+// Vecs
 
-// 어레이 많이 쓰는 용도는 buffer
 fn main() {
-    let array = [
-        "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월",
-    ]; // indexing
-    println!("{:?}", array.get(12)); // first
-                                     // Some None Option enum
+    let name1 = String::from("Windy");
+    let name2 = String::from("Gomesy");
+    let name3 = String::from("MB");
+
+    let mut my_vec = Vec::new();
+
+    my_vec.push(name1);
+    my_vec.push(name2);
+    my_vec.push(name3);
+
+    println!("{:?}", my_vec);
 }
