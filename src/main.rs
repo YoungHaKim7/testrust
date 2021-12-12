@@ -1,7 +1,8 @@
-// DESTRUCTURING = pulling items out to make varialbles
+// CONTROL FLOW
 
 fn main() {
-    let str_vec = vec!["one", "two", "three"];
-    let (a, b, _) = (str_vec[0], str_vec[1], str_vec[2]);
-    println!("{}, {}", a, b);
+    let my_number = 9;
+    if my_number == 9 {
+        println!("It's seven");
+    }
 }
