@@ -1,15 +1,10 @@
-// Collection types: arrays, vectors (Vecs)
+// Collection types:
 // ARRAYS     [ ] all the same type
+
+// &str
 fn main() {
-    let array_of_ten = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let array = ["One", "Two"]; // [&str; 2]
+    let array2 = ["One", "Two", "Five"]; // [&str; 3]
 
-    let three_to_five = &array_of_ten[2..5];
-    let start_at_two = &array_of_ten[1..5];
-    let end_at_five = &array_of_ten[..5];
-    let everything = &array_of_ten[..];
-
-    println!(
-        " Three to five: {:?},\n start at two: {:?},\n end at five: {:?},\n everything: {:?}",
-        three_to_five, start_at_two, end_at_five, everything
-    );
+    println!("Is array the same as array2? {}", array == array2); // true false
 }
