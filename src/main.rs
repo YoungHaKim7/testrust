@@ -1,13 +1,16 @@
 // CONTROL FLOW
 
 fn main() {
-    let sky = "cloudy";
-    let temperature = "warm";
+    let children = 5;
+    let married = true;
 
-    match (sky, temperature) {
-        ("cloudy", "cold") => println!("It's dark and unpleasant today"),
-        ("clear", "warm") => println!("It's a nice day"),
-        ("cloudy", "warm") => println!("It's dark but not bad"),
-        _ => println!("Not sure what the weather is. "),
+    match (children, married) {
+        (children, married) if married == false => {
+            println!("Not married with {} children", children)
+        }
+        (children, married) if children == 0 && married == true => {
+            println!("Married but no children")
+        }
+        _ => println!("Married? {}. Number of children: {}", married, children),
     }
 }
