@@ -3,8 +3,7 @@
 
 // &str
 fn main() {
-    let array = ["One", "Two"]; // [&str; 2]
-    let array2 = ["One", "Twoo"]; // [&str; 2]
+    let array = ["One", "Two"];
 
-    println!("Is array the same as array2? {}", array == array2); // true false
+    array.ldodskjsdljeio();
 }
