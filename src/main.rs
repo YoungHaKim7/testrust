@@ -1,13 +1,12 @@
-// 인기가 많은 vec!
-// 0
-// Vec<u8>
-// reallocation
+// trait = 초능력
+// This type implements(trait name)
+//
+
+// From, Into
 
 fn main() {
-    let name1 = String::from("Windy");
-    let name2 = String::from("Gomesy");
+    let my_name = String::from("Dave MacLeod");
+    let my_city: String = "Seoul".into(); // &str
 
-    let my_vec = vec![name1, name2];
-
-    println!("My cats are {:?}", my_vec);
+    println!("{}", my_city);
 }
