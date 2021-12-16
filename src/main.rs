@@ -3,9 +3,9 @@
 // Structure
 
 fn main() {
-    let str_tuple = ("one", "two", "three");
+    let str_array = ["one", "two", "three"];
 
-    let (a, _, _) = str_tuple;
+    let [a, _, _] = str_array;
 
     println!("Item a is : {}", a);
 }
