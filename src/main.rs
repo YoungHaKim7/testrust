@@ -1,4 +1,6 @@
 // tuples
 // Vec<String>
 
-fn main() -> () {}
+fn main() {
+    let x = ();
+}
