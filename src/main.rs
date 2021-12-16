@@ -5,7 +5,7 @@
 fn main() {
     let str_tuple = ("one", "two", "three");
 
-    let (a, b, c) = str_tuple;
+    let (a, _, _) = str_tuple;
 
     println!("Item a is : {}", a);
 }
