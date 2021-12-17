@@ -2,7 +2,7 @@
 
 fn main() {
     // match
-    let my_number = 5;
+    let my_number: u8 = 5;
 
     match my_number {
         // switch
