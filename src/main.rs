@@ -1,15 +1,18 @@
-// Control Flow and match
+fn match_colours(rbg: (i32, i32, i32)) {
+    match rbg {
+        (r, _, _) if r < 10 => println!("Not much red"),
+        (_, b, _) if b < 10 => println!("Not much blue"),
+        (_, _, g) if g < 10 => println!("Not much green"),
+        _ => println!("Each colour has at least ten"),
+    }
+}
 
 fn main() {
-    //  expression-based language(Rust is a language based on expression.)
-    let my_number: u8 = 5;
+    let first = (200, 0, 0);
+    let second = (50, 50, 50);
+    let third = (200, 50, 0);
 
-    let second_number = match my_number {
-        // switch
-        0 => 23,
-        1 => 65,
-        _ => 0,
-    };
-
-    println!("The second number is: {}", second_number);
+    match_colours(first);
+    match_colours(second);
+    match_colours(third);
 }
