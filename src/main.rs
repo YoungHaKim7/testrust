@@ -4,15 +4,17 @@ struct FileDirectory; // Unit struct
 
 struct Colour(u8, u8, u8); // tuple struct
 
-/*struct SizeAndColour {
+struct SizeAndColour {
     size: u32,
     colour: Colour,
 }
- // named struct
- */
+// named struct
 
 fn main() {
-    let my_directory = FileDirectory;
-    let some_colours = Colour(50, 60, 0);
-    println!("The first colour is : {}", some_colours.0);
+    let my_colour = Colour(50, 0, 50);
+
+    let size_and_colour = SizeAndColour {
+        size: 150,
+        colour: my_colour,
+    };
 }
