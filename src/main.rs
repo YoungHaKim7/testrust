@@ -2,9 +2,11 @@
 
 fn main() {
     let my_number = 5;
-    if my_number == 7 {
-        println!("It's seven.");
+    let my_second_number = 10;
+    if my_number == 5 && my_second_number == 10 {
+        println!("They both match.");
     } else if my_number == 6 {
+        // && and  /  || or
         println!("It's six");
     } else {
         println!("It's a different number");
