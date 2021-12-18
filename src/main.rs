@@ -1,20 +1,10 @@
-// STRUCTS =   your own type, your own data structure
-
-struct FileDirectory; // Unit struct
-
-struct Colour(u8, u8, u8); // tuple struct
-
-struct SizeAndColour {
-    size: u32,
-    colour: Colour,
-}
-// named struct
-
 fn main() {
-    let my_colour = Colour(50, 0, 50);
+    let sky = "cloudy"; //&str
+    let temperature = "warm";
 
-    let size_and_colour = SizeAndColour {
-        size: 150,
-        colour: my_colour,
-    };
+    match (sky, temperature) {
+        ("cloudy", "cold") => println!("It's not very nice today"),
+        ("clear", "warm") => println!("It's a nice day"),
+        _ => println!("Not sure what the weather is. "),
+    }
 }
