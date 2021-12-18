@@ -5,6 +5,7 @@ fn main() {
     match (sky, temperature) {
         ("cloudy", "cold") => println!("It's not very nice today"),
         ("clear", "warm") => println!("It's a nice day"),
+        ("cloudy", _) => println!("Cloudy and something else"),
         _ => println!("Not sure what the weather is. "),
     }
 }
