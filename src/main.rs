@@ -1,12 +1,20 @@
-fn main() {
-    let children = 5;
-    let married = true;
+// rgb
 
-    match (children, married) {
-        (c, m) if married == false => println!("Not married with {}", children),
-        // false 표시는 !married
-        // true 표시는 marred로 표현할 수 있다.!!
-        (c, m) if c == 0 && m => println!("Married but with no children"),
-        _ => println!("Some other type of marriage and children combination"),
+fn match_colours(rbg: (u32, u32, u32)) {
+    match rbg {
+        (r, _, _) if r < 10 => println!("Not much red"),
+        (_, b, _) if b < 10 => println!("Not much blue"),
+        (_, _, g) if g < 10 => println!("Not much green"),
+        _ => println!("Every colour has at least 10"),
     }
+}
+
+fn main() {
+    let first = (200, 0, 0);
+    let second = (50, 50, 50);
+    let third = (200, 50, 0);
+
+    match_colours(first);
+    match_colours(second);
+    match_colours(third);
 }
