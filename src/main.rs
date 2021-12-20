@@ -11,4 +11,9 @@ fn main() {
         capital: "Ottawa".to_string(),
         leader_name: "Justin Trudeau".to_string(),
     };
+
+    println!(
+        "The population is :: {}\nThe capital is : {}",
+        canada.population, canada.capital
+    );
 }
