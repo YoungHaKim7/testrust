@@ -12,5 +12,5 @@ fn main() {
         leader_name: "Justin Trudeau".to_string(),
     };
 
-    println!("The country is : {:#?}", canada);
+    println!("The country is : {:?}", canada);
 }
