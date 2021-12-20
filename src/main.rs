@@ -1,4 +1,4 @@
-// named struct
+#[derive(Debug)]
 struct Country {
     population: u32,
     capital: String,
@@ -12,8 +12,5 @@ fn main() {
         leader_name: "Justin Trudeau".to_string(),
     };
 
-    println!(
-        "The population is :: {}\nThe capital is : {}",
-        canada.population, canada.capital
-    );
+    println!("The country is : {:#?}", canada);
 }
