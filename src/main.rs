@@ -5,10 +5,12 @@
 //      3.  struct
 // enum = or 선택해서 쓸 때 씀.... struct와 약간 비슷
 
+// trait
 // tuple struct
+#[derive(Debug)] //attribute
 struct Colour(u8, u8, u8);
 
 fn main() {
     let my_colour = Colour(20, 50, 100);
-    println!("The second colour is {}", my_colour.1);
+    println!("The second colour is {:?}", my_colour);
 }
