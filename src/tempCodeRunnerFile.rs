@@ -6,12 +6,12 @@ struct Country {
 }
 
 fn main() {
-    let population = 35_000_000;
+    let populatin = 35_000_000;
     let capital = "Ottawa".to_string();
     let leader_name = "Justin Trudeau".to_string();
     let my_country = Country {
-        population,
-        capital,
-        leader_name,
+        population: populatin,
+        capital: capital,
+        leader_name: leader_name,
     };
 }
