@@ -21,7 +21,5 @@ fn check_skystate(state: &ThingsInTheSky) {
 }
 
 fn main() {
-    let time = 8;
-    let sky_state = create_skystate(time);
-    check_skystate(&sky_state)
+    check_skystate(&create_skystate(20));
 }
