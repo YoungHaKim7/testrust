@@ -4,6 +4,7 @@ struct Numbers {
     one: u8,
     two: u8,
     three: u8,
+    four: u32,
 }
 
 #[derive(Debug)]
@@ -29,6 +30,7 @@ fn main() {
         one: 8,
         two: 19,
         three: 20,
+        four: 30,
     };
 
     println!("size is {}", size_of_val(&numbers));
