@@ -1,3 +1,5 @@
+use std::mem::size_of_val;
+
 #[derive(Debug)]
 struct Country {
     population: u32,
@@ -14,4 +16,6 @@ fn main() {
         capital,
         leader_name,
     };
+
+    println!("Country is {} bytes in size", size_of_val(&my_country));
 }
