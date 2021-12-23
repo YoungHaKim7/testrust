@@ -8,13 +8,12 @@ enum Mood {
 fn match_mood(mood: &Mood) -> i32 {
     use Mood::*;
 
-    let happiness_level = match mood {
+    match mood {
         Happy => 10,
         Sleepy => 6,
         NotBad => 7,
         Angry => 2,
-    };
-    happiness_level
+    }
 }
 
 fn main() {
