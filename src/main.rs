@@ -1,25 +1,22 @@
-// struct = and
-// enum = or     enum=enumeration e=from   number
-
-enum ThingsInTheSky {
-    Sun,   //0
-    Stars, // 1
+enum Mood {
+    Happy,
+    Sleepy,
+    NotBad,
+    Angry,
 }
 
-fn create_skystate(time: i32) -> ThingsInTheSky {
-    match time {
-        6..=18 => ThingsInTheSky::Sun,
-        _ => ThingsInTheSky::Stars,
-    }
-}
-
-fn check_skystate(state: &ThingsInTheSky) {
-    match state {
-        ThingsInTheSky::Sun => println!("I can see the sun"),
-        ThingsInTheSky::Stars => println!("I can see the stars"),
-    }
+fn match_mood(mood: &Mood) -> i32 {
+    let happiness_level = match mood {
+        Mood::Happy => 10,
+        Mood::Sleepy => 6,
+        Mood::NotBad => 7,
+        Mood::Angry => 2,
+    };
+    happiness_level
 }
 
 fn main() {
-    check_skystate(&create_skystate(20));
+    let my_mood = Mood::NotBad;
+    let happiness_level = match_mood(&my_mood);
+    println!("Out of 1 to 10, my happiness is {} ", happiness_level);
 }
