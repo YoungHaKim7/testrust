@@ -4,11 +4,10 @@ enum Number {
 }
 
 fn get_number(input: i32) -> Number {
-    let number = match input.is_positive() {
+    match input.is_positive() {
         true => Number::U32(input as u32),
         false => Number::I32(input),
-    };
-    number
+    }
 }
 
 fn main() {
