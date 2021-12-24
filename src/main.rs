@@ -1,14 +1,21 @@
-enum Season {
-    Spring,
-    Summer,
-    Autumn,
-    Winter,
+enum Star {
+    BrownDwarf = 10,
+    RedDwarf = 50,
+    YellowStar = 100,
+    RedGiant = 1000,
+    DeadStar,
 }
 
 fn main() {
-    use Season::*;
-    let four_seasons = vec![Spring, Summer, Autumn, Winter]; //Vec<Season>
-    for season in four_seasons {
-        println!("The number is: {}", season as u32);
+    use Star::*;
+    let starvec = vec![BrownDwarf, RedDwarf, YellowStar, RedDwarf, DeadStar];
+
+    for star in starvec {
+        match star as u32 {
+            size if size <= 80 => println!("Not the biggest star: {}", size),
+            size if size >= 80 => println!("Pretty big star: {}", size),
+            _ => println!("Some other star"),
+        }
     }
+    println!("What about DeadStar? It is : {}", DeadStar as u32);
 }
