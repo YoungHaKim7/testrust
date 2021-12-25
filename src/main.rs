@@ -12,7 +12,7 @@ fn main() {
             // Starts a second loop inside this loop
             println!("Now entering the second loop");
 
-            'secon_loop: loop {
+            'second_loop: loop {
                 // now we are inside 'second_loop
                 println!("The second counter is: {}", counter2);
                 counter2 += 1;
