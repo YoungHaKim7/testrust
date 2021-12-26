@@ -1,8 +1,8 @@
 // loops
 
 fn main() {
-    for number in 0..=3 {
+    for _ in 0..=3 {
         // inclusive Range
-        println!("The number is {}", number);
+        println!("I don't need a number");
     }
 }
