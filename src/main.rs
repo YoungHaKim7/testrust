@@ -1,15 +1,6 @@
-// loops
+// impl blocks
 
 fn main() {
-    // break
-    let mut counter = 5;
-
-    let my_number = loop {
-        counter += 1;
-        if counter % 53 == 3 {
-            break counter;
-        }
-    };
-
-    println!("my_number is now : {}", my_number);
+    let my_vec = vec![7, 8];
+    println!("The Vec length is : {}", my_vec.len()); //method
 }
