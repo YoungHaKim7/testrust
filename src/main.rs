@@ -13,7 +13,7 @@ enum AnimalType {
 // impl = implement
 impl Animal {
     // function signature
-    fn new() -> Self {
+    fn new_cat(age: u8) -> Self {
         // Self = Animal
         Self {
             age: 10,
@@ -23,5 +23,7 @@ impl Animal {
 }
 
 fn main() {
-    let my_animal = Animal::new(); // associated function
+    let my_animal = Animal::new_cat(10);
+
+    println!("I made a : {:?}", my_animal);
 }
