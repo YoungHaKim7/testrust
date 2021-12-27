@@ -23,5 +23,5 @@ impl Animal {
 }
 
 fn main() {
-    let my_animal = Animal::new();
+    let my_animal = Animal::new(); // associated function
 }
