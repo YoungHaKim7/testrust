@@ -11,6 +11,15 @@ enum AnimalType {
 }
 
 impl Animal {
+    fn new_old_cat() -> Self {
+        Self {
+            age: 15,
+            animal_type: AnimalType::Cat,
+        }
+    }
+}
+
+impl Animal {
     fn new_cat(age: u8) -> Self {
         Self {
             age,
@@ -44,4 +53,6 @@ fn main() {
     my_animal.print(); // syntactic sugar
     my_animal.change_to_cat();
     my_animal.change_to_dog();
+
+    let my_old_cat = Animal::new_old_cat();
 }
