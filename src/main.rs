@@ -10,20 +10,28 @@ enum AnimalType {
     Dog,
 }
 
-// impl = implement
 impl Animal {
-    // function signature
     fn new_cat(age: u8) -> Self {
-        // Self = Animal
         Self {
-            age: 10,
+            age,
             animal_type: AnimalType::Cat,
         }
+    }
+    fn new_dog(age: u8) -> Self {
+        Self {
+            age,
+            animal_type: AnimalType::Dog,
+        }
+    }
+
+    fn print(&self) {
+        println!("I am a : {:?}", self);
     }
 }
 
 fn main() {
-    let my_animal = Animal::new_cat(10);
+    let my_animal = Animal::new_dog(10);
+    my_animal.print(); // dot operator
 
     println!("I made a : {:?}", my_animal);
 }
