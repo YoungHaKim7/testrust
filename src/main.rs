@@ -32,6 +32,5 @@ impl Animal {
 fn main() {
     let my_animal = Animal::new_dog(10);
     my_animal.print(); // dot operator
-
-    println!("I made a : {:?}", my_animal);
+    Animal::print(&my_animal); // syntactic sugar
 }
