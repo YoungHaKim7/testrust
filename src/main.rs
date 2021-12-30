@@ -6,16 +6,15 @@ struct Animal {
 
 #[derive(Debug)]
 enum AnimalType {
-    Cat,
-    Dog,
+    Cat(String),
+    Dog(String),
 }
 
 impl AnimalType {
-    fn check_type(&self) {
-        use AnimalType::*;
+    fn print_name(&self) {
         match self {
-            Cat => println!("Animal type is cat"),
-            Dog => println!("Animal type is dog"),
+            AnimalType::Cat(name) => println!("Animal type is cat and name is : {}", name),
+            AnimalType::Dog(name) => println!("Animal type is dog and name is : {}", name),
         }
     }
 }
@@ -24,22 +23,10 @@ impl Animal {
     fn new(age: u8, animal_type: AnimalType) -> Self {
         Self { age, animal_type }
     }
-
-    fn change_to_dog(&mut self) {
-        self.animal_type = AnimalType::Dog;
-        println!("Changed to dog! Now I am: {:?}", self);
-    }
-
-    fn change_to_cat(&mut self) {
-        self.animal_type = AnimalType::Cat;
-        println!("Changed to cat! Now I am: {:?}", self);
-    }
 }
 
 fn main() {
-    use AnimalType::*;
-    let my_cat = Animal::new(10, Cat);
-    let my_dog = Animal::new(10, Dog);
+    let my_cat = Animal::new(10, AnimalType::Cat("Windy".to_string()));
 
-    my_cat.animal_type.check_type();
+    my_cat.animal_type.print_name();
 }
