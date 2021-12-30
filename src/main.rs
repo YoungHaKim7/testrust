@@ -26,6 +26,7 @@ impl Animal {
 }
 
 fn main() {
-    // use AnimalType::*;
-    let my_cat = Animal::new(10, AnimalType::Cat);
+    use AnimalType::*;
+    let my_cat = Animal::new(10, Cat);
+    let my_dog = Animal::new(10, Dog);
 }
