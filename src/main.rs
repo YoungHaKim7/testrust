@@ -10,17 +10,19 @@ enum AnimalType {
     Dog,
 }
 
-impl Animal {
-    fn new(age: u8, animal_type: AnimalType) -> Self {
-        Self { age, animal_type }
-    }
-
+impl AnimalType {
     fn check_type(&self) {
         use AnimalType::*;
-        match self.animal_type {
+        match self {
             Cat => println!("Animal type is cat"),
             Dog => println!("Animal type is dog"),
         }
+    }
+}
+
+impl Animal {
+    fn new(age: u8, animal_type: AnimalType) -> Self {
+        Self { age, animal_type }
     }
 
     fn change_to_dog(&mut self) {
@@ -39,5 +41,5 @@ fn main() {
     let my_cat = Animal::new(10, Cat);
     let my_dog = Animal::new(10, Dog);
 
-    my_cat.check_type();
+    my_cat.animal_type.check_type();
 }
