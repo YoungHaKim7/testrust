@@ -15,8 +15,15 @@ fn main() {
         happiness: false,
     };
 
+    let Person {
+        name,
+        real_name,
+        height,
+        happiness,
+    } = papa_doc;
+
     println!(
         "They call him {} but his real name is {}. He is {} cm tall and is he happy? {}",
-        papa_doc.name, papa_doc.real_name, papa_doc.height, papa_doc.happiness
+        name, real_name, height, happiness
     );
 }
