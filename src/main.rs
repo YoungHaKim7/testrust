@@ -7,6 +7,20 @@ struct Person {
     happiness: bool,
 }
 
+#[derive(Debug)]
+struct Person2 {
+    name: String,
+    height: u8,
+}
+
+impl Person2 {
+    fn from_person(i: Person) -> Self {
+        let Person { name, height, .. } = i;
+
+        Self { name, height }
+    }
+}
+
 fn main() {
     let papa_doc = Person {
         name: "Papa Doc".to_string(),
@@ -15,15 +29,6 @@ fn main() {
         happiness: false,
     };
 
-    let Person {
-        name: a,
-        real_name: b,
-        height: c,
-        happiness: d,
-    } = papa_doc;
-
-    println!(
-        "They call him {} but his real name is {}. He is {} cm tall and is he happy? {}",
-        a, b, c, d
-    );
+    let person2 = Person2::from_person(papa_doc);
+    println!("Person2 type is : {:?}", person2);
 }
