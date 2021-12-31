@@ -1,32 +1,22 @@
-#[derive(Debug)]
-struct Animal {
-    age: u8,
-    animal_type: AnimalType,
-}
+// destructuring
 
-#[derive(Debug)]
-enum AnimalType {
-    Cat(String),
-    Dog(String),
-}
-
-impl AnimalType {
-    fn print_name(&self) {
-        match self {
-            AnimalType::Cat(name) => println!("Animal type is cat and name is : {}", name),
-            AnimalType::Dog(name) => println!("Animal type is dog and name is : {}", name),
-        }
-    }
-}
-
-impl Animal {
-    fn new(age: u8, animal_type: AnimalType) -> Self {
-        Self { age, animal_type }
-    }
+struct Person {
+    name: String,
+    real_name: String,
+    height: u8,
+    happiness: bool,
 }
 
 fn main() {
-    let my_cat = Animal::new(10, AnimalType::Cat("Windy".to_string()));
+    let papa_doc = Person {
+        name: "Papa Doc".to_string(),
+        real_name: "Clarence".to_string(),
+        height: 170,
+        happiness: false,
+    };
 
-    my_cat.animal_type.print_name();
+    println!(
+        "They call him {} but his real name is {}. He is {} cm tall and is he happy? {}",
+        papa_doc.name, papa_doc.real_name, papa_doc.height, papa_doc.happiness
+    );
 }
