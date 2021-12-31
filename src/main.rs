@@ -1,8 +1,9 @@
-// references and the dot operator
+struct Item {
+    number: u8,
+}
 
 fn main() {
-    let my_number = 10; // i32
-    let references = &my_number; // &i32
-
-    println!("Are they the same? {}", my_number == *references);
+    let item = Item { number: 10 };
+    let reference = &item.number; // &u8
+    reference.dlkdslkjsjkldsjlkdsj();
 }
