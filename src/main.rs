@@ -14,4 +14,5 @@ fn main() {
     let reference_item = &item;
 
     item.compare_number(10);
+    reference_item.compare_number(10); //&Item
 }
