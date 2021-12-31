@@ -16,14 +16,14 @@ fn main() {
     };
 
     let Person {
-        name,
-        real_name,
-        height,
-        happiness,
+        name: a,
+        real_name: b,
+        height: c,
+        happiness: d,
     } = papa_doc;
 
     println!(
         "They call him {} but his real name is {}. He is {} cm tall and is he happy? {}",
-        name, real_name, height, happiness
+        a, b, c, d
     );
 }
