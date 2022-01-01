@@ -1,21 +1,12 @@
-struct Item {
-    number: u8,
+fn print_and_give_item() -> i32 {
+    let number = 9;
+    println!("The number is : {}", number);
+    9
 }
 
-// . dot operator
-impl Item {
-    fn compare_number(&self, other_number: u8) {
-        println!("Are they equal? {}", self.number == other_number)
-    }
-}
+//generics(i32, String)   반대 개념은 concrete
+// 외국말 중 노래 중에 특성이 없고 재미없는 노래를 It's a little generic 이라고 함.
 
-// Deref *
 fn main() {
-    let item = Item { number: 10 };
-    let reference_item = &item;
-    let other_reference_item = &reference_item; // &&Item
-
-    item.compare_number(10);
-    reference_item.compare_number(10); //&Item
-    other_reference_item.compare_number(10); //&&Item
+    let x = print_and_give_item();
 }
