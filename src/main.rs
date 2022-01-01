@@ -1,5 +1,8 @@
-fn give_thing<GenericType>(input: GenericType) -> GenericType {
+use std::fmt::Display;
+
+fn give_thing<T: Display>(input: T) -> T {
     //T
+    println!("{}", input); // Display
     input
 }
 
