@@ -1,17 +1,16 @@
-struct Book;
-
+use std::cmp::PartialOrd;
 use std::fmt::Display;
 
-fn give_thing<T: Display>(input: T) -> T {
-    //T
-    println!("{}", input); // Display
-    input
+fn compare_and_print<T: Display, U: Display + PartialOrd>(statement: T, num_1: U, num_2: U) {
+    println!(
+        "{}! Is {} greater than {}? {}",
+        statement,
+        num_1,
+        num_2,
+        num_1 > num_2
+    );
 }
 
 fn main() {
-    let x = give_thing(String::from("Take this thing"));
-    let y = give_thing(9);
-    let z = give_thing(Book);
-    println!("{}", x);
-    println!("{}", y);
+    compare_and_print("Listen up!", 9, 8);
 }
