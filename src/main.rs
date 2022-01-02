@@ -1,7 +1,11 @@
 use std::cmp::PartialOrd;
 use std::fmt::Display;
 
-fn compare_and_print<T: Display, U: Display + PartialOrd>(statement: T, num_1: U, num_2: U) {
+fn compare_and_print<T, U>(statement: T, num_1: U, num_2: U)
+where
+    T: Display,
+    U: Display + PartialOrd,
+{
     println!(
         "{}! Is {} greater than {}? {}",
         statement,
