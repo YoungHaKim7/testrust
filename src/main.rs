@@ -13,7 +13,7 @@ fn take_fifth(value: Vec<i32>) -> Option<i32> {
 }
 
 fn main() {
-    let new_vec = vec![1, 2];
+    let new_vec = vec![1, 2, 4, 7, 8, 10, 10];
     let index = take_fifth(new_vec);
     println!("{:?}", index);
 }
