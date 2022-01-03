@@ -1,9 +1,3 @@
-// Option
-// Result
-// Ocaml
-// null
-
-// Option<T>
 fn take_fifth(value: Vec<i32>) -> Option<i32> {
     if value.len() < 5 {
         None
@@ -11,6 +5,7 @@ fn take_fifth(value: Vec<i32>) -> Option<i32> {
         Some(value[4]) // i32
     }
 }
+// wrap in an Option
 
 fn main() {
     let new_vec = vec![1, 2, 4, 7, 8, 10, 10];
