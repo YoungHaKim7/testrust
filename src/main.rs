@@ -1,23 +1,19 @@
-use std::cmp::PartialOrd;
-use std::fmt::Display;
+// Option
+// Result
+// Ocaml
+// null
 
-fn compare_and_print<DisplayType, CompareType>(
-    statement: DisplayType,
-    num_1: CompareType,
-    num_2: CompareType,
-) where
-    DisplayType: Display,
-    CompareType: Display + PartialOrd,
-{
-    println!(
-        "{}! Is {} greater than {}? {}",
-        statement,
-        num_1,
-        num_2,
-        num_1 > num_2
-    );
+// Option<T>
+fn take_fifth(value: Vec<i32>) -> Option<i32> {
+    if value.len() < 5 {
+        None
+    } else {
+        Some(value[4]) // i32
+    }
 }
 
 fn main() {
-    compare_and_print("Listen up!", 9, 8);
+    let new_vec = vec![1, 2];
+    let index = take_fifth(new_vec);
+    println!("{:?}", index);
 }
