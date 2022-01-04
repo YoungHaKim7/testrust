@@ -13,8 +13,10 @@ fn main() {
     let new_vec = vec![1, 2, 3, 4, 5, 6];
     let index = take_fifth(new_vec); // Option<i32>
 
-    match index {
-        Some(number) => println!("I got a number: {}", number),
-        None => println!("There was nothing inside"),
+    // Some(number)
+    if index.is_some() {
+        // bool
+        // Option<i32>
+        println!("I got a number: {}", index.unwrap());
     }
 }
