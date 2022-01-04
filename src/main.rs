@@ -10,7 +10,7 @@ fn take_fifth(value: Vec<i32>) -> Option<i32> {
 // wrap in an Option
 
 fn main() {
-    let new_vec = vec![1, 2];
+    let new_vec = vec![1, 2, 3, 4, 5, 6];
     let index = take_fifth(new_vec); // Option<i32>
 
     match index {
