@@ -13,5 +13,5 @@ fn main() {
     let new_vec = vec![1, 2, 3];
     let index = take_fifth(new_vec); // Option<i32>
 
-    index.unwrap();
+    index.expect("Needed at least five items - make sure Vec has at least five");
 }
