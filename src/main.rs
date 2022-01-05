@@ -13,9 +13,9 @@ fn check_error(input: i32) -> Result<(), ()> {
 //     Err(E),
 // }
 
+None.unwrap -> panic
+Err.unwrap -> panic
+
 fn main() {
-    match check_error(5) {
-        Ok(_) => println!("Okay guys"),
-        Err(_) => println!("It's an error"),
-    }
+    check_error(5).unwrap()
 }
