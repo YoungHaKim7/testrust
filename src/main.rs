@@ -8,24 +8,14 @@ fn check_error(input: i32) -> Result<(), ()> {
 
 // .is_ok()
 // .is_err()
-
-// .is_some()
-// .is_none()
-
-// enum Option<T> {
-//     None,
-//     Some(T),
-// }
-
 // enum Result<T, E> {
 //     Ok(T),
 //     Err(E),
 // }
 
 fn main() {
-    if check_error(6).is_ok() {
-        println!("It's okay, guys!")
-    } else {
-        println!("It's an error, guys!")
+    match check_error(5) {
+        Ok() => println!("Okay guys"),
+        Err() => println!("It's an error"),
     }
 }
