@@ -23,7 +23,7 @@ fn check_error(input: i32) -> Result<(), ()> {
 // }
 
 fn main() {
-    if check_error(5).is_ok() {
+    if check_error(6).is_ok() {
         println!("It's okay, guys!")
     } else {
         println!("It's an error, guys!")
