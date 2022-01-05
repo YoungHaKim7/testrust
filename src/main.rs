@@ -15,7 +15,7 @@ fn check_error(input: i32) -> Result<(), ()> {
 
 fn main() {
     match check_error(5) {
-        Ok() => println!("Okay guys"),
-        Err() => println!("It's an error"),
+        Ok(_) => println!("Okay guys"),
+        Err(_) => println!("It's an error"),
     }
 }
