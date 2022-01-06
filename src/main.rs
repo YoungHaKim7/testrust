@@ -1,4 +1,6 @@
-fn parse_number(number: &str) -> Result<i32, std::num::ParseIntError> {
+use std::num::ParseIntError;
+
+fn parse_number(number: &str) -> Result<i32, ParseIntError> {
     number.parse()
 }
 
