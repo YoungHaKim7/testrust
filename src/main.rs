@@ -1,6 +1,6 @@
 use std::num::ParseIntError;
 
-// anyhow - crate
+// anyhow - crate 일반적인 에러를 만드는 라이브러리
 
 fn parse_number(number: &str) -> Result<i32, ParseIntError> {
     number.parse()
