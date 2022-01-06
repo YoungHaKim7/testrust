@@ -1,21 +1,16 @@
-fn check_error(input: i32) -> Result<(), ()> {
-    if input % 2 == 0 {
-        Ok(())
-    } else {
-        Err(())
+fn check_if_five(number: i32) -> Result<i32, String> {
+    match number {
+        5 => Ok(number),
+        _ => Err("Sorry, the number wasn't five.".to_string()),
     }
 }
 
-// .is_ok()
-// .is_err()
-// enum Result<T, E> {
-//     Ok(T),
-//     Err(E),
-// }
-
-None.unwrap -> panic
-Err.unwrap -> panic
-
 fn main() {
-    check_error(5).unwrap()
+    let mut result_vec = Vec::new(); // Vec<Result<i32, String>>
+
+    for number in 2..=7 {
+        result_vec.push(check_if_five(number));
+    }
+
+    println!("{:?}", result_vec);
 }
