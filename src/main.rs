@@ -12,5 +12,5 @@ fn main() {
         result_vec.push(check_if_five(number));
     }
 
-    println!("{:?}", result_vec);
+    println!("{:#?}", result_vec);
 }
