@@ -1,17 +1,30 @@
-fn main() {
-    let weather_vec = vec![
-        vec!["Berlin", "cloudy", "5", "-7", "78"],
-        vec!["Athens", "sunny", "not humid", "20", "10", "50"],
-    ];
+// Other collection types
+// HashMap, BtreeMap    HashMap은 python의 Dictionary와 비슷함
 
-    for mut city in weather_vec {
-        println!("For the city of {}: ", city[0]);
-        while let Some(information) = city.pop() {
-            // push <-> pop
-            if let Ok(number) = information.parse::<i32>() {
-                // turbofish  ::<i32>
-                println!("The number is : {}", number);
-            }
-        }
+// Key, Value
+// Key: String
+// Value : Vec<String>
+// land: 나라, 국가
+
+// HashMap<String, Vec<String>>
+use std::collections::HashMap;
+
+struct City {
+    name: String,
+    population: HashMap<u32, u32>, // year + population
+}
+
+fn main() {
+    let mut tallin = City {
+        name: "Tallinn".to_string(),
+        population: HashMap::new(),
+    };
+
+    tallin.population.insert(1372, 3_250);
+    tallin.population.insert(1851, 24_000);
+    tallin.population.insert(2020, 437_619);
+
+    for (year, population) in tallin.population {
+        println!("In the year {} the population was {}", year, population);
     }
 }
