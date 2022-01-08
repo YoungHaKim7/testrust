@@ -1,30 +1,23 @@
-// Other collection types
-// HashMap, BtreeMap    HashMap은 python의 Dictionary와 비슷함
-
-// Key, Value
-// Key: String
-// Value : Vec<String>
-// land: 나라, 국가
-
-// HashMap<String, Vec<String>>
-use std::collections::HashMap;
+// BTreeMap<String, Vec<String>>
+// HashMap은 출력할때 랜던하는 순서로 나오지만 BtreeMap은 입력한 순서대로 출력 가능!!
+use std::collections::BTreeMap;
 
 struct City {
     name: String,
-    population: HashMap<u32, u32>, // year + population
+    population: BTreeMap<u32, u32>, // year + population
 }
 
 fn main() {
-    let mut tallin = City {
+    let mut tallinn = City {
         name: "Tallinn".to_string(),
-        population: HashMap::new(),
+        population: BTreeMap::new(),
     };
 
-    tallin.population.insert(1372, 3_250);
-    tallin.population.insert(1851, 24_000);
-    tallin.population.insert(2020, 437_619);
+    tallinn.population.insert(1372, 3_250);
+    tallinn.population.insert(1851, 24_000);
+    tallinn.population.insert(2020, 437_619);
 
-    for (year, population) in tallin.population {
+    for (year, population) in tallinn.population {
         println!("In the year {} the population was {}", year, population);
     }
 }
