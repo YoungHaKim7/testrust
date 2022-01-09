@@ -14,5 +14,7 @@ fn main() {
         city_hashmap.insert(city, "Germany");
     }
 
+    println!("{:?}", city_hashmap["Bielefeld"]); // 안전하지 X 운 좋게 스펠링이 맞아야 출력
     println!("{:?}", city_hashmap.get("Bielefeld"));
+    println!("{:?}", city_hashmap.get("Bielefeldd"));
 }
