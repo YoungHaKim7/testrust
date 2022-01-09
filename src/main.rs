@@ -7,7 +7,7 @@ fn main() {
     book_hashmap.insert(1, "L'Allemagne Moderne");
 
     if let Some(book_name) = book_hashmap.get(&1) {
-        println!("Already got a book");
+        println!("Already got a book: {}", book_name);
     } else {
         book_hashmap.insert(1, "Le Petit Prince");
     }
