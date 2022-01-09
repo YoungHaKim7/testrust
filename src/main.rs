@@ -1,23 +1,18 @@
-// BTreeMap<String, Vec<String>>
-// HashMap은 출력할때 랜던하는 순서로 나오지만 BtreeMap은 입력한 순서대로 출력 가능!!
-use std::collections::BTreeMap;
-
-struct City {
-    name: String,
-    population: BTreeMap<u32, u32>, // year + population
-}
+use std::collections::HashMap;
 
 fn main() {
-    let mut tallinn = City {
-        name: "Tallinn".to_string(),
-        population: BTreeMap::new(),
-    };
+    // Key -> Value
+    let canadian_cities = vec!["Calgary", "Vancouver", "Gimli"];
+    let german_cities = vec!["Karlsruhe", "Bad Doberan", "Bielefeld"];
 
-    tallinn.population.insert(1372, 3_250);
-    tallinn.population.insert(1851, 24_000);
-    tallinn.population.insert(2020, 437_619);
+    let mut city_hashmap = HashMap::new();
 
-    for (year, population) in tallinn.population {
-        println!("In the year {} the population was {}", year, population);
+    for city in canadian_cities {
+        city_hashmap.insert(city, "Canada");
     }
+    for city in german_cities {
+        city_hashmap.insert(city, "Germany");
+    }
+
+    println!("{:?}", city_hashmap["Bielefeld"]);
 }
