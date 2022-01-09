@@ -16,5 +16,5 @@ fn main() {
 
     println!("{:?}", city_hashmap["Bielefeld"]); // 안전하지 X 운 좋게 스펠링이 맞아야 출력
     println!("{:?}", city_hashmap.get("Bielefeld"));
-    println!("{:?}", city_hashmap.get("Bielefeldd"));
+    println!("{:?}", city_hashmap.get("Bielefeldd")); // .unwrap()했다면 폭팔했지만 get으로 안전하게 출력함
 }
