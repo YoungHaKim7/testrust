@@ -14,5 +14,5 @@ fn main() {
         city_hashmap.insert(city, "Germany");
     }
 
-    println!("{:?}", city_hashmap["Bielefeld"]);
+    println!("{:?}", city_hashmap.get("Bielefeld"));
 }
