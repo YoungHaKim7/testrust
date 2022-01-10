@@ -1,3 +1,5 @@
+// pub fn entry(&mut self, key: K) -> Entry<K, V>
+
 use std::collections::HashMap;
 
 fn main() {
@@ -10,11 +12,13 @@ fn main() {
     ]; //Eye of the World appears twice
 
     let mut book_hashmap = HashMap::new();
+
     for book in book_collection {
-        book_hashmap.entry(book).or_insert(true);
+        let number_of_books = book_hashmap.entry(book).or_insert(0);
+        *number_of_books += 1;
     }
 
-    for (book, true_or_false) in book_hashmap {
-        println!("Do we have {}? {}", book, true_or_false);
+    for (book, number) in book_hashmap {
+        println!("{}: {} copies", book, number);
     }
 }
