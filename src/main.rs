@@ -12,9 +12,9 @@ fn main() {
 
     let mut survey_hash = HashMap::new();
 
-    for item in data {
+    for (gender, number) in data {
         // (&str, i32)
-        survey_hash.entry(item.0).or_insert(Vec::new()).push(item.1);
+        survey_hash.entry(gender).or_insert(Vec::new()).push(number);
     }
 
     for (male_or_female, numbers) in survey_hash {
