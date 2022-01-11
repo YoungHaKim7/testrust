@@ -8,7 +8,7 @@ fn main() {
         51, 58, 34, 59, 44, 19, 93, 28, 33, 18, 46, 61, 76, 14, 87, 84, 73, 71, 29, 94, 10, 35, 20,
         35, 80, 8, 43, 79, 25, 60, 26, 11, 37, 94, 32, 90, 51, 11, 28, 76, 16, 63, 95, 13, 60, 59,
         96, 95, 55, 92, 28, 3, 17, 91, 36, 20, 24, 0, 8, 82, 58, 93, 68, 54, 80, 56, 22, 67, 82,
-        58, 64, 80, 16, 61, 57, 14, 11,
+        58, 64, 80, 16, 61, 57, 14, 11, 11, 11, 11,
     ];
     let mut number_hashset = HashSet::new();
 
@@ -22,4 +22,16 @@ fn main() {
         hashset_length,
         100 - hashset_length
     );
+
+    let mut missing_vec = vec![];
+    for number in 0..100 {
+        if number_hashset.get(&number).is_none() {
+            missing_vec.push(number);
+        }
+    }
+
+    print!("It does not contain:");
+    for number in missing_vec {
+        print!("{} ", number);
+    }
 }
