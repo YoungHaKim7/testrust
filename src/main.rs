@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 // HashSet  key값만 있고 Value값은 없다.!
-// BTreeSet
+// BTreeSet  HashSet과 동일하지만 순서대로 출력하고 싶으면 쓰면 됨. 대신 HashSet보다는 약간 느리다.!
 
 fn main() {
     let many_numbers = vec![
@@ -25,6 +25,7 @@ fn main() {
 
     let mut missing_vec = vec![];
     for number in 0..100 {
+        //0..=99 동일한 표현
         if number_hashset.get(&number).is_none() {
             missing_vec.push(number);
         }
