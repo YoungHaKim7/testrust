@@ -1,24 +1,23 @@
-// pub fn entry(&mut self, key: K) -> Entry<K, V>
-
 use std::collections::HashMap;
 
 fn main() {
-    let book_collection = vec![
-        "L'Allemagne Moderne",
-        "Le Petit Prince",
-        "섀도우 오브 유어 스마일",
-        "Eye of the World",
-        "Eye of the World",
-    ]; //Eye of the World appears twice
+    let data = vec![
+        ("male", 9),
+        ("female", 5),
+        ("male", 0),
+        ("female", 6),
+        ("female", 5),
+        ("male", 10),
+    ];
 
-    let mut book_hashmap = HashMap::new();
+    let mut survey_hash = HashMap::new();
 
-    for book in book_collection {
-        let number_of_books = book_hashmap.entry(book).or_insert(0);
-        *number_of_books += 1;
+    for item in data {
+        // (&str, i32)
+        survey_hash.entry(item.0).or_insert(Vec::new()).push(item.1);
     }
 
-    for (book, number) in book_hashmap {
-        println!("{}: {} copies", book, number);
+    for (male_or_female, numbers) in survey_hash {
+        println!("{:?}, {:?}", male_or_female, numbers);
     }
 }
