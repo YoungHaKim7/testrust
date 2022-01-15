@@ -9,10 +9,10 @@ fn main() {
         title: "Some title".to_string(),
         year: 1919,
     };
-    let my_book2 = Book {
+    let book_2 = Book {
         title: "Book 2".to_string(),
         year: 2020,
     };
 
-    println!("Got books: \n{:?}\n{:?}", my_book, my_book2);
+    println!("Got books: \n{my_book:?}\n{book_2:?}");
 }
