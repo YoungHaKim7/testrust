@@ -14,5 +14,5 @@ fn main() {
         year: 2020,
     };
 
-    println!("Got books: \n{my_book:?}\n{book_2:?}");
+    println!("My book name: {my_book:*^16?}");
 }
