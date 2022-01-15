@@ -13,6 +13,6 @@ fn main() {
         title: "Book 2".to_string(),
         year: 2020,
     };
-    let year = my_book.year;
-    println!("My book year: {}", my_book.year);
+    let width = 10;
+    println!("My book name: {my_book:*^width$?}");
 }
