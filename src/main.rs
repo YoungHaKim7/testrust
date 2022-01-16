@@ -10,7 +10,10 @@ struct MyStruct {
     number: usize,
 }
 
-fn print_as_debug<T: Debug>(input: T) {
+fn print_as_debug<T>(input: T)
+where
+    T: Debug,
+{
     println!("{:?}", input);
 }
 
