@@ -1,18 +1,15 @@
+// stcuct User // things
+// enum Months // choices
+// trait // verbs / adjectives
+
+// traits   [power superpower]
 #[derive(Debug)]
-struct Book {
-    title: String,
-    year: u16,
+struct MyStruct {
+    number: usize,
 }
 
-fn main() {
-    let my_book = Book {
-        title: "Some title".to_string(),
-        year: 1919,
-    };
-    let book_2 = Book {
-        title: "Book 2".to_string(),
-        year: 2020,
-    };
-    let width = 10;
-    println!("My book name: {my_book:*^width$?}");
+fn print_as_debug<T: std::fmt::Debug>(input: T) {
+    println!("{input:?}")
 }
+
+fn main() {}
