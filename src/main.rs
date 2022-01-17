@@ -9,11 +9,15 @@ trait Canine {
         println!("woof woof");
     }
     fn run(&self) {
-        println!("I am running!")
+        println!("I am running!");
     }
 }
 
-impl Canine for Animal {}
+impl Canine for Animal {
+    fn bark(&self) {
+        println!("멍멍!!");
+    }
+}
 
 fn main() {
     let my_animal = Animal {
