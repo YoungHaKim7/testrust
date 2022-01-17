@@ -1,20 +1,25 @@
-use std::fmt::Debug;
-
-#[derive(Clone, Copy, Debug)]
-struct ThingsToAdd {
-    first_thing: u32,
-    second_thing: f32,
+// simple trait
+struct Animal {
+    name: String,
 }
 
+trait Canine {
+    // dog-like
+    fn bark(&self) {
+        println!("woof woof");
+    }
+    fn run(&self) {
+        println!("I am running!")
+    }
+}
+
+impl Canine for Animal {}
+
 fn main() {
-    let my_thing = ThingsToAdd {
-        first_thing: 32,
-        second_thing: 8.8,
-    };
-    let second_thing = ThingsToAdd {
-        first_thing: 32,
-        second_thing: 8.8,
+    let my_animal = Animal {
+        name: "Mr. Mantle".to_string(),
     };
 
-    let sum = my_thing + second_thing;
+    my_animal.bark();
+    my_animal.run();
 }
