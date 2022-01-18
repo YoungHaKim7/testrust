@@ -1,7 +1,17 @@
+use std::fmt;
+
 #[derive(Debug)]
 struct Cat {
     name: String,
     age: u8,
+}
+
+impl fmt::Display for Cat {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let name = &self.name;
+        let age = self.age;
+        write!(f, "My cat's name is {name} and it is {age} years old")
+    }
 }
 
 fn main() {
@@ -10,5 +20,5 @@ fn main() {
         age: 4,
     };
 
-    println!("Mr. Mantle is a {mr_mantle:?}")
+    println!("{mr_mantle}")
 }
