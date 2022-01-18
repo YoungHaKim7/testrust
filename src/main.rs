@@ -20,5 +20,5 @@ fn main() {
         age: 4,
     };
 
-    println!("{mr_mantle}")
+    println!("{mr_mantle}");
 }
