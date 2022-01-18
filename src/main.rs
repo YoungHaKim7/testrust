@@ -1,29 +1,14 @@
-// simple trait
-struct Animal {
+#[derive(Debug)]
+struct Cat {
     name: String,
-}
-
-trait Canine {
-    // dog-like
-    fn bark(&self) {
-        println!("woof woof");
-    }
-    fn run(&self) {
-        println!("I am running!");
-    }
-}
-
-impl Canine for Animal {
-    fn bark(&self) {
-        println!("멍멍!! 나는 {} 라 한다", self.name);
-    }
+    age: u8,
 }
 
 fn main() {
-    let my_animal = Animal {
-        name: "Mr. Mantle".to_string(),
+    let mr_mantle = Cat {
+        name: "Reggie Mantle".to_string(),
+        age: 4,
     };
 
-    my_animal.bark();
-    my_animal.run();
+    println!("Mr. Mantle is a {mr_mantle:?}")
 }
