@@ -15,7 +15,7 @@ trait Canine {
 
 impl Canine for Animal {
     fn bark(&self) {
-        println!("멍멍!!");
+        println!("멍멍!! 나는 {} 라 한다", self.name);
     }
 }
 
