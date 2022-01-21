@@ -38,6 +38,9 @@ fn main() {
     let turku = City::new("Turku", 186_756);
 
     let finland_cities = vec![helsinki, turku];
-    let finland = Country::from(finland_cities);
+    let finland: Country = finland_cities.into();
     finland.print_cities();
+
+    //.into()   From이랑 똑같지만 복잡하게 쭉 쓰고 마지막에 .into하고 만들고 싶은 타입을 입력해줌
+    // let x = .....iter().for_each().into()
 }
