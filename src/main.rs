@@ -1,72 +1,19 @@
-// trait bounds
-use std::fmt::Debug;
+use std::fmt::Display;
 
-#[derive(Debug)]
-struct Monster {
-    health: i32,
-}
-
-#[derive(Debug)]
-struct Wizard {
-    health: i32,
-}
-#[derive(Debug)]
-struct Ranger {
-    health: i32,
-}
-
-trait Magic {}
-trait FightClose {}
-trait FightFromDistance {}
-
-impl Magic for Wizard {}
-impl FightClose for Ranger {}
-impl FightClose for Wizard {}
-impl FightFromDistance for Ranger {}
-
-fn attack_with_bow<T>(character: &T, opponent: &mut Monster, distance: u32)
-where
-    T: FightFromDistance + Debug,
-{
-    if distance < 10 {
-        opponent.health -= 10;
-        println!(
-        "You attack with your bow. Your opponet now has {} health left. You are now at: {character:?}",
-        opponent.health
-        );
+fn print_vec<T: Display>(input: &Vec<T>) {
+    for item in input {
+        println!("{item} ");
     }
-}
-
-fn attack_with_sword<T>(character: &T, opponent: &mut Monster)
-where
-    T: FightClose + Debug,
-{
-    opponent.health -= 10;
-    println!(
-        "You attack with your sword. Your opponent now has {} health left. You are at: {character:?}",
-        opponent.health
-    );
-}
-
-fn fireball<T>(character: &T, opponent: &mut Monster, distance: u32)
-where
-    T: Magic + Debug,
-{
-    if distance < 15 {
-        opponent.health -= 20;
-        println!("You raise your hands and cast a firstball!! YOur opponent now has {} health left. You are now at: {character:?}",
-        opponent.health
-        );
-    }
+    println!();
 }
 
 fn main() {
-    let radagast = Wizard { health: 60 };
-    let aragorn = Ranger { health: 80 };
+    let array_vec = Vec::from([8, 9, 10]);
+    print_vec(&array_vec);
 
-    let mut uruk_hai = Monster { health: 40 };
+    let str_vec = Vec::from("What kind of vec is this?");
+    print_vec(&str_vec);
 
-    attack_with_sword(&radagast, &mut uruk_hai);
-    attack_with_bow(&aragorn, &mut uruk_hai, 7);
-    fireball(&radagast, &mut uruk_hai, 12);
+    let string_vec = Vec::from("What kind of Vec is a String vec?");
+    print_vec(&string_vec);
 }
