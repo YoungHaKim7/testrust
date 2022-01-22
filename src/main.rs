@@ -10,7 +10,7 @@ trait Prints {
 struct Person;
 struct Building;
 
-impl Prints for Person {}
+impl<T> Prints for T {}
 
 fn main() {
     let my_person = Person;
