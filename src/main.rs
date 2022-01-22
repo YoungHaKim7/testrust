@@ -22,7 +22,7 @@ struct Person;
 #[derive(Debug)]
 struct Building;
 
-impl<T: Debug> Prints for T {}
+impl<T> Prints for T {}
 
 fn main() {
     let my_person = Person;
