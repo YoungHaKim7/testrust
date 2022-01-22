@@ -16,4 +16,6 @@ fn main() {
     let my_person = Person;
     let my_building = Building;
     my_person.prints_something();
+    let x = String::from("Hello");
+    x.prints_something();
 }
