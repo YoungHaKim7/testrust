@@ -9,7 +9,7 @@ trait Prints {
     {
         println!("I am: {:?}", self);
     }
-    fn display_debug(&self)
+    fn display_print(&self)
     where
         Self: Display,
     {
@@ -28,4 +28,7 @@ fn main() {
     let my_person = Person;
     let my_building = Building;
     my_person.debug_print();
+    let my_string = String::from("Hello there");
+    my_string.debug_print();
+    my_string.display_print();
 }
