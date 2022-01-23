@@ -1,34 +1,19 @@
-// blanket trait implementtations
-// implementing a trait for every type that want to have it
-use std::fmt::{Debug, Display};
-
-trait Prints {
-    fn debug_print(&self)
-    where
-        Self: Debug,
-    {
-        println!("I am: {:?}", self);
-    }
-    fn display_print(&self)
-    where
-        Self: Display,
-    {
-        println!("I am: {}", self)
+trait PrintSomething {
+    fn print_something(&self) {
+        println!("I like to do stuff");
     }
 }
-
-#[derive(Debug)]
 struct Person;
-#[derive(Debug)]
 struct Building;
 
-impl<T> Prints for T {}
+impl<T> PrintSomething for T {}
+
+// implement trait for all types that you want to have it
+// blanket trait implementtation
 
 fn main() {
-    let my_person = Person;
-    let my_building = Building;
-    my_person.debug_print();
-    let my_string = String::from("Hello there");
-    my_string.debug_print();
-    my_string.display_print();
+    let person = Person;
+    let building = Building;
+    person.print_something();
+    building.print_something();
 }
