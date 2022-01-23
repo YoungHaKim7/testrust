@@ -1,12 +1,12 @@
 trait PrintSomething {
     fn print_something(&self) {
-        println!("I like to do stuff");
+        println!("I am a:{:?}", self);
     }
 }
 struct Person;
 struct Building;
 
-impl<T> PrintSomething for T {}
+impl<T: std::fmt::Debug> PrintSomething for T {}
 
 // implement trait for all types that you want to have it
 // blanket trait implementtation
