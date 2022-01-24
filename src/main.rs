@@ -7,4 +7,5 @@ fn print_it<T: Display + AsRef<str>>(input: T) {
 
 fn main() {
     print_it("Please print me");
+    print_it(String::from("Please print me"));
 }
