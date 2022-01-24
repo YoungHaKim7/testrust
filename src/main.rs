@@ -6,5 +6,5 @@ fn print_it<T: Display>(input: T) {
 }
 
 fn main() {
-    print_it("Please print me");
+    print_it(9);
 }
