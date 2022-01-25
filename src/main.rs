@@ -1,6 +1,13 @@
 // Chaining methods and functional style
 
 fn main() {
-    let my_variable = SomeType {};
-    my_variable.iter().take(8).collect
+    let mut new_vec = Vec::new();
+    let mut counter = 1;
+
+    while counter < 11 {
+        new_vec.push(counter);
+        counter += 1;
+    }
+
+    println!("{new_vec:?}")
 }
