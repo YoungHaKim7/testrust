@@ -1,6 +1,15 @@
 // Chaining methods and functional style
 fn main() {
-    let new_vec = (1..=10).collect::<Vec<_>>();
+    let my_vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-    println!("{new_vec:?}")
+    let new_vec = my_vec
+        .into_iter()
+        .skip(1)
+        .skip(1)
+        .skip(1)
+        .skip(1)
+        .take(4)
+        .collect::<Vec<i32>>();
+
+    println!("{new_vec:?}");
 }
