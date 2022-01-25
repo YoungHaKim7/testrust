@@ -1,11 +1,6 @@
-// AsRef
-use std::fmt::Display;
-
-fn print_it<T: Display + AsRef<str>>(input: T) {
-    println!("{input}");
-}
+// Chaining methods and functional style
 
 fn main() {
-    print_it("Please print me");
-    print_it(String::from("Please print me"));
+    let my_variable = SomeType {};
+    my_variable.iter().take(8).collect
 }
