@@ -1,4 +1,11 @@
 // Chaining methods and functional style
+
+// .next()
+// .next() Some(T) None
+// Some(1) = 1
+// Some(2) = 2
+//
+
 fn main() {
     let my_vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
