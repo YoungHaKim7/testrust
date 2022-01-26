@@ -17,4 +17,5 @@ fn main() {
     println!("{vector1_a:?}");
     println!("{vector2:?}");
     println!("{:?}", vector1_b);
+    println!("{vector1:?}");
 }
