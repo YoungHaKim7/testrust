@@ -1,14 +1,35 @@
-// associated = goes together
-// the type that goes together with the trait
+#[derive(Debug)]
+struct Library {
+    library_type: LibraryType,
+    books: Vec<String>
+}
 
+#[derive(Debug)]
+enum LibraryType {
+    City,
+    Country
+}
 
-fn main() {
-    let my_vec = vec!['a','b','거', '魔'];
-    let mut my_vec_iter = my_vec.iter();
+impl Library {
+    fn add_book(&mut self, book: &str) {
+        self.books.push(book.to_string());
+    }
+    fn new() -> Self {
+        Self {
+            library_type: LibraryType::City,
+            books: Vec::new()
+        }
+    
+    }
+}
 
-    assert_eq!(my_vec_iter.next(), Some(&'a')); // 2개 같아야 패닉이 안됨. test할 때 쓰는 기능
-    assert_eq!(my_vec_iter.next(), Some(&'b')); 
-    assert_eq!(my_vec_iter.next(), Some(&'거'));
-    assert_eq!(my_vec_iter.next(), Some(&'魔'));
-    assert_eq!(my_vec_iter.next(), None); 
+fn main () {
+    let mut my_library = Library::new();
+    my_library.add_book("The Doom of the Darksword"); // add some books
+    my_library.add_book("Demian - die Geschichte einer Jugend");
+    my_library.add_book("구운몽");
+    my_library.add_book("済みません");
+
+    println!("{:?}", my_library.books);
+
 }
