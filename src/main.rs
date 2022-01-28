@@ -14,12 +14,24 @@ impl Library {
     fn add_book(&mut self, book: &str) {
         self.books.push(book.to_string());
     }
+
     fn new() -> Self {
         Self {
             library_type: LibraryType::City,
             books: Vec::new()
         }
     
+    }
+}
+
+impl Iterator for Library {
+    type Item = String;
+
+    fn next(&mut self) -> Option<String> {
+        match self.books.pop() {
+            Some(book_title) => Some(book_title + " is found!"), // String + &str
+            None => None
+        }
     }
 }
 
@@ -31,5 +43,9 @@ fn main () {
     my_library.add_book("済みません");
 
     println!("{:?}", my_library.books);
+
+    for item in my_library {
+        println!("{item}");
+    }
 
 }
