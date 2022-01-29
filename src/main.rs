@@ -1,51 +1,11 @@
-#[derive(Debug)]
-struct Library {
-    library_type: LibraryType,
-    books: Vec<String>
-}
-
-#[derive(Debug)]
-enum LibraryType {
-    City,
-    Country
-}
-
-impl Library {
-    fn add_book(&mut self, book: &str) {
-        self.books.push(book.to_string());
-    }
-
-    fn new() -> Self {
-        Self {
-            library_type: LibraryType::City,
-            books: Vec::new()
-        }
-    
-    }
-}
-
-impl Iterator for Library {
-    type Item = String;
-
-    fn next(&mut self) -> Option<String> {
-        match self.books.pop() {
-            Some(book_title) => Some(book_title + " is found!"), // String + &str
-            None => None
-        }
-    }
-}
+// closure = anomymous functions that capture their environment
+// a|nonymous = no name
+// enclose => 주변에 변수가 있으면 맘대로 쓸 수 있다.
+// enclose 쓰는 방법은 || = pipes
 
 fn main () {
-    let mut my_library = Library::new();
-    my_library.add_book("The Doom of the Darksword"); // add some books
-    my_library.add_book("Demian - die Geschichte einer Jugend");
-    my_library.add_book("구운몽");
-    my_library.add_book("済みません");
+    let my_closure = || println!("This is a closure");
 
-    println!("{:?}", my_library.books);
-
-    for item in my_library {
-        println!("{item}");
-    }
+    my_closure();
 
 }
