@@ -4,8 +4,9 @@
 // enclose 쓰는 방법은 || = pipes
 
 fn main () {
-    let my_closure = |x: i32| println!("{x}");
+    let my_number = 10;
+    let my_closure = |x: i32| println!("{}", x + my_number);
 
-    my_closure(8);
+    my_closure(9);
 
 }
