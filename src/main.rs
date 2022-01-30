@@ -1,19 +1,13 @@
-//.iter().map(|item| item +1).collect()
-//.iter().map(|item| {
-//  let my_number = 7;
-//  item + my_number
-//  })
-// .collect()
+// closure 
+// anonymous function
+
+// zero cost abstractions = Rust 가장 중요한 개념 Rust에서 추구하는 목표임.
 
 fn main () {
-    
-    let my_closure = || {
-        let my_number = 7;
-        let other_number = 10;
-        println!("The two numbers are {my_number} and {other_number}");
-        my_number + other_number
-    };
+    let my_number = 9;
+    let anonymous_function = || println!("I am a function"); // anonymous function
+    let closure = || println!("{my_number}");// closure
 
-    let my_var = my_closure();
-    println!("{my_var}");
+    .iter().map().filter().inspect().collect()
+
 }
