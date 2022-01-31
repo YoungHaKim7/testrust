@@ -4,14 +4,10 @@
 fn main() {
     let num_vec = vec![2,4,6];
 
-    let double_vec = num_vec
-        .iter()
-        .map(|number| number *2)
-        .map(|number| number *2)
-        .map(|number| number *2)
-        .map(|number| number *2);
-        
-
-    println!("{double_vec:?}");
-
+    num_vec
+        .iter() // 2, 4, 6
+        .enumerate() // (0,2), (1,4), (2,6)
+        .for_each(|(index, number)| {
+            println!("The number at index {index} is {number}");
+        });
 }
