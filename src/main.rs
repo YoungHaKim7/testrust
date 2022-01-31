@@ -1,9 +1,14 @@
+// map
+// for_each
 
-fn main () {
-    let my_vec = vec![];
+fn main() {
+    let num_vec = vec![2,4,6];
 
-    let fourth = my_vec.get(3).unwrap_or(&9);
+    let double_vec = num_vec
+        .iter()
+        .map(|number| number *2)
+        .collect::<Vec<i32>>();
 
-    println!("{fourth}");
+    println!("{double_vec:?}");
 
 }
