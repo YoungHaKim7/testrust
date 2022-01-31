@@ -7,7 +7,10 @@ fn main() {
     let double_vec = num_vec
         .iter()
         .map(|number| number *2)
-        .collect::<Vec<i32>>();
+        .map(|number| number *2)
+        .map(|number| number *2)
+        .map(|number| number *2);
+        
 
     println!("{double_vec:?}");
 
