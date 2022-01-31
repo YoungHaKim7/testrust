@@ -8,6 +8,6 @@ fn main() {
         .iter() // 2, 4, 6
         .enumerate() // (0,2), (1,4), (2,6)
         .for_each(|tuple| { // ()
-            println!("The tuple is : {tuple:?}");
+            println!("The number at index {} is {}", tuple.0, tuple.1);
         });
 }
