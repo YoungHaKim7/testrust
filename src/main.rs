@@ -11,7 +11,8 @@ fn main() {
         .collect();
 
     let result_str = number_word_hashmap.get(&10).unwrap_or_else(||{
-        println!("Uh of, didn't work");
         &"no number"
     });
+
+    println!("{result_str}");
 }
