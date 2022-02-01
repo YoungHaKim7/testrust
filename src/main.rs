@@ -11,10 +11,9 @@ fn main() {
         .zip(some_words.into_iter())
         .collect();
 
-    let result_str = number_word_hashmap.get(&10).unwrap_or_else(||{
-        println!("Help");
-        &"no number"
+        // closure와 Iterator 연습하는거라 쓰는 기능
+        // iter와 for_each를 하면 모든 아이템을 볼 수 있다.
+    number_word_hashmap.iter().for_each(|stuff| {
+        println!("{stuff:?}")
     });
-    
-    println!("{result_str}");
 }
