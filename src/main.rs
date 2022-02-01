@@ -1,14 +1,17 @@
+// .zip
+use std::collections::HashMap;
+
 fn main() {
-    let num_vec = vec![2,4,6];
+    let some_numbers = vec![0,1,2,3,4,5,]; // a Vec<i32>
+    let some_words = vec!["zero", "one","two","three","four","five"]; //Vec<&str>
 
-    let new_thing = num_vec
-        .iter() // 2, 4, 6
-        .enumerate() // (0,2), (1,4), (2,6)
-        .map(|(index, number)| {
-            println!("The number at index {index} is {number}");
-            0
-        })
-        .collect::<Vec<_>>();
+    let number_word_hashmap: HashMap<i32, &str> = some_numbers
+        .into_iter()
+        .zip(some_words.into_iter())
+        .collect();
 
-        println!("{new_thing:?}");
+    let result_str = number_word_hashmap.get(&10).unwrap_or_else(||{
+        println!("Uh of, didn't work");
+        &"no number"
+    });
 }
