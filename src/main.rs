@@ -9,6 +9,6 @@ fn main() {
     let big_string = "Hello there, I am a &str";
 
     big_string.char_indices().for_each(|(index, charrrrrrr)| {
-        println!("At index {index} is the char {charrrrrrr}");
+        println!("At index {} is the char {}", index, charrrrrrr);
     });
 }
