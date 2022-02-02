@@ -4,6 +4,6 @@
 fn main () {
     let big_string = "Hello there, I am a &str";
 
-    big_string.chars().for_each(|c| println!("{c}"));
+    println!("big_string has {} characters", big_string.chars().count());
 
 }
