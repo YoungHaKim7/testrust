@@ -1,14 +1,27 @@
-//.chars() - iterator of char
-//.count() - counts nubmer of items in iterator
-// char_indices
-// = chars().enumerate()
-
-// index indices(라틴어 index의 복수형)
+// filter
+// filter_map
 
 fn main() {
-    let big_string = "Hello there, I am a &str";
+    let months = vec![
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
 
-    big_string.char_indices().for_each(|(index, charrrrrrr)| {
-        println!("At index {} is the char {}", index, charrrrrrr);
-    });
+    let filtered_months = months
+        .into_iter()
+        .filter(|month| month.len() < 5)
+        .filter(|monnnth| monnnth.contains("u"))
+        .collect::<Vec<&str>>();
+
+    println!("{:?}", filtered_months);
 }
