@@ -40,7 +40,7 @@ fn main() {
     company_vec.iter().for_each(|company| {
         results_vec.push(company.get_ceo().ok_or_else(|| {
             let err_message = format!("No CEO found for {}", company.name);
-            println!("{err_message}");
+            println!("Oh no! Error: {err_message}");
             err_message
         }));
     });
