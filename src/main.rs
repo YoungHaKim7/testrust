@@ -1,40 +1,18 @@
-// filter_map
-
-struct Company {
-    name: String,
-    ceo: Option<String>,
-}
-
-impl Company {
-    fn new(name: &str, ceo: &str) -> Self {
-        let ceo = match ceo {
-            "" => None,
-            ceo => Some(ceo.to_string()),
-        };
-
-        Self {
-            name: name.to_string(),
-            ceo,
-        }
-    }
-
-    fn get_ceo(&self) -> Option<String> {
-        self.ceo.clone()
-    }
-}
+// ok - Result to Option
 
 fn main() {
-    let company_vec = vec![
-        Company::new("Umbrella Corporation", "Unknown"),
-        Company::new("Ovintiv", "Doug Suttles"),
-        Company::new("The Red-Headed League", ""),
-        Company::new("Stark Enterprises", ""),
+    let user_input = vec![
+        "8.9",
+        "Nine point nine five",
+        "8.0",
+        "7.6",
+        "eleventy-twelve",
     ];
 
-    let all_the_ceos = company_vec
+    let actual_numbers = user_input
         .into_iter()
-        .filter_map(|company| company.get_ceo()) // Some / None-> 이거 사라짐
-        .collect::<Vec<_>>();
+        .filter_map(|input| input.parse().ok()) // Ok(num) / Err(err)
+        .collect::<Vec<f32>>();
 
-    println!("{:?}", all_the_ceos);
+    println!("{actual_numbers:?}");
 }
