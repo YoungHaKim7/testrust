@@ -11,12 +11,15 @@ fn main() {
         .clone()
         .map(|some_vec| some_vec.iter().map(|num| num + 1).collect::<Vec<i32>>());
 
-    let second = some_output.and_then(|some_vec| match some_vec.len() {
-        // .get() Option
-        0 => None,
-        1 => Some(vec![some_vec[0]]),
-        _ => Some(some_vec),
-    });
+    let second = some_output
+        .and_then(|some_vec| match some_vec.len() {
+            // .get() Option
+            0 => None,
+            1 => Some(vec![some_vec[0]]),
+            _ => Some(some_vec),
+        })
+        .flatten(); //flatten
+
     println!("{first:?}");
     println!("{second:?}");
 }
