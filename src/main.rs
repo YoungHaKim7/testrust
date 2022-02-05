@@ -5,7 +5,7 @@
 // .map(|some_thing|some_thing+1) None 이면 None이 나옴.
 
 fn main() {
-    let some_output = Some(vec![8, 9, 10]);
+    let some_output: Option<Vec<i32>> = None; // Some(vec![8, 9, 10]);
 
     let first =
         some_output.map(|some_vec| some_vec.iter().map(|num| num + 1).collect::<Vec<i32>>());
