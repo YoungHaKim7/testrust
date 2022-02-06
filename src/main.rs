@@ -2,29 +2,17 @@
 // or
 
 fn main() {
-    let first_try = vec![
-        Some("sucess!"),
-        None,
-        Some("sucess!"),
-        Some("sucess!"),
-        None,
-    ];
+    let first_try = vec![Some("s!"), None, Some("s!"), Some("s!"), None];
     let second_try = vec![
         None,
-        Some("sucess!"),
-        Some("sucess!"),
-        Some("sucess!"),
-        Some("sucess!"),
-        Some("sucess!"),
+        Some("t!"),
+        Some("t!"),
+        Some("t!"),
+        Some("t!"),
+        Some("t!"),
         None,
     ];
-    let third_try = vec![
-        Some("sucess!"),
-        Some("sucess!"),
-        Some("sucess!"),
-        Some("sucess!"),
-        None,
-    ];
+    let third_try = vec![Some("u!"), Some("u!"), Some("u!"), Some("u!"), None];
 
     for index in 0..first_try.len() {
         println!(
