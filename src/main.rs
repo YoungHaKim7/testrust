@@ -27,6 +27,11 @@ fn main() {
     ];
 
     for index in 0..first_try.len() {
-        println!("{:?}", first_try[index].and(second_try[index]));
+        println!(
+            "{:?}",
+            first_try[index]
+                .and(second_try[index])
+                .and(third_try[index])
+        );
     }
 }
