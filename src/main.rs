@@ -7,6 +7,6 @@ fn main() {
     let three = true;
     let four = true;
 
-    println!("{}", one && three);
-    println!("{}", one && two && three && four);
+    println!("{}", one || three);
+    println!("{}", one || two || three || four);
 }
