@@ -1,4 +1,4 @@
-// and
+// or
 // or
 
 fn main() {
@@ -29,9 +29,7 @@ fn main() {
     for index in 0..first_try.len() {
         println!(
             "{:?}",
-            first_try[index]
-                .and(second_try[index])
-                .and(third_try[index])
+            first_try[index].or(second_try[index]).or(third_try[index])
         );
     }
 }
