@@ -2,11 +2,31 @@
 // or
 
 fn main() {
-    let one = true;
-    let two = false;
-    let three = true;
-    let four = true;
+    let first_try = vec![
+        Some("sucess!"),
+        None,
+        Some("sucess!"),
+        Some("sucess!"),
+        None,
+    ];
+    let second_try = vec![
+        None,
+        Some("sucess!"),
+        Some("sucess!"),
+        Some("sucess!"),
+        Some("sucess!"),
+        Some("sucess!"),
+        None,
+    ];
+    let third_try = vec![
+        Some("sucess!"),
+        Some("sucess!"),
+        Some("sucess!"),
+        Some("sucess!"),
+        None,
+    ];
 
-    println!("{}", one || three);
-    println!("{}", one || two || three || four);
+    for index in 0..first_try.len() {
+        println!("{:?}", first_try[index]);
+    }
 }
