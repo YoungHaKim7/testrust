@@ -14,4 +14,17 @@ fn main() {
     in_char_vec(&char_vec, 'i');
     in_char_vec(&char_vec, '붹');
     in_char_vec(&char_vec, '無');
+
+    // short-circuiting 애니ani는 딱 한번만 맞아도 true가 나온다.
+    let smaller_vec = ('A'..'z').collect::<Vec<char>>();
+    println!(
+        "All alphabetic? {}",
+        smaller_vec
+            .iter()
+            .all(|&character| character.is_alphabetic())
+    );
+    println!(
+        "All less than the character 행? {}",
+        smaller_vec.iter().all(|&c| c < '행')
+    );
 }
