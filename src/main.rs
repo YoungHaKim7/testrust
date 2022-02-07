@@ -4,7 +4,7 @@
 
 fn in_char_vec(char_vec: &Vec<char>, check: char) {
     println!(
-        "Is {} inside?",
+        "Is {check} inside? {}",
         char_vec.iter().any(|&character| character == check)
     )
 }
