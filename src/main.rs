@@ -12,4 +12,6 @@ fn in_char_vec(char_vec: &Vec<char>, check: char) {
 fn main() {
     let char_vec = ('a'..'監').collect::<Vec<char>>();
     in_char_vec(&char_vec, 'i');
+    in_char_vec(&char_vec, '붹');
+    in_char_vec(&char_vec, '無');
 }
