@@ -27,4 +27,5 @@ fn main() {
         "All less than the character 행? {}",
         smaller_vec.iter().all(|&c| c < '행')
     );
+    println!("{smaller_vec:?}");
 }
