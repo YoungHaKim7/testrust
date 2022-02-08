@@ -5,6 +5,6 @@ fn main() {
     big_vec.push(5);
     // rev() reverse
     let mut iterator = big_vec.iter().rev();
-    println!("{:?}", iterator.next());
-    println!("{:?}", iterator.next());
+    assert_eq!(Some(&5), iterator.next());
+    assert_eq!(Some(&6), iterator.next());
 }
