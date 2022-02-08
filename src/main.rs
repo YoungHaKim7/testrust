@@ -5,7 +5,7 @@ fn main() {
     big_vec.push(5);
 
     let mut counter = 0;
-    let mut big_iter = big_vec.into_iter();
+    let mut big_iter = big_vec.into_iter().rev();
 
     loop {
         counter += 1;
