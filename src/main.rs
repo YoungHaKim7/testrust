@@ -1,18 +1,9 @@
-// any
+// find - Option<Self::Item> " I'll try to get it for you"
+// position - Option<usize> " I'll try to find the position for you"
+// cycle
 
 fn main() {
-    let mut big_vec = vec![6; 1000];
-    big_vec.push(5);
+    let num_vec = vec![10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
-    let mut counter = 0;
-    let mut big_iter = big_vec.into_iter().rev();
-
-    loop {
-        counter += 1;
-        if big_iter.next() == Some(5) {
-            break;
-        }
-    }
-
-    println!("Final counter is : {counter}");
+    println!("{:?}", num_vec.iter().find(|&n| n % 3 == 0));
 }
