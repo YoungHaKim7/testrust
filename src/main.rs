@@ -5,9 +5,6 @@ fn main() {
     // .take(6)
     let even_odd = vec!["even", "odd"].into_iter().cycle();
 
-    let even_odd_vec = (0..6) // Ranges are iterators
-        .zip(even_odd.into_iter().cycle())
-        .collect::<Vec<(i32, &str)>>();
-
-    println!("{even_odd_vec:?}");
+    let six_items = even_odd.into_iter().cycle().take(6).collect::<Vec<_>>();
+    println!("{six_items:?}");
 }
