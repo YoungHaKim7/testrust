@@ -1,15 +1,13 @@
-// find - Option<Self::Item> " I'll try to get it for you"
-// position - Option<usize> " I'll try to find the position for you"
-// cycle
-
-// find = result : integer
-// positon = result : index[]
+// cycle  계속 똑같은 것만 나오는거임 . iterator 끝나지 않는 trait
+// iterator를 만든다음에 완전 다른 타입이 나온다.clcle iterator로 만든다.
 
 fn main() {
-    let num_vec = vec![10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+    // .take(6)
+    let even_odd = vec!["even", "odd"].into_iter().cycle();
 
-    println!("{:?}", num_vec.iter().find(|&n| n % 3 == 0));
-    println!("{:?}", num_vec.iter().find(|&number| number % 2 == 30));
-    println!("{:?}", num_vec.iter().position(|&num| num % 3 == 0));
-    println!("{:?}", num_vec.iter().position(|&num| num * 2 == 30));
+    let even_odd_vec = (0..6) // Ranges are iterators
+        .zip(even_odd)
+        .collect::<Vec<(i32, &str)>>();
+
+    println!("{even_odd_vec:?}");
 }
