@@ -2,6 +2,9 @@
 // position - Option<usize> " I'll try to find the position for you"
 // cycle
 
+// find = result : integer
+// positon = result : index[]
+
 fn main() {
     let num_vec = vec![10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
