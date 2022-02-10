@@ -9,5 +9,5 @@ fn main() {
 
     println!("{}", some_numbers
         .iter()
-        .fold(0,|total_so_far, next_number|total_so_far + next_number));
+        .fold(100,|total_so_far, next_number|total_so_far - next_number));
 }
