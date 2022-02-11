@@ -10,5 +10,6 @@ fn main() {
             .fold(0, |total_so_far, next_number| total_so_far + next_number)
     );
 
+    let total: i32 = some_numbers.iter().sum();
     println!("{}", some_numbers.iter().sum::<i32>());
 }
