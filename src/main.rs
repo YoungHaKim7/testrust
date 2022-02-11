@@ -1,4 +1,5 @@
 // skip, take, fold
+// fold는 숫자부터 연습하면서 감각을 키워야한다.!!
 fn main() {
     let a_string = "I don't have any dashes in me.";
 
