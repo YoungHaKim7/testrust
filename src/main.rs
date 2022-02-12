@@ -1,14 +1,10 @@
-// skip, take, fold
-// fold는 숫자부터 연습하면서 감각을 키워야한다.!!
-fn main() {
-    let a_string = "I don't have any dashes in me.";
+// fold
 
-    let dashed = a_string
-        .chars() // iterator
-        .fold("-".to_string(), |mut string_so_far, next_char| {
-            string_so_far.push(next_char); // ()
-            string_so_far.push('-'); // ()
-            string_so_far
-        });
-    println!("{dashed}");
+fn main() {
+    let my_vec = vec![-878, 879879, 98798, 0, 76756];
+
+    let biggest = my_vec // biggest
+        .into_iter()
+        .fold(i32::MIN, |num1, num2| if num1 > num2 { num1 } else { num2 });
+    println!("Biggest is : {biggest}");
 }
