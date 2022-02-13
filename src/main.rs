@@ -7,5 +7,9 @@ fn main() {
 
     let mut number_iter = just_numbers.iter().peekable();
 
-    number_iter.ljlksdf();
+    for _ in 0..3 {
+        println!("I love the number {}", number_iter.peek().unwrap()); // 1번만 계속 나옴 next() 나올때까지 주구장창 1번 반복
+        println!("I really love the number {}", number_iter.peek().unwrap());
+        number_iter.next();
+    }
 }
