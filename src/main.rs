@@ -1,17 +1,11 @@
-// match_indices indices = indexes
 // peekable
-
-fn user_input() -> String {
-    // do something
-    "user_name".to_string()
-}
+// .peek()   .next()와 비슷한데 다음 아이템이 뭔지 미리 본다. 아이템을 미리 뺀다?
 
 fn main() {
     // enuberate
-    let rules = "Rule number 1 : No fighting.
-        Rule number 2 : Goto bed at 8 pm.
-        Rule number 3 : Wake up at 6am ";
+    let just_numbers = vec![1, 5, 100];
 
-    let rule_locations = rules.match_indices(user_input).collect::<Vec<(_, _)>>();
-    println!("Rule locations: {rule_locations:?}");
+    let mut number_iter = just_numbers.iter().peekable();
+
+    number_iter.ljlksdf();
 }
