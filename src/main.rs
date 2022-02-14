@@ -3,5 +3,7 @@
 // standard output
 
 fn main() {
-    dbg!()
+    let my_number = 9;
+    dbg!(my_number);
+    println!("{my_number}");
 }
