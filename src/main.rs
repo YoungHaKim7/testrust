@@ -1,17 +1,11 @@
-// .inspect ->무조건 unit type이 나와야 한다. () 이거
+// Sting &str 다음 시간에 할 내용은 String과 &str의 차이
+
+struct Book {
+    title: String,
+}
 
 fn main() {
-    let new_vec = [8, 9, 10];
-
-    let double_vec = new_vec
-        .iter()
-        .inspect(|first_item| {
-            dbg!(first_item);
-        }) // ()
-        .map(|x| x * 2)
-        .inspect(|next_item| {
-            dbg!(next_item);
-        })
-        .filter(|num| *num > 17)
-        .collect::<Vec<_>>();
+    let my_book = Book {
+        title: "my_title".to_string(),
+    };
 }
