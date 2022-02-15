@@ -5,9 +5,12 @@ fn main() {
 
     let double_vec = new_vec
         .iter()
+        .inspect(|first_item| {
+            let x = 9;
+            dbg!(first_item)
+        })
         .map(|x| x * 2)
-        .filter(|&num| num > 17)
+        .inspect(|next_item| dbg!(next_item))
+        .filter(|num| *num > 17)
         .collect::<Vec<_>>();
-
-    dbg!(double_vec);
 }
