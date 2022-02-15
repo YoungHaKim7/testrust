@@ -1,4 +1,4 @@
-// .inspect
+// .inspect ->무조건 unit type이 나와야 한다. () 이거
 
 fn main() {
     let new_vec = [8, 9, 10];
