@@ -6,7 +6,7 @@ fn main() {
     let double_vec = new_vec
         .iter()
         .map(|x| x * 2)
-        .filter(|num| *num > 17)
+        .filter(|&num| num > 17)
         .collect::<Vec<_>>();
 
     dbg!(double_vec);
