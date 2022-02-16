@@ -1,6 +1,6 @@
-fn returns_reference() -> &str {
+fn returns_reference<'a>() -> &str {
     let my_string = "David".to_string(); // &'static - for the life of the program
-    let my_string_ref = &my_string; // &str - reference to something else
+    &my_string
 }
 
 fn main() {}
