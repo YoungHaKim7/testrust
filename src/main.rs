@@ -1,8 +1,8 @@
 // String 조금 느리고 &str조금더 빠르다. 이왕이면 &str위주로 쓰자!!
 
-struct Book<'a> {
+struct Book<'booklifetime> {
     // Generics T, U와 비슷하다.
-    name: &'a str,
+    name: &'booklifetime str,
 }
 
 fn main() {
