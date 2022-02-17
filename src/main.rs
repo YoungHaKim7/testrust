@@ -1,10 +1,10 @@
 // static str
 // borrowed str
 // 'static
-struct Book<'a, 'b> {
+struct Book<'a> {
     // Generics T,U
     name: &'a str,
-    second_name: &'b str,
+    second_name: &'a str,
 }
 
 fn main() {
