@@ -1,9 +1,14 @@
 // 'static 만 특별한 Lifetime이다.
 // 이 예문이 가능한건 'static 뿐이다.
-struct Book<'static> {
+struct Book {
+    // Generics T,U
     name: &'static str,
 }
 
 fn main() {
-    let my_book = Book { name: "my book" };
+    let my_book_title = "my_book_title".to_string();
+
+    let my_book = Book {
+        name: &my_book_title,
+    };
 }
