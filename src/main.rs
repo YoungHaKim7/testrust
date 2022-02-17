@@ -1,9 +1,10 @@
-struct Book<'booklifetime> {
-    // Generics T, U와 비슷하다.
-    name: &'booklifetime str,
+// 'static 만 특별한 Lifetime이다.
+// 이 예문이 가능한건 'static 뿐이다.
+struct Book<'book> {
+    name: &'book str,
 }
-use std::fmt::Display;
 
+use std::fmt::Display;
 fn print_thing<T: Display>(input: T) {}
 
 fn main() {
