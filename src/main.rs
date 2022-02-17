@@ -1,16 +1,13 @@
-// static str
-// borrowed str
-// 'static
-struct Book<'a> {
-    // Generics T,U
+struct Adventurer<'a> {
     name: &'a str,
-    second_name: &'a str,
+    hit_points: u32,
 }
 
-fn main() {
-    let my_book_title = "my_book_title".to_string();
-
-    //    let my_book = Book {
-    //        name: &my_book_title,
-    //    };
+impl Adventurer {
+    fn take_damage(&mut self) {
+        self.hit_points -= 20;
+        println!("{} has{} hit hit points left!", self.name, self.hit_points);
+    }
 }
+
+fn main() {}
