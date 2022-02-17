@@ -3,9 +3,9 @@
 // static str
 // borrowed str 이 예문은 borrowed str예문이다.!!!!
 // 'static
-struct Book {
+struct Book<'a> {
     // Generics T,U
-    name: &'static str,
+    name: &'a str,
 }
 
 fn main() {
