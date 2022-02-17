@@ -1,3 +1,4 @@
+// <'_> lifetime이 정해져 있다는 약속이다.syntax
 struct Adventurer<'a> {
     name: &'a str,
     hit_points: u32,
