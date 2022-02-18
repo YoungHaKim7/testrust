@@ -22,6 +22,7 @@ impl fmt::Debug for Customer<'_> {
         f.debug_struct("Customer")
             .field("money", &self.money)
             .field("name", &self.name)
+            .field("client", &"Client")
             .finish()
     }
 }
