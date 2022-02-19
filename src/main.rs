@@ -12,4 +12,13 @@
 // Mutex
 // RwLock
 
+// not thread safe
+// let mut x = 9; // 11
+// thread 1 {
+//     x +=1;
+// }
+// thread 2 {
+//     x +=1;
+// }
+
 fn main() {}
