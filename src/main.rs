@@ -1,40 +1,15 @@
-// pub 가 있으면 밖에서 쓸수 있게 만들어준다.
-// mod 는 모듈을 만들어
-// client::InternetClient  이렇게 쓸수 있게 만들어 준다.
-// Debug again
-use client::InternetClient;
+// interior mutability
+// chaging on the inside
 
-mod client {
-    pub struct InternetClient {
-        pub client_id: u32, //other stuff
-    }
-}
+// & immutable reference -> 정확한 표현은shared reference 여러가지를 쓸 수 있음
+// &mut mutable reference -> 정확한 표현은 unique reference 딱 한개만 쓸 수 있다.
 
-struct Customer<'a> {
-    money: u32,
-    name: &'a str,
-    client: &'a InternetClient,
-}
-use std::fmt;
+// 이거외에 다른게 쓸려고 만들게 cell 이걸 쓰면 mut를 안 써도 바꿀 수 있다.
+// Cell - small room
 
-impl fmt::Debug for Customer<'_> {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.debug_struct("Customer")
-            .field("money", &self.money)
-            .field("name", &self.name)
-            .field("client", &"Client")
-            .finish()
-    }
-}
+// cell 외에
+// RefCell
+// Mutex
+// RwLock
 
-fn main() {
-    let client = client::InternetClient { client_id: 0 };
-
-    let customer1 = Customer {
-        money: 6876,
-        name: "Billy",
-        client: &client,
-    };
-
-    println!("{customer1:?}");
-}
+fn main() {}
