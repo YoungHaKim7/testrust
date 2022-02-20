@@ -1,13 +1,23 @@
-// get과 비슷한거 .into_inner()
-use std::cell::Cell;
-// cell은 copy타입이 아니면 쓸 때가 없다. ㅡㅡ
-// small copy types
-// not thread safe
-// set
-// get
+// panic의 정의 : 프로그램을 그만 하는거 , 어떤 방에 들어갈을 때 이 방은 위험한것 같아 하면서 그만두는거임.
+// 위의 정의를 unwind the stack, OS에게 프로그램을 돌려주는거임.!!
+// RefCell 정의 : runtime checked borrwing rules
+use std::cell::RefCell;
+
+// unwind the stack
+#[derive(Debug)]
+struct User {
+    id: u32,
+    year_registered: u32,
+    username: String,
+    active: RefCell<bool>,
+    // Many other fields
+}
 
 fn main() {
-    let my_cell = Cell::new(String::from("I am a String"));
-    my_cell.set(String::from("I am a String??!?!?!?!?"));
-    let my_string = my_cell.get(); // 여기서 에러남 copy타입이 아니라서
+    let user_1 = User {
+        id: 1,
+        year_registered: 2020,
+        username: "User 1".to_string(),
+        active: RefCell::new(true),
+    };
 }
