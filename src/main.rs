@@ -22,8 +22,12 @@ fn main() {
     };
 
     println!("{user_1:?}");
-    let first_reference = user_1.active.borrow_mut();
+    let mut first_reference = user_1.active.borrow_mut();
 
     println!("{user_1:?}");
-    first_reference = false;
+    *first_reference = false;
+    println!("{user_1:?}");
+    drop(first_reference);
+
+    println!("{user_1:?}");
 }
