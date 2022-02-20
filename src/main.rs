@@ -25,4 +25,5 @@ fn main() {
     let first_reference = user_1.active.borrow_mut();
 
     println!("{user_1:?}");
+    first_reference = false;
 }
