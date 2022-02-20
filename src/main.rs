@@ -21,6 +21,8 @@ fn main() {
         active: RefCell::new(true),
     };
 
+    println!("{user_1:?}");
     let first_reference = user_1.active.borrow_mut();
-    let second_reference = user_1.active.borrow_mut();
+
+    println!("{user_1:?}");
 }
