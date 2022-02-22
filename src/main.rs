@@ -1,12 +1,34 @@
-use std::cell::RefCell;
+use core::time;
+use std::cell::{Cell, RefCell};
+// Rc - reference counter
+// Interior mutability
+// extern-crate tokio rocket rand
+trait SuperCoolTrait {
+    fn cool_function(&self);
+}
 
-fn main () {
-    let my_cell = RefCell::new(String::from("I am a String"));
-    println!("{my_cell:?}");
-    let blocking_reference = my_cell.borrow_mut();
-    match my_cell.try_borrow_mut() {
-        Ok(mut r) => *r = String::from("I am not a String"),
-        Err(e) => println!("We got an error: {e}")
+#[derive(Debug)]
+struct User {
+    id: u32,
+    times_used: Cell<u32>,
+}
+
+impl SuperCoolTrait for User {
+    fn cool_function(&self) {
+        println!("Now using cool_function");
+        let times_used = self.times_used.get();
+        self.times_used.set(times_used + 1);
+    }
+}
+fn main() {
+    let user = User {
+        id: 89723987,
+        times_used: Cell::new(0),
     };
-    println!("{my_cell:?}");
+
+    for _ in 0..20 {
+        user.cool_function();
+    }
+
+    println!("{user:?}");
 }
