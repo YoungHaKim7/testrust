@@ -4,6 +4,17 @@
 // clone은 anti-type이라고 해서 예상치 못한 오류가 생길 수 있다.
 use std::rc::Rc;
 
+struct MyStruct {
+
+}
+
+Rc<MyStruct>
+
+//.new_uninit    -> Rc Method
+impl MyStruct {
+    fn new_uninit(&self)
+}
+
 fn takes_a_string(input: Rc<String>) {
     println!("{input}");
 }
