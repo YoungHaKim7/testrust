@@ -1,7 +1,7 @@
 #[derive(Debug)]
 struct City {
     name: String,
-    population: 
+    population: u32, 
     history: String
 }
 
