@@ -25,5 +25,7 @@ fn main() {
         histories:vec![Rc::clone(&calgary.history)]
     };
     println!("Calgary's history is : {}", calgary.history);
+    
+    println!("Data has {} owners", Rc::strong_count(&calgary.history));
 }
 
