@@ -1,16 +1,27 @@
-// Rc
-use std::rc::Rc;
-
-fn takes_a_string(input: Rc<String>) {
-    println!("{input}");
+#[derive(Debug)]
+struct City {
+    name: String,
+    population: 
+    history: String
 }
 
-fn also_takes_a_string(input: Rc<String>) {
-    println!("{input}");
+#[derive(Debug)]
+struct CityData {
+    names: Vec<String>,
+    histories: Vec<String>
 }
 
 fn main() {
-    let my_string = Rc::new("Hello there".to_string());
-    takes_a_string(Rc::clone(&my_string)); // Associated function syntex
-    also_takes_a_string(Rc::clone(&my_string));
+    let calgary = City {
+        name: "Calgary".to_string(),
+        population: 1_336_000,
+        history: "Calgary was founded in blah blah blah".to_string()
+    };
+
+    let canada_cities = CityData {
+        names: vec![calgary.name],
+        histories:vec![calgary.history]
+    };
+    println!("Calgary's history is : {}", calgary.history);
 }
+
