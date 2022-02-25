@@ -23,5 +23,5 @@ fn main() {
         container_2.data.borrow_mut().push('b');
     }
 
-    println!("{container_1:?}\n{container_2:?}\n{important_data:?}")
+    println!("{container_1:#?}\n{container_2:#?}\n{important_data:#?}")
 }
