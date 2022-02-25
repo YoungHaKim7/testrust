@@ -19,8 +19,9 @@ fn main() {
     };
 
     for _ in 0..10 {
-        *container_1.data.borrow_mut() = String::from("Hi");
-        *container_2.data.borrow_mut() = String::from("Hi there!");
+        container_1.data.borrow_mut().push('a');
+        container_2.data.borrow_mut().push('b');
     }
 
+    println!("{container_1:?}\n{container_2:?}\n{important_data:?}")
 }
