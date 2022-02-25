@@ -13,4 +13,9 @@ fn main() {
     let mut container_2 = DataContainer {
         data: &mut important_data
     };
+
+    for _ in 0..10 {
+        *container_1.data = String::from("Hi");
+        *container_2.data = String::from("Hi there!");
+    }
 }
