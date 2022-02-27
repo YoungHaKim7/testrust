@@ -6,6 +6,7 @@ struct SomeType {
 }
 
 fn some_function(input: SomeType) -> Vec<SomeType> {
+    todo!();
 
 }
 
