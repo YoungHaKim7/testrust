@@ -1,21 +1,15 @@
-// todo!() macro
-// type aliases
-// alias = different name
+// todo!() - I'll do it later
 
-use std::marker::StructuralEq;
+struct SomeType {
+    name: String,
+    number: u8
+}
 
-type SkipAndTake = std::iter::Take<std::iter::Skip<std::vec::IntoIter<char>>>;
-//newtype
-type MyString = String;
-type MyOtherString(String);
-
-impl SomeTrait for MyOtherString {
+fn some_function(input: SomeType) -> Vec<SomeType> {
 
 }
 
 
-fn skip_five_take_five(input: Vec<char>) -> SkipAndTake {
-    input.into_iter().skip(5).take(5)
+fn main () {
+    ///sdfsdfds.ds
 }
-
-fn main() {}
