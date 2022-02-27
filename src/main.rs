@@ -1,9 +1,9 @@
-// todo!() macro 
-// type aliase
+// todo!() macro
+// type aliases
 // alias = different name
 
-type MyString = String;
-
-fn main() {
-    let my_string = MyString::from("Some &str");
+fn skip_five_take_five(input: Vec<char>) -> std::iter::Take<std::iter::Skip<std::vec::IntoIter<char>>> {
+    input.into_iter().skip(5).take(5)
 }
+
+fn main() {}
