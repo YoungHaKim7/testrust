@@ -5,12 +5,12 @@ struct SomeType {
     number: u8
 }
 
-fn some_function(input: SomeType) -> Vec<SomeType> {
+fn some_function() -> Vec<SomeType> {
     todo!();
 
 }
 
 
 fn main () {
-    ///sdfsdfds.ds
+    some_function();
 }
