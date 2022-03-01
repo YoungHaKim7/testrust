@@ -12,9 +12,13 @@ fn main() {
     }
 
     // 기다려야한다고 생각되면 밑에 코드를 추가
-    join_vec
-        .into_iter()
-        .for_each(|handle| handle.join().expect("Join Handle"));
+    //    join_vec
+    //        .into_iter()
+    //        .for_each(|handle| handle.join().expect("Join Handle"));
+    //        위의 코드와 똑같은 코드
+    for handle in join_vec {
+        handle.join().unwrap();
+    }
 }
 
 
