@@ -4,7 +4,12 @@
 use std::thread;
 
 fn main() {
-    thread::spawn(|| {}); // spawn 파생하다라는 뜻.
+    thread::spawn(|| {
+        println!("I am printing something");
+    }); // spawn 파생하다라는 뜻.
+    for _ in 0..10000 {
+        let x = 8;
+    }
 }
 
 
