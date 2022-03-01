@@ -1,19 +1,11 @@
-use std::borrow::Cow;
-
-fn module_3(input: u8) -> Cow<'static, str> {
-    match input % 3 {
-        0 => "Remainder is 0".into(),
-        1 => "Remainder is 1".into(),
-        remainder => format!("Remainder is {remainder}").into(),
-    }
-}
+// multiple threadscfg!(
+// !green threads --Go 가 쓰는 거 가짜 thread
+// rust는 진짜 thread를 쓴다.
+use std::thread;
 
 fn main() {
-    for number in 1..=6 {
-        match module_3(number) {
-            Cow::Borrowed(message) => println!("The cow is borrowed {message}"),
-            Cow::Owned(message) => println!("The cow is owned {message}"),
-
-        }
-    }
+    thread::spawn(|| {}); // spawn 파생하다라는 뜻.
 }
+
+
+
