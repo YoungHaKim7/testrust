@@ -1,6 +1,4 @@
-// interior mutability
-// multiple threads
-// Rc<RefCell>
+use std::cell::RefCell;
 
 trait CoolTrait {
     fn cool_function(&self);
@@ -8,12 +6,12 @@ trait CoolTrait {
 
 
 struct OurStruct {
-    data: u8
+    data: RefCell<u8>
 }
 
 impl CoolTrait for OurStruct {
-    fn cool_funtion(&self) {
-        self.data += 1;
+    fn cool_function(&self) {
+        *self.data.borrow_mut() += 1;
     }
 }
 
