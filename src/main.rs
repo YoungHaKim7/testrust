@@ -1,6 +1,7 @@
 use std::sync::Mutex;
 use std::thread;
 
+// Arc<Mutex>
 // Mutex
 // Mutual exclusion
 
@@ -25,7 +26,8 @@ fn main() {
 
     let mut join_vec = vec![];
     for _ in 0..10 {
-        let join_handle = thread::spawn(|| {
+        let join_handle = thread::spawn(move || {
+            // move = take by value
             *our_struct.data.lock().unwrap() += 1;
         });
         join_vec.push(join_handle);
