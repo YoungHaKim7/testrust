@@ -1,25 +1,20 @@
-use std::thread;
+// interior mutability
+// multiple threads
+// Rc<RefCell>
 
-fn main() {
-    // std::thread(|| {
-    //     println!("One second has passed");
-    // });
-    let mut join_vec = vec![];
-
-    for _ in 0..10 {
-        let handle = thread::spawn(|| println!("I am printing something"));
-        join_vec.push(handle);
-    }
-
-    // 기다려야한다고 생각되면 밑에 코드를 추가
-    //    join_vec
-    //        .into_iter()
-    //        .for_each(|handle| handle.join().expect("Join Handle"));
-    //        위의 코드와 똑같은 코드
-    for handle in join_vec {
-        handle.join().unwrap();
-    }
+trait CoolTrait {
+    fn cool_function(&self);
 }
 
 
+struct OurStruct {
+    data: u8
+}
 
+impl CoolTrait for OurStruct {
+    fn cool_funtion(&self) {
+        self.data += 1;
+    }
+}
+
+fn main () {}
