@@ -42,6 +42,8 @@ fn main() {
     }
 
     println!("Our struct is now : {our_struct:?}");
-
+    
     // poisoned = can't use  ->Mutex안에서 문제가 생기면 poisoned가 된다.
+    // rust는 똑똑하기 때문에 data racess 가 생기지 않는다.
+    // 안전한 Rust최고!!!
 }
