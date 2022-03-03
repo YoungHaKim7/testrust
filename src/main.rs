@@ -15,6 +15,8 @@ struct OurStruct {
 
 impl CoolTrait for OurStruct {
     fn cool_function(&self) {
+        let lock = self.data.lock().unwrap();
+        drop(lock);
         *self.data.lock().unwrap() += 1;
     }
 }
