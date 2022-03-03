@@ -32,6 +32,7 @@ fn main() {
         let join_handle = thread::spawn(move || {
             // move = take by value
             *clone.lock().unwrap() += 1;
+            println!("There are {} owners ", Arc::strong_count(&clone))
         });
         join_vec.push(join_handle);
     }
@@ -41,4 +42,6 @@ fn main() {
     }
 
     println!("Our struct is now : {our_struct:?}");
+
+    // poisoned = can't use  ->Mutex안에서 문제가 생기면 poisoned가 된다.
 }
