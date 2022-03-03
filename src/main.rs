@@ -9,6 +9,7 @@ trait CoolTrait {
     fn cool_function(&self);
 }
 
+#[derive(Debug)]
 struct OurStruct {
     data: Arc<Mutex<u8>>,
 }
@@ -38,4 +39,6 @@ fn main() {
     for handle in join_vec {
         handle.join().unwrap();
     }
+
+    println!("Our struct is now : {our_struct:?}");
 }
