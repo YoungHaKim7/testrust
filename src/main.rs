@@ -15,6 +15,6 @@ fn main () {
     let my_mutex = Mutex::new(5);
 
     let mut mutex_changer = my_mutex.lock().unwrap();
-
+    drop(mutex_changer);
     println!("{my_mutex:?}");
 }
