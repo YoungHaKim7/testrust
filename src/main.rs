@@ -1,49 +1,20 @@
-use std::sync::{Arc, Mutex};
-use std::thread;
+//
+// Cell 젤 간단하고 젤 빠름 multiful thread 가 필요 없을 경우 사용하면 된다.
+//
+// RefCell -> Thread safe (x)ㄱㅏ 아님 (더 빠름)
+// Mutex -> Thread safe (o)
+//
+// Rc - Thread safe (x) Rc 가 더 빠름
+// Arc - > Thread safe (o)
+// Arc has more overhead  뭔가 더 복잡하다는 뜻
+//
+// Mutex and RwLock
+use std::sync::{Mutex, RwLock}; // Read Write (Rw)
 
-// Arc<Mutex>
-// atomic reference counter
-// operating system primitives
+fn main () {
+    let my_mutex = Mutex::new(5);
 
-trait CoolTrait {
-    fn cool_function(&self);
-}
+    let mut mutex_changer = my_mutex.lock().unwrap();
 
-#[derive(Debug)]
-struct OurStruct {
-    data: Arc<Mutex<u8>>,
-}
-
-impl CoolTrait for OurStruct {
-    fn cool_function(&self) {
-        *self.data.lock().unwrap() += 1;
-    }
-}
-
-fn main() {
-    let our_struct = OurStruct {
-        data: Arc::new(Mutex::new(0)),
-    };
-
-    let mut join_vec = vec![];
-
-    for _ in 0..10 {
-        let clone = Arc::clone(&our_struct.data); // Arc<Mutex<u8>>
-        let join_handle = thread::spawn(move || {
-            // move = take by value
-            *clone.lock().unwrap() += 1;
-            println!("There are {} owners ", Arc::strong_count(&clone))
-        });
-        join_vec.push(join_handle);
-    }
-
-    for handle in join_vec {
-        handle.join().unwrap();
-    }
-
-    println!("Our struct is now : {our_struct:?}");
-    
-    // poisoned = can't use  ->Mutex안에서 문제가 생기면 poisoned가 된다.
-    // rust는 똑똑하기 때문에 data racess 가 생기지 않는다.
-    // 안전한 Rust최고!!!
+    println!("{my_mutex:?}");
 }
