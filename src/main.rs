@@ -1,6 +1,6 @@
 // clippy = linter
 //
-fn print_vec_ref(input: &Vec<i32>) {
+fn print_vec_ref(input: &[i32]) {
     if input.len() == 0 {
         println!("Vec is empty");
     } else {
