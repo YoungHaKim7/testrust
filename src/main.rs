@@ -1,7 +1,7 @@
 // clippy = linter
 //
 fn print_vec_ref(input: &[i32]) {
-    if input.len() == 0 {
+    if input.is_empty() {
         println!("Vec is empty");
     } else {
         input.iter().for_each(|num| println!("{num}"));
