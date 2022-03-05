@@ -18,7 +18,8 @@ fn main() {
     let mut done = false;
     let mut counter = 0;
 
-    while done == false {
+    // while done == false 는 while true라는 뜻인데 //while done == false는 안 좋은 code
+    while !done {
         counter += 1;
 
         if counter > 10 {
