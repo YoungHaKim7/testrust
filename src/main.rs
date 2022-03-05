@@ -1,12 +1,17 @@
-// Mutex and RwLock
-use std::sync::{Mutex, RwLock}; // Read Write (Rw)
+// clippy = linter
+//
+fn print_vec_ref(input: &Vec<i32>) {
+    if input.len() == 0 {
+        println!("Vec is empty");
+    } else {
+        for num in input {
+            println!("{num}");
+        }
+    }
+}
 
-fn main () {
-    let my_rwlock = RwLock::new(5);
-
-    let read1 = my_rwlock.write().unwrap(); // lock 
-    let read2 = my_rwlock.try_read().unwrap();
-
-    println!("{read1:?},{read2:?}");
+fn main() {
+    let my_vec = vec![8, 9, 10];
+    print_vec_ref(&my_vec);
 }
 
