@@ -29,9 +29,8 @@ fn main() {
 
     let some_variable = Some(9);
 
-    match some_variable {
-        Some(number) => println!("We got a {number}"),
-        _ => {}
+    if let Some(number) = some_variable {
+        println!("We got {number}");
     }
 }
 
