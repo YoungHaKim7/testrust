@@ -18,8 +18,7 @@ fn main() {
 
     let my_box = Box::new(9);
 
-    println!("{my_box:?}");
+    println!("{my_box}");
     println!("{}", *my_box);
-
 }
 
