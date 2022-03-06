@@ -1,18 +1,20 @@
-// clippy = linter
+// Box - owned data on the heap
 //
-fn print_vec_ref(input: &[i32]) {
-    if input.is_empty() {
-        println!("Vec is empty");
-    } else {
-        input.iter().for_each(|num| println!("{num}"));
-    }
+struct SomeStruct {
+    name: String,
+    number: u8,
+    data: [u8; 1000],
 }
 
-fn main() {
-    let my_vec = vec![8, 9, 10];
-    let my_array = [8, 9, 10];
+fn take_thing<T>(thing: T) {}
 
-    print_vec_ref(&my_vec);
-    print_vec_ref(&my_array);
+fn main() {
+    let my_struct = SomeStruct {
+        name: "Hi there".to_string(),
+        number: 0,
+        data: [9; 1000]
+    };
+
+    println!("The struct is {} bytes", std::mem::size_of_val(&my_struct));
 }
 
