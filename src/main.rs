@@ -1,9 +1,11 @@
-enum List {
-    Content(i32, Box<List>),
-    NoContent
-}
-// box = owned data
+trait Booky {}
+
+struct Book;
+struct BigBook;
+
+impl Booky for Book {}
+impl Booky for BigBook {}
 
 fn main () {
-    let my_list = List::Content(8786, Box::new(List::NoContent));
+    let vec_of_booky_things: Vec<Booky> = vec![Book, BigBook];
     }
