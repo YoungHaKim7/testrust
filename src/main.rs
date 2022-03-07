@@ -1,9 +1,9 @@
-struct List {
-    content: List
+enum List {
+    Content(i32, Box<List>),
+    NoContent
 }
-// recursive types
-//
+// box = owned data
 
 fn main () {
-
-}
+    let my_list = List::Content(8786, Box::new(List::NoContent));
+    }
