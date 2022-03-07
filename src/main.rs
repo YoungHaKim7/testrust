@@ -13,6 +13,7 @@ impl Booky for BigBook {}
 impl Booky for City {}
 
 // dyn = dynamically decided = runtime에서 결정함.
+// Generics = Compile 타임에서 하는것 
 fn main() {
     let my_city = City {
         year_founded: 1989
