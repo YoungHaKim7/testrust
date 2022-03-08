@@ -7,23 +7,23 @@
 // Strength, Intelligence, Dexterity, Wisdom, Constitution, Charisma
 
 struct Dwarf {
-    name: String
+    name: String,
 }
 
 struct Elf {
-    name: String
+    name: String,
 }
 
 struct HalfElf {
-    name: String
+    name: String,
 }
 
 struct HalfOrc {
-    name: String
+    name: String,
 }
 
 struct Human {
-    name: String
+    name: String,
 }
 
 // All of these need to be cast
@@ -36,7 +36,7 @@ struct Transmutation {}
 struct Necromancy {}
 
 struct Spellbook {
-    pub spells: Vec<Box<Cast>>,
+    pub spells: Vec<Box<dyn Cast>>,
 }
 // Vector contains Boxes that point to values that implement Cast trait
 // Vector contains Boxes
@@ -94,7 +94,7 @@ pub fn speak_elvish<T: Elvish>(character: T) -> String {
 impl Spellbook {
     pub fn run(&self) {
         for spell in self.spells.iter() {
-            spell.cast(); // Cast spell 
+            spell.cast(); // Cast spell
         }
     }
 }
@@ -137,34 +137,34 @@ impl Cast for Necromancy {
 // Trait are hard..... at first
 // Trait are awesome!
 
-fn main () {
+fn main() {
     let my_dwarf = Dwarf {
-        name: String::from("NellDwarf")
+        name: String::from("NellDwarf"),
     };
 
     let my_elf = Elf {
-        name: String::from("NellElf")
+        name: String::from("NellElf"),
     };
 
     let my_half_orc = HalfOrc {
-        name: String::from("NellHalfOrc")
+        name: String::from("NellHalfOrc"),
     };
 
     let my_human = Human {
-        name: String::from("Nell")
-    };
-    
-    let my_half_elf = HalfElf {
-        name: String::from("NellElf")
+        name: String::from("Nell"),
     };
 
-    let spell_book = Spellbook{
+    let my_half_elf = HalfElf {
+        name: String::from("NellElf"),
+    };
+
+    let spell_book = Spellbook {
         // Different types of spells (each implements Cast)
         spells: vec![
-            Box::new(Cantrip{}),
-            Box::new(Transmutation{}),
-            Box::new(Enchantment{}),
-            Box::new(Necromancy{}),
+            Box::new(Cantrip {}),
+            Box::new(Transmutation {}),
+            Box::new(Enchantment {}),
+            Box::new(Necromancy {}),
         ],
     };
 
@@ -176,7 +176,7 @@ fn main () {
 
     // Returns 0 (default)
     my_elf.constitution_bonus();
-    
+
     // Returns 1
     my_half_orc.constitution_bonus();
 
@@ -189,10 +189,6 @@ fn main () {
     // Returns "yes"
     speak_elvish(my_half_elf);
 
-
     // Returns "yes"
-    speak_elvish(my_half_orc);
-
-
-
+    // speak_elvish(my_half_orc);
 }
