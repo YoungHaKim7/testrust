@@ -16,4 +16,5 @@ fn add_to_funtion_output(my_function: fn() -> u8, some_number: u8) {
 
 fn main () {
     add_to_funtion_output(gives_five,8);
+    add_to_funtion_output(gives_six,8);
 }
