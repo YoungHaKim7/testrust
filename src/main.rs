@@ -1,38 +1,19 @@
-// 3 Generics
-use std::fmt::Display;
-
-// concrete (Compiler)
-fn print<T: Display>(input: T) {
-    println!("Hi, I'm a {input}");
+fn gives_five() -> u8 {
+    5
 }
 
-// fn print_i32<input: i32>(input: T) {
-//     println!("Hi, I'm a {input}");
-// }
-//
-// fn print_string<input: String>(input: T) {
-//     println!("Hi, I'm a {input}");
-// }
-//
 
-//impl trait
-// concrete (Compiler)
-fn print_2(input: impl Display) {
-    println!("Hi, I'm a {input}");
+
+fn gives_six() -> u8 {
+    6
 }
 
-// dynamic (Runtime)
-fn print_3(input: Box<dyn Display>) {
-     println!("Hi, I'm {input}");
- }
-//vtable
+fn add_to_funtion_output(my_function: fn() -> u8, some_number: u8) {
+    let my_number = my_function();
+    let next_number = my_number + some_number;
+    println!("We got {next_number}");
+}
 
 fn main () {
-
-    print(8);
-    print(String::from("I am String"));
-    print_2(9);
-    print_3(Box::new(5));
-    print_3(Box::new("I am String_Box_dyn"));
-
+    add_to_funtion_output(gives_five,8);
 }
