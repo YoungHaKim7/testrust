@@ -25,5 +25,6 @@ fn main() {
     fn_mut_closure(|| {
         my_string.push('a');
         println!("{my_string}");
+        drop(my_string);
     });
 }
