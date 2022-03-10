@@ -20,9 +20,10 @@ where
 }
 
 fn main() {
-    let my_string = String::from("Hello there");
+    let mut my_string = String::from("Hello there");
 
-    fn_once_closure(|| {
-        drop(my_string);
+    fn_mut_closure(|| {
+        my_string.push('a');
+        println!("{my_string}");
     });
 }
