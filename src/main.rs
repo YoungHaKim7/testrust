@@ -22,7 +22,7 @@ where
 fn main() {
     let mut my_string = String::from("Hello there");
 
-    fn_mut_closure(|| {
+    fn_once_closure(|| {
         my_string.push('a');
         println!("{my_string}");
         drop(my_string);
