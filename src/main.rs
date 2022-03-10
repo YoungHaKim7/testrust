@@ -5,7 +5,7 @@ where
     f();
 }
 
-fn fn_mut_closure<F>(f: F)
+fn fn_mut_closure<F>(mut f: F)
 where
     F: FnMut(),
 {
