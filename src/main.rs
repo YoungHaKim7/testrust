@@ -1,3 +1,4 @@
+// closure는 주변의 변수를 가질 수 가 있음. 최고!!
 fn fn_closure<F>(f: F)
 where
     F: Fn(),
