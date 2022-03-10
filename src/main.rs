@@ -21,4 +21,8 @@ where
 
 fn main() {
     let my_string = String::from("Hello there");
+
+    fn_closure(|| {
+        println!("{my_string}");
+    });
 }
