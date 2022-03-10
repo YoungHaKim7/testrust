@@ -22,7 +22,7 @@ where
 fn main() {
     let my_string = String::from("Hello there");
 
-    fn_closure(|| {
+    fn_once_closure(|| {
         drop(my_string);
     });
 }
