@@ -1,15 +1,15 @@
-// Fn 
-// FnMut 
-// FnOnce
-//
+fn fn_closure<F>(f: F) {
+    f();
+}
+
+fn fn_mut_closure<F>(f: F) {
+    f();
+}
+
+fn fn_once_closure<F>(f: F) {
+    f();
+}
 
 fn main () {
     let my_string = String::from("Hello there");
-
-    let print_it = || {
-        drop(my_string);
-        // my_string을 drop 해서 밑으로 안 내려감.
-    };
-
-    print_it();
 }
