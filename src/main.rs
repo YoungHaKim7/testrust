@@ -9,5 +9,6 @@ fn impl_function(input: impl Display) {
     println!("{input}")
 }
 fn main () {
-    generic_function::<u8>(8);
+//    generic_function::<u8>(8);
+    impl_function::<u8>(8); 
 }
