@@ -5,6 +5,7 @@ use std::fmt::Display;
 fn generic_function<T: Display>(input: T) {
     println!("{input}");
 }
+type MyString = impl Display;
 
 // 컴퓨터가 알아서 정함 ㅎㅎ
 fn impl_function(input: impl Display) {
@@ -12,5 +13,5 @@ fn impl_function(input: impl Display) {
 }
 fn main () {
 //    generic_function::<u8>(8);
-    impl_function::<u8>(8); 
+//    impl_function::<u8>(8); 
 }
