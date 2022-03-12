@@ -11,6 +11,11 @@ fn are_you_on_linux() {
     println!("You are *not* running linux!");
 }
 
+#[cfg(target_os = "windows")]
+fn are_you_on_linux() {
+    println!("You are running Windows!");
+}
+
 fn main() {
     are_you_on_linux();
 }
