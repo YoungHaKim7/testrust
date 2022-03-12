@@ -1,9 +1,23 @@
-// hint to the compiler
-// #[allow(dead_code)]
-// #[allow(unused_variables)]
-// #[warn(dead_code)]
-struct JustAStruct {}
+// #[cfg(not(target_os = "linux"))] // configuration
+// This function only gets compiled if the target OS is linux
+#[cfg(target_os = "linux")]
+fn are_you_on_linux() {
+    println!("You are running linux!");
+}
+
+// And this function only gets compiled if the target OS is *not* linux
+#[cfg(not(target_os = "linux"))]
+fn are_you_on_linux() {
+    println!("You are *not* running linux!");
+}
 
 fn main() {
-    let _some_char = 'a';
+    are_you_on_linux();
+
+    println!("Are you sure?");
+    if cfg!(target_os = "linux") {
+        println!("Yes. It's definitely linux!");
+    } else {
+        println!("Yes. It's definitely *not* linux!");
+    }
 }
