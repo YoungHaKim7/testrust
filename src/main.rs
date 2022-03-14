@@ -1,21 +1,12 @@
-// #[cfg(not(target_os = "linux"))] // configuration
-// This function only gets compiled if the target OS is linux
-#[cfg(target_os = "linux")]
-fn are_you_on_linux() {
-    println!("You are running linux!");
-}
+// Cow 공식 문서 볼때 보라색 표시는 trait
 
-// And this function only gets compiled if the target OS is *not* linux
-#[cfg(not(target_os = "linux"))]
-fn are_you_on_linux() {
-    println!("You are *not* running linux!");
-}
+//
+fn main () {
 
-#[cfg(target_os = "windows")]
-fn are_you_on_linux() {
-    println!("You are running Windows!");
-}
+    let string_1 = String::from("Hello there"); // From Trait
+    let string_2 = "Hello there".to_string(); // Display Trait
+    let string_3: String = "Hello there".into(); // From
+    let string_4 = "Hello there".to_owned(); // ToOwned Trait
+    // str -> String
 
-fn main() {
-    are_you_on_linux();
 }
