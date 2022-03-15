@@ -1,29 +1,21 @@
 use std::ops::Deref;
 
-struct DerefExample<T> {
-    value: T
-}
+struct HoldsANumber(u8);
 
-impl<T> Deref for DerefExample<T> {
-    type Target = T;
+// struct HoldsANumber {
+//     number1: u8,
+//     number2: u16
+// }
+
+impl Deref for HoldsANumber {
+    type Target = u8;
 
     fn deref(&self) -> &Self::Target {
-        &self.value
+        &self.0
     }
 }
 
 fn main () {
-let x = DerefExample { value: 'a' };
-assert_eq!('a', *x);
-
+    let my_number = HoldsANumber(20);
+    println!("{}", *my_number + 20);
 }
-
-// Deref trait
-// struct HoldsANumber(u8);
-//
-
-// 
-// fn main () {
-//     let my_number = HoldsANumber(20);
-//     println!("{}", *my_number + 20);
-// }
