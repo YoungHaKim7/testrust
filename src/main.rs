@@ -1,8 +1,8 @@
 // Deref trait
+struct HoldsANumber(u8);
 
 
 fn main () {
-    let value = 7;
-    let reference = &7;
-    println!("{}", value == *reference);
+    let my_number = HoldsANumber(20);
+    println!("{}", *my_number + 20);
 }
