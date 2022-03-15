@@ -17,5 +17,5 @@ impl Deref for HoldsANumber {
 
 fn main () {
     let my_number = HoldsANumber(20);
-    println!("{}", *my_number + 20);
+    println!("{}", my_number.checked_add(10).unwrap() + 20);
 }
