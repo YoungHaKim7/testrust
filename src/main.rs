@@ -1,27 +1,66 @@
-use std::ops::{Deref, DerefMut};
+use std:: ops::Deref;
 
-struct HoldsANumber(u8);
+struct Character {
+    name: String,
+    strength: u8,
+    dexterity: u8,
+    health: u8,
+    intelligence: u8,
+    wisdom: u8,
+    charm: u8,
+    hit_points:i8,
+    alignment: Alignment,
+}
 
-// struct HoldsANumber {
-//     number1: u8,
-//     number2: u16
-// }
-
-impl Deref for HoldsANumber {
-    type Target = u8;
-
-    fn deref(&self) -> &Self::Target {
-        &self.0
+impl Character {
+    fn new(
+        name: String, 
+        strength: u8,
+        dexterity: u8,
+        health: u8,
+        intelligence: u8,
+        wisdom: u8,
+        charm: u8,
+        hit_points:i8,
+        alignment: Alignment,
+    ) -> Self {
+        Self {
+            name,
+            strength,
+            dexterity, 
+            health, 
+            intelligence,
+            wisdom,
+            charm,  
+            hit_points,
+            alignment, 
+        }
     }
 }
 
-impl DerefMut for HoldsANumber {
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
+enum Alignment {
+    Good,
+    Neutral,
+    Evil,
+}
+
+
+impl Deref for Character {
+    type Target = i8;
+
+    fn deref(&self) -> &Self::Target {
+        &self.hit_points
     }
 }
 
 fn main () {
-    let my_number = HoldsANumber(20);
-    println!("{}", my_number.checked_add(10).unwrap() + 20);
+    let billy = Character::new("Billy".to_string(), 9, 8, 7, 10, 19, 19, 5, Alignment::Good);
+    let brandy = Character::new("Brandy".to_string(), 9, 8, 7, 10, 19, 19, 5, Alignment::Good);
+
+    let mut hit_points_vec = vec![];
+    hit_points_vec.push(*billy);
+    hit_points_vec.push(*brandy);
+
+    println!("All our hit points are: {hit_points_vec:?}");
+        
 }
