@@ -1,75 +1,19 @@
-use std::ops::Deref;
-
-struct Character {
-    name: String,
-    strength: u8,
-    dexterity: u8,
-    health: u8,
-    intelligence: u8,
-    wisdom: u8,
-    charm: u8,
-    hit_points: i8,
-    alignment: Alignment,
+struct User {
+    name: String
 }
 
-impl Character {
-    fn new(
-        name: String,
-        strength: u8,
-        dexterity: u8,
-        health: u8,
-        intelligence: u8,
-        wisdom: u8,
-        charm: u8,
-        hit_points: i8,
-        alignment: Alignment,
-    ) -> Self {
+impl User {
+    fn new(input: &str) -> Self {
         Self {
-            name,
-            strength,
-            dexterity,
-            health,
-            intelligence,
-            wisdom,
-            charm,
-            hit_points,
-            alignment,
+            name: input.to_string()
         }
     }
 }
 
-enum Alignment {
-    Good,
-    Neutral,
-    Evil,
-}
+fn main () {
+    let name_1 = "User 1";
+    let name_2 = "User 2".to_string();
 
-impl Deref for Character {
-    type Target = i8;
-
-    fn deref(&self) -> &Self::Target {
-        &self.hit_points
-    }
-}
-
-fn main() {
-    let billy = Character::new("Billy".to_string(), 9, 8, 7, 10, 19, 19, 5, Alignment::Good);
-    let brandy = Character::new(
-        "Brandy".to_string(),
-        9,
-        8,
-        7,
-        10,
-        19,
-        19,
-        5,
-        Alignment::Good,
-    );
-    println!("Now BIlly has {} hit points", billy.checked_sub(10).unwrap());
-
-    let mut hit_points_vec = vec![];
-    hit_points_vec.push(*billy);
-    hit_points_vec.push(*brandy);
-
-    println!("All our hit points are: {hit_points_vec:?}");
+    let my_user = User::new(name_1);
+    let my_user2 = User::new(&name_2);
 }
