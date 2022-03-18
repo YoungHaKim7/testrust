@@ -28,4 +28,5 @@ fn main() {
 
     user_1.name.to_mut().push('!');
     user_1.is_borrowed();
+    // Cow = Clone on write
 }
