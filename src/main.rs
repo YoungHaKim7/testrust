@@ -5,17 +5,24 @@ struct User<'a> {
     name: Cow<'a, str>,
 }
 
-fn main() {
-    let name_1 = "User 1";
-    let name_2 = "User 2".to_string();
+impl User<'_> {
+    fn is_borrowed(&self) {
+        match &self.name {
+            Cow::Borrowed(name) => println!("It's borrwed : {name}"),
+            Cow::Owned(name) => println!("It's owned: {name}"),
+        }
+    }
+}
 
+fn main() {
     let user_1 = User {
-        name: name_1.into(),
+        name: "User 1".into(),
     };
 
     let user_2 = User {
-        name: name_2.into(),
+        name: "User 2".into(),
     };
 
-    println!("User 1 is {user_1:?} and User 2 is {user_2:?}");
+    user_1.is_borrowed();
+    user_2.is_borrowed();
 }
