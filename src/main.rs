@@ -8,7 +8,7 @@ struct User<'a> {
 impl User<'_> {
     fn is_borrowed(&self) {
         match &self.name {
-            Cow::Borrowed(name) => println!("It's borrwed : {name}"),
+            Cow::Borrowed(name) => println!("It's borrowed : {name}"),
             Cow::Owned(name) => println!("It's owned: {name}"),
         }
     }
@@ -20,7 +20,7 @@ fn main() {
     };
 
     let user_2 = User {
-        name: "User 2".into(),
+        name: "User 2".to_string().into(),
     };
 
     user_1.is_borrowed();
