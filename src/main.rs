@@ -1,32 +1,14 @@
-use std::borrow::Cow;
+struct Book; 
 
-#[derive(Debug)]
-struct User<'a> {
-    name: Cow<'a, str>,
-}
 
-impl User<'_> {
-    fn is_borrowed(&self) {
-        match &self.name {
-            Cow::Borrowed(name) => println!("It's borrowed : {name}"),
-            Cow::Owned(name) => println!("It's owned: {name}"),
-        }
-    }
-}
 
-fn main() {
-    let mut user_1 = User {
-        name: "User 1".into(),
-    };
+// + Add
+// - Sub
+// += AddAssign
 
-    let user_2 = User {
-        name: "User 2".to_string().into(),
-    };
+fn main () {
+    let my_book = Book;
+    let second_book = Book;
+    let third_item = my_book + second_book;
 
-    user_1.is_borrowed();
-    user_2.is_borrowed();
-
-    user_1.name.to_mut().push('!');
-    user_1.is_borrowed();
-    // Cow = Clone on write
 }
