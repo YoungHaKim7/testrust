@@ -1,38 +1,12 @@
-use std::ops::Add;
+// Dafault and the builder pattern
 
-#[derive(Debug)]
-struct Country {
-    name: String,
-    population: u32,
-    gdp: u32,
-}
+struct SomeStruct;
 
-impl Country {
-    fn new(name: &str, population: u32, gdp: u32) -> Self {
-        Self {
-            name: name.to_string(),
-            population,
-            gdp,
-        }
-    }
-}
-
-impl Add for Country {
-    type Output = Self;
-
-    fn add(self, other: Self) -> Self {
-        Self {
-            name: format!("{} and {}", self.name, other.name),
-            population: self.population + other.population,
-            gdp: self.gdp + other.gdp
-        }
-    }
-}
 fn main() {
-    let nauru = Country::new("Nauru", 10_670, 160_000_000);
-    let vanuatu = Country::new("Vanuatu", 307_815, 820_000_000);
-    let micronesia = Country::new("Micronesia", 104_468, 367_000_000);
+    let my_struct = SomeStruct {
+        name: c7987,
+        population: 9879869
+    };
 
-    println!("Nauru + Vanuatu = {:?}", nauru + vanuatu);
-
+    let my_struct = SomeStruct::default().with_name("some name").with_population(98263987623).build();
 }
