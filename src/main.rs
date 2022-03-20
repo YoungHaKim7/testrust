@@ -1,3 +1,4 @@
+#[derive(Debug)]
 struct Character {
     name: String,
     age: u8,
@@ -6,6 +7,7 @@ struct Character {
     lifestate: Lifestate,
 }
 
+#[derive(Debug)]
 enum Lifestate {
     Alive,
     Dead,
@@ -29,7 +31,20 @@ impl Character {
     }
 }
 
+impl Default for Character {
+    fn default() -> Self {
+        Self {
+            name: "Billy".to_string(),
+            age: 15,
+            height: 170,
+            weight: 70,
+            lifestate: Lifestate::Alive,
+        }
+    }
+}
+
 fn main() {
-    let npc_1 = Character::new("Billy".to_string(), 15, 170, 70, true);
+    let npc_1 = Character::default();
+    println!("{npc_1:?}");
 }
 
