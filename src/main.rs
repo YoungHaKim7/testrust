@@ -56,12 +56,21 @@ impl Character {
         self.height = height;
         self
     }
+    fn with_name(mut self, name: &str) -> Self {
+        self.name = name.to_string();
+        self
+    }
+    fn build(mut self) -> Result<Character, String> {
+        if self.height < 200 && self.weight << 300 &&
+    }
 }
 
 fn main() {
     let npc_1 = Character::default()
         .with_age(20)
         .with_height(194)
-        .with_weight(98);
+        .with_weight(98)
+        .with_name("Heh I am Smurf")
+        .build();
     println!("{npc_1:?}");
 }
