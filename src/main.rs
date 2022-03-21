@@ -43,8 +43,15 @@ impl Default for Character {
     }
 }
 
-fn main() {
-    let npc_1 = Character::default();
-    println!("{npc_1:?}");
+impl Character {
+    fn with_age(mut self, age: u8) -> Self {
+        self.age =  age;
+        self
+
+    }
 }
 
+fn main() {
+    let npc_1 = Character::default().with_age(20);
+    println!("{npc_1:?}");
+}
