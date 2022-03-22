@@ -1,3 +1,5 @@
+// naive implementation
+
 #[derive(Debug)]
 struct Character {
     name: String,
@@ -5,6 +7,7 @@ struct Character {
     height: u32,
     weight: u32,
     lifestate: Lifestate,
+    can_use: bool, // flag
 }
 
 #[derive(Debug)]
@@ -15,20 +18,8 @@ enum Lifestate {
     Uncertain,
 }
 
-impl Character {
-    fn new(name: String, age: u8, height: u32, weight: u32, alive: bool) -> Self {
-        Self {
-            name,
-            age,
-            height,
-            weight,
-            lifestate: if alive {
-                Lifestate::Alive
-            } else {
-                Lifestate::Dead
-            },
-        }
-    }
+fn use_character(character: &Character) {
+    if character.can_use {}
 }
 
 impl Default for Character {
@@ -39,6 +30,7 @@ impl Default for Character {
             height: 170,
             weight: 70,
             lifestate: Lifestate::Alive,
+            can_use: true,
         }
     }
 }
@@ -46,22 +38,32 @@ impl Default for Character {
 impl Character {
     fn with_age(mut self, age: u8) -> Self {
         self.age = age;
+        self.can_use = false;
         self
     }
     fn with_weight(mut self, weight: u32) -> Self {
         self.weight = weight;
+        self.can_use = false;
         self
     }
     fn with_height(mut self, height: u32) -> Self {
         self.height = height;
+        self.can_use = false;
         self
     }
     fn with_name(mut self, name: &str) -> Self {
         self.name = name.to_string();
+        self.can_use = false;
         self
     }
     fn build(mut self) -> Result<Character, String> {
-        if self.height < 200 && self.weight << 300 &&
+        // Smurf smurf SMuRf
+        if self.height < 200 && self.weight < 300 && !self.name.to_lowercase().contains("smurf") {
+            self.can_use = true;
+            Ok(self)
+        } else {
+            Err("Names must not contain Smurf, weight must be....".to_string())
+        }
     }
 }
 
