@@ -90,7 +90,7 @@ fn main() {
         .with_age(20)
         .with_height(194)
         .with_weight(98)
-        .with_name("Billybrobby");
+        .with_name("lol I am Smurf");
     println!("{npc_1:?}");
     let npc_1 = npc_1.build(); //shadowing
     println!("{npc_1:?}");
