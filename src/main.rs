@@ -72,7 +72,7 @@ fn main() {
         .with_age(20)
         .with_height(194)
         .with_weight(98)
-        .with_name("Heh I am Smurf")
+        .with_name("Billybrobby")
         .build();
     println!("{npc_1:?}");
 }
