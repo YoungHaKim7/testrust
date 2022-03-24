@@ -17,7 +17,7 @@ fn math(input: &str) -> i32 {
 }
 
 fn main() {
-    let my_number = math("7 + 9 + 10     +++++++");
+    let my_number = math("7- + 9 -+ 10     +++----++++");
 }
 // .filter " 7 + 9 + 10" -> "7+9+10"
 // 7 + -9 10 ++++
@@ -39,4 +39,3 @@ mod tests {
         assert_eq!(math("1 - -1"), 2);
     }
 }
-
