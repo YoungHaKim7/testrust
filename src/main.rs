@@ -7,20 +7,52 @@ fn math(input: &str) -> i32 {
     {
         panic!("Please only input numbers, +-, or spaces");
     }
+
     let input = input
         .trim_end_matches(|x| "+- ".contains(x))
         .chars()
         .filter(|character| *character != ' ')
         .collect::<String>();
     println!("{input}");
-    9
+    let mut result_vec = vec![];
+    let mut push_string = String::new();
+    for character in input.chars() {
+        '+' => {
+            if !push_string.is_empty() {
+                result_vec.push(push_string.clone());
+                push_string.clear();
+            }
+        },
+        '-' => {
+            if push_string.contains('-') || push_string.is_empty() {
+                push_string.push(character);
+            } else {
+                result_vec.push(push_string.clone());
+                push_string.clear();
+                push_string.push(character);
+            }
+        },
+        number => {
+            if push_string.contains('-') {
+                result_vec.push(push_string.clone());
+                push_string.clear();
+                push_string.push(number);
+            } else {
+                push_string.push(number);
+
+            }
+        }
+    }
+    // vec![7, 18, 20, -, 7]
+    // 7+18+20-7 String::from("18")
+    // 7+18+20-7 String::from("-----")
+    result_vec.push(push_string);
+    
 }
 
 fn main() {
     let my_number = math("7- + 9 -+ 10     +++----++++");
 }
-// .filter " 7 + 9 + 10" -> "7+9+10"
-// 7 + -9 10 ++++
 
 #[cfg(test)]
 mod tests {
