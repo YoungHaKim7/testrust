@@ -17,46 +17,65 @@ fn math(input: &str) -> i32 {
     let mut result_vec = vec![];
     let mut push_string = String::new();
     for character in input.chars() {
-        '+' => {
-            if !push_string.is_empty() {
-                result_vec.push(push_string.clone());
-                push_string.clear();
+        match character {
+            '+' => {
+                if !push_string.is_empty() {
+                    // ""
+                    result_vec.push(push_string.clone());
+                    push_string.clear();
+                }
             }
-        },
-        '-' => {
-            if push_string.contains('-') || push_string.is_empty() {
-                push_string.push(character);
-            } else {
-                result_vec.push(push_string.clone());
-                push_string.clear();
-                push_string.push(character);
+            '-' => {
+                if push_string.contains('-') || push_string.is_empty() {
+                    push_string.push(character);
+                } else {
+                    result_vec.push(push_string.clone());
+                    push_string.clear();
+                    push_string.push(character);
+                }
             }
-        },
-        number => {
-            if push_string.contains('-') {
-                result_vec.push(push_string.clone());
-                push_string.clear();
-                push_string.push(number);
-            } else {
-                push_string.push(number);
-
+            number => {
+                if push_string.contains('-') {
+                    result_vec.push(push_string.clone());
+                    push_string.clear();
+                    push_string.push(number);
+                } else {
+                    push_string.push(number);
+                }
             }
         }
     }
-    // vec![7, 18, 20, -, 7]
-    // 7+18+20-7 String::from("18")
-    // 7+18+20-7 String::from("-----")
     result_vec.push(push_string);
-    
-}
-
-fn main() {
-    let my_number = math("7- + 9 -+ 10     +++----++++");
+    // vec!["1".to_string(), "-", "20"];
+    let mut total = 0;
+    let mut adds = true;
+    let mut math_iter = result_vec.into_iter();
+    while let Some(entry) = math_iter.next() {
+        if entry.contains('-') {
+            // --
+            if entry.chars().count() % 2 == 1 {
+                adds = match adds {
+                    true => false,
+                    false => true,
+                };
+                continue;
+            } else {
+                continue;
+            }
+        }
+        if adds == true {
+            total += entry.parse::<i32>().unwrap();
+        } else {
+            total -= entry.parse::<i32>().unwrap();
+        }
+    }
+    total
 }
 
 #[cfg(test)]
 mod tests {
     use super::math; // super = the space just above
+
     #[test]
     fn one_plus_one_is_two() {
         assert_eq!(math("1 + 1"), 2);
@@ -70,4 +89,16 @@ mod tests {
     fn one_minus_minus_one_is_two() {
         assert_eq!(math("1 - -1"), 2);
     }
+
+    #[test]
+    #[should_panic]
+    fn panics_when_characters_not_right() {
+        math("7 + please add seven");
+    }
+
+    fn main() {
+        let my_number = math("7- + 9 -+ 10     +++----++++");
+    }
 }
+
+fn main() {}
