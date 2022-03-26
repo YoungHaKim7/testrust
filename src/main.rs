@@ -95,10 +95,8 @@ mod tests {
     fn panics_when_characters_not_right() {
         math("7 + please add seven");
     }
-
-    fn main() {
-        let my_number = math("7- + 9 -+ 10     +++----++++");
-    }
 }
 
-fn main() {}
+fn main() {
+    let my_number = math("7- + 9 -+ 10     +++----++++");
+}
