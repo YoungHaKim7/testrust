@@ -1,3 +1,13 @@
+#![allow(dead_code)]
+// clippy::cargo 설명
+// crate1 -> crate2 0.1
+// crate3 -> crate2 0.2
+// #![warn(
+//     clippy::pedantic,
+//     clippy::nursery,
+//     clippy::cargo,
+// )]
+
 const OKAY_CHARACTERS: &str = "1234567890+- ";
 
 fn math(input: &str) -> i32 {
@@ -47,26 +57,29 @@ fn math(input: &str) -> i32 {
     }
     result_vec.push(push_string);
     // vec!["1".to_string(), "-", "20"];
-    let mut total = 0;
-    let mut adds = true;
-    let mut math_iter = result_vec.into_iter();
-    while let Some(entry) = math_iter.next() {
+    let mut total = 0; // Now it's time to do math. Start with a total
+    let mut adds = true; // true = add, false = subtract
+    let math_iter = result_vec.into_iter();
+    for entry in math_iter {
+        // Iter through the item
         if entry.contains('-') {
+            // If it has a - character, check if it's even or odd
             // --
             if entry.chars().count() % 2 == 1 {
                 adds = match adds {
                     true => false,
                     false => true,
                 };
-                continue;
+                continue; // Go to the next item
             } else {
                 continue;
             }
         }
-        if adds == true {
-            total += entry.parse::<i32>().unwrap();
+        if adds {
+            total += entry.parse::<i32>().unwrap(); // If there is no '-', it must be a number. So we
         } else {
             total -= entry.parse::<i32>().unwrap();
+            adds = true; // After subtracting, reset adds to true.
         }
     }
     total
