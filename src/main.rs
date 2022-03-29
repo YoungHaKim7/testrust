@@ -21,90 +21,88 @@ impl Calculator {
     fn push_char(&mut self, character: char) {
         self.current_input.push(character);
     }
+    fn math(mut self, input: &str) -> i32 {
+        if !input
+            .chars()
+            .all(|character| OKAY_CHARACTERS.contains(character))
+        {
+            panic!("Please only input numbers, +-, or spaces");
+        }
+
+        let input = input
+            .trim_end_matches(|x| "+- ".contains(x))
+            .chars()
+            .filter(|character| *character != ' ')
+            .collect::<String>();
+
+        for character in input.chars() {
+            match character {
+                '+' => {
+                    if !self.current_input.is_empty() {
+                        // ""
+                        self.results.push(self.current_input.clone());
+                        self.clear();
+                    }
+                }
+                '-' => {
+                    if self.current_input.contains('-') || self.current_input.is_empty() {
+                        self.push_char(character);
+                    } else {
+                        self.results.push(self.current_input.clone());
+                        self.clear();
+                        self.push_char(character);
+                    }
+                }
+                number => {
+                    if self.current_input.contains('-') {
+                        self.results.push(self.current_input.clone());
+                        self.clear();
+                        self.current_input.push(number);
+                    } else {
+                        self.current_input.push(number);
+                    }
+                }
+            }
+        }
+        self.results.push(self.current_input);
+        // vec!["1".to_string(), "-", "20"];
+
+        let math_iter = self.results.into_iter();
+        for entry in math_iter {
+            // Iter through the item
+            if entry.contains('-') {
+                // If it has a - character, check if it's even or odd
+                // --
+                if entry.chars().count() % 2 == 1 {
+                    self.adds = match self.adds {
+                        true => false,
+                        false => true,
+                    };
+                    continue; // Go to the next item
+                } else {
+                    continue;
+                }
+            }
+            if self.adds {
+                self.total += entry.parse::<i32>().unwrap(); // If there is no '-', it must be a number. So we
+            } else {
+                self.total -= entry.parse::<i32>().unwrap();
+                self.adds = true; // After subtracting, reset adds to true.
+            }
+        }
+        self.total
+    }
 }
 
 // Let's see what breaks
 
 fn main() {
     let mut calculator = Calculator::new();
-    math("1 + 1");
+    let res = calculator.math("1 + 1");
+    println!("{res}");
 }
 
 const OKAY_CHARACTERS: &str = "1234567890+- ";
-
-fn math(input: &str) -> i32 {
-    if !input
-        .chars()
-        .all(|character| OKAY_CHARACTERS.contains(character))
-    {
-        panic!("Please only input numbers, +-, or spaces");
-    }
-
-    let input = input
-        .trim_end_matches(|x| "+- ".contains(x))
-        .chars()
-        .filter(|character| *character != ' ')
-        .collect::<String>();
-    let mut calculator = Calculator::new();
-
-    for character in input.chars() {
-        match character {
-            '+' => {
-                if !calculator.current_input.is_empty() {
-                    // ""
-                    calculator.results.push(calculator.current_input.clone());
-                    calculator.clear();
-                }
-            }
-            '-' => {
-                if calculator.current_input.contains('-') || calculator.current_input.is_empty() {
-                    calculator.push_char(character);
-                } else {
-                    calculator.results.push(calculator.current_input.clone());
-                    calculator.clear();
-                    calculator.push_char(character);
-                }
-            }
-            number => {
-                if calculator.current_input.contains('-') {
-                    calculator.results.push(calculator.current_input.clone());
-                    calculator.clear();
-                    calculator.current_input.push(number);
-                } else {
-                    calculator.current_input.push(number);
-                }
-            }
-        }
-    }
-    calculator.results.push(calculator.current_input);
-    // vec!["1".to_string(), "-", "20"];
-    let mut total = 0; // Now it's time to do math. Start with a total
-    let mut adds = true; // true = add, false = subtract
-    let math_iter = calculator.results.into_iter();
-    for entry in math_iter {
-        // Iter through the item
-        if entry.contains('-') {
-            // If it has a - character, check if it's even or odd
-            // --
-            if entry.chars().count() % 2 == 1 {
-                adds = match adds {
-                    true => false,
-                    false => true,
-                };
-                continue; // Go to the next item
-            } else {
-                continue;
-            }
-        }
-        if adds {
-            total += entry.parse::<i32>().unwrap(); // If there is no '-', it must be a number. So we
-        } else {
-            total -= entry.parse::<i32>().unwrap();
-            adds = true; // After subtracting, reset adds to true.
-        }
-    }
-    total
-}
 
 #[cfg(test)]
 mod tests {
