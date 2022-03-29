@@ -15,6 +15,12 @@ impl Calculator {
             adds: true,
         }
     }
+    fn clear(&mut self) {
+        self.current_input.clear();
+    }
+    fn push_char(&mut self, character: char) {
+        self.current_input.push(character);
+    }
 }
 
 // Let's see what breaks
@@ -47,22 +53,22 @@ fn math(input: &str) -> i32 {
                 if !calculator.current_input.is_empty() {
                     // ""
                     calculator.results.push(calculator.current_input.clone());
-                    calculator.current_input.clear();
+                    calculator.clear();
                 }
             }
             '-' => {
                 if calculator.current_input.contains('-') || calculator.current_input.is_empty() {
-                    calculator.current_input.push(character);
+                    calculator.push_char(character);
                 } else {
                     calculator.results.push(calculator.current_input.clone());
-                    calculator.current_input.clear();
-                    calculator.current_input.push(character);
+                    calculator.clear();
+                    calculator.push_char(character);
                 }
             }
             number => {
                 if calculator.current_input.contains('-') {
                     calculator.results.push(calculator.current_input.clone());
-                    calculator.current_input.clear();
+                    calculator.clear();
                     calculator.current_input.push(number);
                 } else {
                     calculator.current_input.push(number);
