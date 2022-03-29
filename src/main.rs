@@ -64,10 +64,10 @@ impl Calculator {
                 }
             }
         }
-        self.results.push(self.current_input);
+        self.results.push(self.current_input.clone());
         // vec!["1".to_string(), "-", "20"];
 
-        let math_iter = self.results.into_iter();
+        let math_iter = self.results.clone().into_iter(); // todo! remove clone
         for entry in math_iter {
             // Iter through the item
             if entry.contains('-') {
@@ -110,31 +110,37 @@ mod tests {
 
     #[test]
     fn one_plus_one_is_two() {
-        assert_eq!(math("1 + 1"), 2);
+        let mut calc = Calculator::new();
+        assert_eq!(calc.math("1 + 1"), 2);
     }
     #[test]
     fn one_minus_two_is_minus_one() {
-        assert_eq!(math("1 - 2"), -1);
+        let mut calc = Calculator::new();
+        assert_eq!(calc.math("1 - 2"), -1);
     }
 
     #[test]
     fn one_minus_minus_one_is_two() {
-        assert_eq!(math("1 - -1"), 2);
+        let mut calc = Calculator::new();
+        assert_eq!(calc.math("1 - -1"), 2);
     }
 
     #[test]
     fn nine_plus_nine_minus_nine_minus_nine_is_zero() {
-        assert_eq!(math("9+9-9-9"), 0); // This is a new test
+        let mut calc = Calculator::new();
+        assert_eq!(calc.math("9+9-9-9"), 0); // This is a new test
     }
 
     #[test]
     fn eight_minus_nine_plus_nine_is_eight_even_with_characters_on_the_end() {
-        assert_eq!(math("8    -  9     +9------++++"), 8); // This is a new test
+        let mut calc = Calculator::new();
+        assert_eq!(calc.math("8    -  9     +9------++++"), 8); // This is a new test
     }
 
     #[test]
     #[should_panic]
     fn panics_when_characters_not_right() {
-        math("7 + please add seven");
+        let mut calc = Calculator::new();
+        calc.math("7 + please add seven");
     }
 }
