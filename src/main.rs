@@ -6,10 +6,16 @@
 
 use std::any::{Any, type_name};
 
+struct MyType;
+
 fn get_type_name<T: Any>(input: T) {
     let my_type = type_name::<T>();
     println!("{my_type}");
 
 }
 
-fn main() {}
+fn main() {
+    get_type_name(8);
+    get_type_name(vec![8]);
+    get_type_name(MyType);
+}
