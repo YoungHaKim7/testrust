@@ -6,8 +6,8 @@ fn do_stuff_depending(input: &dyn Any) {
     // trait object
     if input.is::<String>() {
         println!("We got a String");
-    } else if input.is::<i32>() {
-        println!("We have a number");
+    } else if input.is::<MyType>() {
+        println!("We have a MyType");
     } else {
         println!("Don't know what it is");
     }
