@@ -2,19 +2,17 @@ use std::any::{type_name, Any};
 
 struct MyType;
 
-fn do_stuff_depending(input: &dyn Any) {
+fn try_do_get_string(input: &dyn Any) {
     // trait object
-    if input.is::<String>() {
-        println!("We got a String");
-    } else if input.is::<MyType>() {
-        println!("We have a MyType");
+    if let Some(a_string) = input.downcast_ref::<String>() {
+        println!("We got a String! {a_string}");
     } else {
-        println!("Don't know what it is");
+        println!("We got something else");
     }
 }
 
 fn main() {
-    do_stuff_depending(&8);
-    do_stuff_depending(&String::from("I am a String"));
-    do_stuff_depending(&MyType);
+    try_do_get_string(&9);
+
+    try_do_get_string(&String::from("Hello there"));
 }
