@@ -1,23 +1,20 @@
-// typeof
-// downcasting -> dynamically making concrete
-
-// &dyn Any
-
-
-use std::any::{Any, type_name};
+use std::any::{type_name, Any};
 
 struct MyType;
 
-fn get_type_names<T: Any, U: Any>(_: T, _: U) {
-    let type_of_t = type_name::<T>();
-    let type_of_u = type_name::<U>();
-    println!("First type: {type_of_t}");
-    println!("second type: {type_of_u}");
-
-
+fn do_stuff_depending(input: &dyn Any) {
+    // trait object
+    if input.is::<String>() {
+        println!("We got a String");
+    } else if input.is::<i32>() {
+        println!("We have a number");
+    } else {
+        println!("Don't know what it is");
+    }
 }
 
 fn main() {
-    get_type_names(8, true);
-    get_type_names(vec!['a'], MyType);
+    do_stuff_depending(&8);
+    do_stuff_depending(&String::from("I am a String"));
+    do_stuff_depending(&MyType);
 }
