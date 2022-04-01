@@ -12,4 +12,6 @@ fn main() {
     }));
 
     panic!("Oh the humanity!");
+
+    let my_number = "thoe8876".parse::<i32>().unwrap();
 }
