@@ -11,6 +11,7 @@ fn main() {
     let s2 = sender.clone();
 
     thread::spawn(move || {
+        // take by value
         s1.send(9).unwrap();
     });
 
