@@ -6,19 +6,18 @@ use std::thread;
 
 fn main() {
     let (sender, receiver) = channel();
-    sender.send(9).unwrap();
-    let received = receiver.recv().unwrap();
-    println!("{received}");
 
-    thread::spawn(|| {
-        sender.send(9).unwrap();
+    let s1 = sender.clone();
+    let s2 = sender.clone();
+
+    thread::spawn(move || {
+        s1.send(9).unwrap();
     });
 
-    thread::spawn(|| {
-        sender.send(9).unwrap();
+    thread::spawn(move || {
+        s2.send(9).unwrap();
     });
 
-        println!("{}", receiver.recv().unwrap();
-        println!("{}", receiver.recv().unwrap();
-
+    println!("{}", receiver.recv().unwrap());
+    println!("{}", receiver.recv().unwrap());
 }
