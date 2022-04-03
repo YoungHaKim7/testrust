@@ -1,10 +1,9 @@
-use std::thread::sleep;
-use std::time::{Duration, Instant};
+// Channels
+// mpsc
+// Multiple Producer Single Consumer
+use std::sync::mpsc::channel;
 
 fn main() {
-    let time_1 = Instant::now();
-    sleep(Duration::from_secs(5));
-    println!("{:?}", time_1.elapsed()); // elapsed = time that passed
-    println!("{:?}", time_1.elapsed()); // elapsed = time that passed
-    println!("{:?}", time_1.elapsed()); // elapsed = time that passed
+    let (sender, receiver) = channel();
+    sender.send(9);
 }
