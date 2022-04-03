@@ -5,5 +5,7 @@ use std::sync::mpsc::channel;
 
 fn main() {
     let (sender, receiver) = channel();
-    sender.send(9);
+    sender.send(9).unwrap();
+    let received = receiver.recv().unwrap();
+    println!("{received}");
 }
