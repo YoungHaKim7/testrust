@@ -19,6 +19,6 @@ fn main() {
         s2.send(9).unwrap();
     });
 
-    println!("{}", receiver.recv().unwrap());
-    println!("{}", receiver.recv().unwrap());
+    println!("{:?}", receiver.recv());
+    println!("{:?}", receiver.recv());
 }
