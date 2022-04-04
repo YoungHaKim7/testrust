@@ -24,8 +24,7 @@ fn main() {
         s2.send(9).unwrap();
     });
 
-    println!("{:?}", receiver.try_recv()); // blocking
-    println!("{:?}", receiver.try_recv());
-    //    println!("{:?}", receiver.recv()); // function of waiting forever
+    println!("{:?}", receiver.recv_timeout(Duration::from_millis(500))); // blocking
+    println!("{:?}", receiver.recv_timeout(Duration::from_millis(500))); // blocking
     println!("All done!");
 }
