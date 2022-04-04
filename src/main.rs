@@ -1,8 +1,11 @@
-// Channels
-// mpsc
-// Multiple Producer Single Consumer
 use std::sync::mpsc::channel;
 use std::thread;
+use std::thread::sleep;
+use std::time::Duration;
+
+fn sleepy(time: u64) {
+    sleep(Duration::from_millis(time));
+}
 
 fn main() {
     let (sender, receiver) = channel();
@@ -12,13 +15,15 @@ fn main() {
 
     thread::spawn(move || {
         // take by value
+        sleepy(1000); // 1 sec.
         s1.send(9).unwrap();
     });
 
     thread::spawn(move || {
+        sleepy(1000); // 1 sec.
         s2.send(9).unwrap();
     });
 
-    println!("{:?}", receiver.recv());
+    println!("{:?}", receiver.recv()); // blocking
     println!("{:?}", receiver.recv());
 }
