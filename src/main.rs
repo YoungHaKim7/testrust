@@ -26,4 +26,6 @@ fn main() {
 
     println!("{:?}", receiver.try_recv()); // blocking
     println!("{:?}", receiver.try_recv());
+    //    println!("{:?}", receiver.recv()); // function of waiting forever
+    println!("All done!");
 }
