@@ -24,6 +24,6 @@ fn main() {
         s2.send(9).unwrap();
     });
 
-    println!("{:?}", receiver.recv()); // blocking
-    println!("{:?}", receiver.recv());
+    println!("{:?}", receiver.try_recv()); // blocking
+    println!("{:?}", receiver.try_recv());
 }
