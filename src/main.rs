@@ -45,14 +45,14 @@ fn main() {
 
     thread::spawn(move || {
         for _ in 0..5 {
-            sleepy(100);
+            sleepy(1);
             s1.send(book()).unwrap();
         }
     });
 
     thread::spawn(move || {
         for _ in 0..5 {
-            sleepy(50);
+            sleepy(1);
             s2.send(magazine()).unwrap();
         }
     });
