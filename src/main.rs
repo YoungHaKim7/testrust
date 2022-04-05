@@ -2,6 +2,7 @@
 // downcast_ref::<Book>
 // downcast_ref::<Magazine>
 
+use std::any::Any;
 use std::sync::mpsc::channel;
 use std::thread;
 use std::thread::sleep;
@@ -16,16 +17,19 @@ struct Book {
     name: String,
 }
 
-fn book() -> Book {
-    Book {
+fn book() -> Box<dyn Any> {
+    // turn to trait object
+    let book = Book {
         name: "My Book".to_string(),
-    }
+    };
+    Box::new(book)
 }
 
-fn magazine() -> Magazine {
-    Magazine {
+fn magazine() -> Box<dyn Any> {
+    let magazine = Magazine {
         name: "Nice Magazine".to_string(),
-    }
+    };
+    Box::new(magazine)
 }
 
 #[derive(Debug)]
@@ -40,9 +44,8 @@ fn main() {
     let s2 = sender.clone();
 
     thread::spawn(move || {
-        // take by value
-        sleepy(100);
         for _ in 0..5 {
+            sleepy(100);
             s1.send(book()).unwrap();
         }
     });
@@ -57,4 +60,5 @@ fn main() {
     println!("{:?}", receiver.recv_timeout(Duration::from_millis(500))); // blocking
     println!("{:?}", receiver.recv_timeout(Duration::from_millis(500))); // blocking
     println!("All done!");
+    panic!("bad:");
 }
