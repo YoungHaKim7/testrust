@@ -17,7 +17,7 @@ struct Book {
     name: String,
 }
 
-fn book() -> Box<dyn Any> {
+fn book() -> Box<dyn Any + Send> {
     // turn to trait object
     let book = Book {
         name: "My Book".to_string(),
@@ -25,7 +25,7 @@ fn book() -> Box<dyn Any> {
     Box::new(book)
 }
 
-fn magazine() -> Box<dyn Any> {
+fn magazine() -> Box<dyn Any + Send> {
     let magazine = Magazine {
         name: "Nice Magazine".to_string(),
     };
@@ -60,5 +60,4 @@ fn main() {
     println!("{:?}", receiver.recv_timeout(Duration::from_millis(500))); // blocking
     println!("{:?}", receiver.recv_timeout(Duration::from_millis(500))); // blocking
     println!("All done!");
-    panic!("bad:");
 }
