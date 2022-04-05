@@ -57,7 +57,13 @@ fn main() {
         }
     });
 
-    println!("{:?}", receiver.recv_timeout(Duration::from_millis(500))); // blocking
-    println!("{:?}", receiver.recv_timeout(Duration::from_millis(500))); // blocking
-    println!("All done!");
+    while let Ok(any_type) = receiver.recv() {
+        if let Some(book) = any_type.downcast_ref::<Book>() {
+            println!("Got a book: {book:?}");
+        } else if let Some(magazine) = any_type.downcast_ref::<Magazine>() {
+            println!("Got a magazine: {magazine:?}")
+        } else {
+            panic!("Expected a magazine or a book, what's going on");
+        }
+    }
 }
