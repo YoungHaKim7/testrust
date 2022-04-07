@@ -8,6 +8,11 @@ enum CompanyError {
     UserTimeOut,
 }
 
+impl CompanyError {
+    fn print_extra_detail(&self) {
+        println!("Here is all the extra detail: blah blah blah blah");
+    }
+}
 impl Display for CompanyError {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
         write!(f, "Got a CompanyError")
@@ -44,5 +49,9 @@ fn main() {
     let error_1 = give_error(true);
     let error_2 = give_error(false);
 
-    println!("{error_1} {error_2:?}");
+    if let Some(company_error) = error_1.downcast_ref::<CompanyError>() {
+        company_error.print_extra_detail();
+    } else {
+        println!("{error_1}");
+    }
 }
