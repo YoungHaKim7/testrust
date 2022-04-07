@@ -1,7 +1,6 @@
 use std::error::Error;
 use std::fmt::{Display, Formatter};
 
-// anyhow 이 복잡한걸 편하게 만드는 extern-crate
 #[derive(Debug)]
 enum CompanyError {
     CouldntConnect,
@@ -14,9 +13,16 @@ impl Display for CompanyError {
         write!(f, "Got a CompanyError")
     }
 }
-
 #[derive(Debug)]
 struct BaseError;
+
+fn check_thing(is_okay: bool) -> Result<(), Box<dyn Error>> {
+    if is_okay {
+        Err(Box::new(CompanyError::CouldntConnect))
+    } else {
+        Err(Box::new(BaseError))
+    }
+}
 
 impl Display for BaseError {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
