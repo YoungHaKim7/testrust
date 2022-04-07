@@ -44,5 +44,5 @@ fn main() {
     let error_1 = give_error(true);
     let error_2 = give_error(false);
 
-    println!("{error_1} {error_2}");
+    println!("{error_1} {error_2:?}");
 }
