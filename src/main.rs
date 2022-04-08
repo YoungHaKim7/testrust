@@ -1,8 +1,10 @@
-use anyhow::Error;
+use anyhow::{anyhow, Error};
 
 fn try_to_make_numbers(int: &str, float: &str) -> Result<(), Error> {
-    let my_integer = int.parse::<i32>()?; // 8 Err(ParseIntError)
-    let my_float = float.parse::<f64>()?;
+    let x = 9;
+    if x == 9 {
+        anyhow!("Uh oh, x should't be 9");
+    }
     Ok(())
 }
 
