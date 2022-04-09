@@ -1,3 +1,9 @@
+// serde --JSON데이타가 들어오면 처리하는 extern crate
+// {
+// points: "30",
+// age: 8
+// }
+
 use thiserror::Error;
 
 #[derive(Debug)]
