@@ -1,18 +1,30 @@
-// thiserror 더 정확한 에러를 만들고 싶을때
-// anyhow 그냥 간단한 에러를 만들때 쓰면 된다.(아주 간단한 에러 자세히 X)
-use anyhow::{anyhow, Context, Error};
+use thiserror::Error;
 
-fn try_to_make_numbers(int: &str, float: &str) -> Result<(), Error> {
-    let my_integer = int.parse::<i32>().with_context(|| "Extra info is here")?;
-    let my_float = float
-        .parse::<f64>()
-        .with_context(|| "Extra float info is here")?;
-    Ok(())
+#[derive(Debug)]
+struct User {
+    points: u32,
+    age: u8,
+}
+
+impl User {
+    fn try_new() -> Result<Self, CompanyError> {
+        todo!()
+    }
+}
+
+#[derive(Error, Debug)]
+enum CompanyError {
+    #[error("Not enough data")]
+    NotEnoughtData,
+    #[error("Too old: {0} Can't be over 120")]
+    TooOld(u8),
+    #[error("God {0}, should be under 10,000")]
+    TooBig(u32),
+    #[error("Must be under 120 and 10,000 points, got{0:?} instead")]
+    TooBigAndTooOld(User), // UserBuilder
 }
 
 fn main() {
-    let first_try = try_to_make_numbers("8", "tnohenthojek");
-    let second_try = try_to_make_numbers("tdothed", "8.7");
-    println!("{first_try:?}");
-    println!("{second_try:?}");
+    let some_error = CompanyError::TooBig(20000);
+    println!("{some_error}")
 }
