@@ -26,5 +26,7 @@ enum CompanyError {
 
 fn main() {
     let some_error = CompanyError::TooBig(20000);
-    println!("{some_error}")
+    let second_error = CompanyError::NotEnoughtData;
+    println!("{some_error}");
+    println!("{second_error}");
 }
