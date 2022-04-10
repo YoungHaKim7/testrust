@@ -1,9 +1,3 @@
-// serde --JSON데이타가 들어오면 처리하는 extern crate
-// {
-// points: "30",
-// age: 8
-// }
-
 use thiserror::Error;
 
 #[derive(Debug)]
@@ -13,8 +7,16 @@ struct User {
 }
 
 impl User {
-    fn try_new() -> Result<Self, CompanyError> {
-        todo!()
+    fn try_new(age: u8, points: u32) -> Result<Self, CompanyError> {
+        use CompanyError::*;
+        match (age, points) {
+            (age, points) if age > 120 && points > 10000 => {
+                Err(TooBigAndTooOld(User { age, points }))
+            }
+            (_, p) if p > 10000 => Err(TooBig(p)),
+            (a, _) if age > 120 => Err(TooOld(a)),
+            _ => Ok(Self { age, points }),
+        }
     }
 }
 
@@ -31,8 +33,12 @@ enum CompanyError {
 }
 
 fn main() {
-    let some_error = CompanyError::TooBig(20000);
-    let second_error = CompanyError::NotEnoughtData;
-    println!("{some_error}");
-    println!("{second_error}");
+    let user_requests = vec![
+        User::try_new(150, 20000),
+        User::try_new(100, 20000),
+        User::try_new(250, 1000),
+        User::try_new(40, 5000),
+    ];
+
+    println!("{user_requests:?}");
 }
