@@ -36,9 +36,20 @@ fn main() {
     let user_requests = vec![
         User::try_new(150, 20000),
         User::try_new(100, 20000),
-        User::try_new(250, 1000),
+        User::try_new(200, 1000),
         User::try_new(40, 5000),
+        User::try_new(50, 7000),
     ];
 
-    println!("{user_requests:#?}");
+    let users = user_requests
+        .into_iter()
+        .filter_map(|user_requests| match user_requests {
+            Ok(user) => Some(user),
+            Err(message) => {
+                println!("{message}");
+                None
+            }
+        })
+        .collect::<Vec<User>>();
+    println!("{users:?}")
 }
