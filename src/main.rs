@@ -40,5 +40,5 @@ fn main() {
         User::try_new(40, 5000),
     ];
 
-    println!("{user_requests:?}");
+    println!("{user_requests:#?}");
 }
