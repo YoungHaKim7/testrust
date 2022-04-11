@@ -1,4 +1,6 @@
+use anyhow::Error as AnyhowError;
 use thiserror::Error;
+// serde
 
 #[derive(Debug)]
 struct User {
@@ -10,9 +12,7 @@ impl User {
     fn try_new(age: u8, points: u32) -> Result<Self, CompanyError> {
         use CompanyError::*;
         match (age, points) {
-            (age, points) if age > 120 && points > 10000 => {
-                Err(TooBigAndTooOld(User { age, points }))
-            }
+            (age, points) if age > 120 && points > 10000 => Err(TooBigAndTooOld(age, points)),
             (_, p) if p > 10000 => Err(TooBig(p)),
             (a, _) if age > 120 => Err(TooOld(a)),
             _ => Ok(Self { age, points }),
@@ -28,8 +28,16 @@ enum CompanyError {
     TooOld(u8),
     #[error("God {0}, should be under 10,000")]
     TooBig(u32),
-    #[error("Must be under 120 and 10,000 points, got{0:?} instead")]
-    TooBigAndTooOld(User), // UserBuilder
+    #[error("Must be under 120 and 10,000 points, got{0} and {1} points instead")]
+    TooBigAndTooOld(u8, u32),
+}
+
+fn do_some_stuff(number: &str, age: u8, points: u32) -> Result<(), AnyhowError> {
+    let my_number = number.parse::<i32>()?;
+    let my_user = User::try_new(age, points)?;
+
+    println!("{my_number}, {my_user:?}");
+    Ok(())
 }
 
 fn main() {
@@ -51,5 +59,11 @@ fn main() {
             }
         })
         .collect::<Vec<User>>();
-    println!("{users:?}")
+
+    let try_1 = do_some_stuff("nthoetho", 30, 100);
+    let try_2 = do_some_stuff("90", 200, 100);
+    let try_3 = do_some_stuff("90", 100, 1998100);
+    let try_4 = do_some_stuff("90", 100, 100);
+
+    println!("{try_1:?},{try_2:?}, {try_3:?}, {try_4:?}");
 }
