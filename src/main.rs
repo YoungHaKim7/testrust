@@ -1,4 +1,4 @@
-use anyhow::Error as AnyhowError;
+use anyhow::{anyhow, Error as AnyhowError};
 use thiserror::Error;
 // serde
 
@@ -37,15 +37,11 @@ enum CompanyError {
 
 struct DontCareError;
 
-fn do_some_stuff(number: &str, age: u8, points: u32) -> Result<(), DontCareError> {
-    let my_number = number.parse::<i32>().map_err(|e| {
-        println!("Got an error: {e}");
-        DontCareError
-    })?;
-    let my_user = User::try_new(age, points).map_err(|e| {
-        println!("Couldn't make a user: {e}");
-        DontCareError
-    })?;
+fn do_some_stuff(number: &str, age: u8, points: u32) -> Result<(), AnyhowError> {
+    let my_number = number
+        .parse::<i32>()
+        .map_err(|_| anyhow!("Couldn't get a number"))?;
+    let my_user = User::try_new(age, points).map_err(|_| anyhow!("Couldn't make a user"))?;
     Ok(())
 }
 
