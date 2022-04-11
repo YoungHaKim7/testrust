@@ -32,11 +32,20 @@ enum CompanyError {
     TooBigAndTooOld(u8, u32),
 }
 
-fn do_some_stuff(number: &str, age: u8, points: u32) -> Result<(), AnyhowError> {
-    let my_number = number.parse::<i32>()?;
-    let my_user = User::try_new(age, points)?;
+#[derive(Error, Debug)]
+#[error("I couldn't care less")]
 
-    println!("{my_number}, {my_user:?}");
+struct DontCareError;
+
+fn do_some_stuff(number: &str, age: u8, points: u32) -> Result<(), DontCareError> {
+    let my_number = number.parse::<i32>().map_err(|e| {
+        println!("Got an error: {e}");
+        DontCareError
+    })?;
+    let my_user = User::try_new(age, points).map_err(|e| {
+        println!("Couldn't make a user: {e}");
+        DontCareError
+    })?;
     Ok(())
 }
 
