@@ -1,8 +1,12 @@
 use anyhow::{anyhow, Error as AnyhowError};
+use serde::{Deserialize, Serialize};
+use serde_json;
 use thiserror::Error;
 // serde
+// SERialialize - turn into JSON, YAML, etc.
+// DEserialize - turn into JSON, YAML, etc.
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 struct User {
     points: u32,
     age: u8,
@@ -54,21 +58,29 @@ fn main() {
         User::try_new(50, 7000),
     ];
 
-    let users = user_requests
-        .into_iter()
-        .filter_map(|user_requests| match user_requests {
-            Ok(user) => Some(user),
-            Err(message) => {
-                println!("{message}");
-                None
-            }
-        })
-        .collect::<Vec<User>>();
+    // let users = user_requests
+    //     .into_iter()
+    //     .filter_map(|user_requests| match user_requests {
+    //         Ok(user) => Some(user),
+    //         Err(message) => {
+    //             println!("{message}");
+    //             None
+    //         }
+    //     })
+    //     .collect::<Vec<User>>();
 
-    let try_1 = do_some_stuff("nthoetho", 30, 100);
-    let try_2 = do_some_stuff("90", 200, 100);
-    let try_3 = do_some_stuff("90", 100, 1998100);
-    let try_4 = do_some_stuff("90", 100, 100);
+    // let try_1 = do_some_stuff("nthoetho", 30, 100);
+    // let try_2 = do_some_stuff("90", 200, 100);
+    // let try_3 = do_some_stuff("90", 100, 1998100);
+    // let try_4 = do_some_stuff("90", 100, 100);
 
-    println!("{try_1:?},{try_2:?}, {try_3:?}, {try_4:?}");
+    // println!("{try_1:?},{try_2:?}, {try_3:?}, {try_4:?}");
+
+    let request = r#"
+    {
+    "points":10000,
+    "age":120
+    }"#;
+    let user_1: User = serde_json::from_str(request).unwrap();
+    println!("{user_1:?}");
 }
