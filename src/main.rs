@@ -12,6 +12,13 @@ struct User {
     age: u8,
 }
 
+// rocket, actix
+#[derive(Debug, Serialize, Deserialize)]
+struct UserRequest {
+    points: u32,
+    age: u8,
+}
+
 impl User {
     fn try_new(age: u8, points: u32) -> Result<Self, CompanyError> {
         use CompanyError::*;
@@ -20,6 +27,16 @@ impl User {
             (_, p) if p > 10000 => Err(TooBig(p)),
             (a, _) if age > 120 => Err(TooOld(a)),
             _ => Ok(Self { age, points }),
+        }
+    }
+    fn from_request(request: UserRequest) -> Result<User, AnyhowError> {
+        if request.age < 120 && request.points < 10000 {
+            Ok(User {
+                age: request.age,
+                points: request.points,
+            })
+        } else {
+            Err(anyhow!("User is bad")) // ; unit type으로 만들어줌
         }
     }
 }
