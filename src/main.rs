@@ -98,6 +98,7 @@ fn main() {
     "points":10000,
     "age":120
     }"#;
-    let user_1: User = serde_json::from_str(request).unwrap();
-    println!("{user_1:?}");
+    let user_request: UserRequest = serde_json::from_str(request).unwrap();
+    let user_try = User::from_request(user_request);
+    println!("{user_try:?}");
 }
