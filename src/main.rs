@@ -95,8 +95,8 @@ fn main() {
 
     let request = r#"
     {
-    "points":10000,
-    "age":120
+    "points":1000,
+    "age":100
     }"#;
     let user_request: UserRequest = serde_json::from_str(request).unwrap();
     let user_try = User::from_request(user_request);
