@@ -1,8 +1,8 @@
-use rand::{thread_rng, Rng};
+use fastrand::Rng;
 
 fn main() {
-    let mut rng = thread_rng();
+    let rng = Rng::new();
     for _ in 0..5 {
-        println!("{}", rng.gen_range('a'..'행')); // gen_range(1,10);
+        println!("{}", rng.alphabetic());
     }
 }
