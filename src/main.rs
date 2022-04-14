@@ -1,5 +1,10 @@
-// unicode print
+// chars
+// .escape_unicode
+
 fn main() {
-    println!("\u{1f640}");
-    println!("\u{1f63b}");
+    let korean_word = "청춘예찬";
+    for c in korean_word.chars() {
+        print!("{} ", c.escape_unicode());
+    }
 }
+
