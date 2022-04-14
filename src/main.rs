@@ -1,8 +1,5 @@
-use fastrand::Rng;
-
+// unicode print
 fn main() {
-    let rng = Rng::new();
-    for _ in 0..5 {
-        println!("{}", rng.alphabetic());
-    }
+    println!("\u{1f640}");
+    println!("\u{1f63b}");
 }
