@@ -1,10 +1,6 @@
-// chars
-// .escape_unicode
-
 fn main() {
-    let korean_word = "청춘예찬";
-    for c in korean_word.chars() {
-        print!("{} ", c.escape_unicode());
-    }
+    //    u32 -> char는 4bite
+    let some_char = char::from(99);
+    println!("{some_char}");
 }
 
