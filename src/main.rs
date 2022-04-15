@@ -9,7 +9,7 @@ truncated: {}\n",
         input.floor(),
         input.ceil(),
         input.round(),
-        input.trunc()
+        input.trunc() // tuncate = cut off
     );
 }
 
