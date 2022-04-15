@@ -1,10 +1,21 @@
-fn add(one: u8, two: u8) {
-    match one.checked_add(two) {
-        Some(num) => println!("Got a good number: {num}"),
-        None => println!("Got an error : can't add {one} with {two}"),
-    }
+fn four_operations(input: f64) {
+    println!(
+        "For the number {}:
+floor: {}
+ceilling: {}
+rounded: {}
+truncated: {}\n",
+        input,
+        input.floor(),
+        input.ceil(),
+        input.round(),
+        input.trunc()
+    );
 }
 
 fn main() {
-    add(100, 100);
+    four_operations(9.1);
+    four_operations(100.7);
+    four_operations(-1.1);
+    four_operations(-19.9);
 }
