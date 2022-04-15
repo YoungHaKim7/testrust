@@ -1,11 +1,10 @@
-// overflowing
-
-fn add(one: u8, two: u8) -> u8 {
-    one.saturating_add(two)
+fn add(one: u8, two: u8) {
+    match one.checked_add(two) {
+        Some(num) => println!("Got a good number: {num}"),
+        None => println!("Got an error : can't add {one} with {two}"),
+    }
 }
 
 fn main() {
-    println!("200 + 200 = {}", add(200, 200));
+    add(200, 200);
 }
-
-
