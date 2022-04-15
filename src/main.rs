@@ -1,9 +1,11 @@
-// integers
-// .checked_add()
-// .saturating_add()
-// checked_mul()
+// overflowing
+
+fn add(one: u8, two: u8) -> u8 {
+    one + two
+}
 
 fn main() {
-    let first_number = 100u8;
-    println!("{}", first_number.saturating_add(200));
+    println!("200 + 200 = {}", add(200, 200));
 }
+
+
