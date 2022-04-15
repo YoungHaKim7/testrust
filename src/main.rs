@@ -6,5 +6,5 @@ fn add(one: u8, two: u8) {
 }
 
 fn main() {
-    add(200, 200);
+    add(100, 100);
 }
