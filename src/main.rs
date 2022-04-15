@@ -1,7 +1,7 @@
 // overflowing
 
 fn add(one: u8, two: u8) -> u8 {
-    one + two
+    one.saturating_add(two)
 }
 
 fn main() {
