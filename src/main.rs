@@ -1,7 +1,7 @@
 // .then
 
 fn main() { // bool -> Option<T>
-println!("{:?}", true.then(|| {
+println!("{:?}", false.then(|| {
     9
 }));
 }
