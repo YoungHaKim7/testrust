@@ -11,7 +11,7 @@ fn main() { // bool -> Option<T>
                 "It's true, you know" // Option<&str>
             })
         })
-        .filter_map(|c| c)
+        .flatten() // Vec<Vec<T>> -> Vec<T>
         .collect::<Vec<_>>();
     println!("{option_vec:?}");
 }
