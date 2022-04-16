@@ -1,5 +1,5 @@
-// bool
+use std::str::FromStr;
 
 fn main() {
-println!("{}", u8::from(false)); // 0
+println!("{:?}", bool::from_str("false")); // 0
 }
