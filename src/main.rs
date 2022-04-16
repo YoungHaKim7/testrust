@@ -1,4 +1,7 @@
+// .then
 
-fn main() {
-println!("{:?}", "true".parse::<bool>());
+fn main() { // bool -> Option<T>
+println!("{:?}", true.then(|| {
+    9
+}));
 }
