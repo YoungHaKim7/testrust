@@ -1,7 +1,9 @@
-// leak
-// memery leak
-// Rust prevents memery leaks
-// no use after free
+// String 은 u8타입으로 UTF-8 로 변환?
+// A UFT-8-encoded, growable string.
+// The String type is the most common string type that has ownership over the contents of the string. It has a close relationship with its borrowed counterpart, the primitive str.
+// pub struct Sting {
+//     vec: Vec<u8>,
+// }
 
 #[derive(Debug)]
 struct NeedsAStatic {
