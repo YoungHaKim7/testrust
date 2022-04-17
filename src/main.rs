@@ -1,17 +1,24 @@
-// .then
+// leak
+// memery leak
+// Rust prevents memery leaks
+// no use after free
 
-fn main() { // bool -> Option<T>
-    let bool_vec = vec![true, false,true, false, false];
+#[derive(Debug)]
+struct NeedsAStatic {
+    name: &'static str,
+}
 
-    let option_vec = bool_vec
-        .iter()
-        .map(|item| {
-            item.then(|| {
-                println!("Got a {item}!");
-                "It's true, you know" // Option<&str>
-            })
-        })
-        .flatten() // Vec<Vec<T>> -> Vec<T>
-        .collect::<Vec<_>>();
-    println!("{option_vec:?}");
+fn get_our_data() -> String {
+    "Data".to_string()
+}
+
+fn main() {
+    // Vec<T> Box<T> // owned data
+    let our_data = get_our_data(); // String
+    let boxed_data = Box::new(our_data); // Box<String>
+    let leaked_data = Box::leak(boxed_data); // &'static str
+
+    let our_stuct = NeedsAStatic { name: leaked_data };
+
+    println!("{our_stuct:?}");
 }
