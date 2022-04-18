@@ -1,10 +1,10 @@
 // dedup - deduplicate
+#![feature(slice_partition_dedup)]
 fn main() {
-    let mut my_vec = vec![10; 10000];
-    println!("{}", my_vec.capacity()); // Vec::with_capacity(10001);
-    my_vec.push(9);
+    let mut slice = ["foo", "Foo", "BAZ", "Bar", "bar", "baz", "BAZ"];
 
-    println!("{}", my_vec.capacity());
-    my_vec.shrink_to_fit();
-    println!("{}", my_vec.capacity());
+    let (dedup, duplicates) = slice.partition_dedup_by(|a, b| a.eq_ignore_ascii_case(b));
+
+    println!("{:?}", dedup);
+    println!("{:?}", duplicates);
 }
