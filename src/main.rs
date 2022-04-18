@@ -1,5 +1,8 @@
 // dedup - deduplicate
 fn main() {
-    let my_vec = vec![10; 10000];
+    let mut my_vec = vec![10; 10000];
+    println!("{}", my_vec.capacity());
+    my_vec.push(9);
+
     println!("{}", my_vec.capacity());
 }
