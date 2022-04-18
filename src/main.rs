@@ -1,5 +1,5 @@
 fn main() {
-    let mut my_vec = vec![100, 90, 80, 0, 0, 0];
-    my_vec.sort_unstable();
+    let mut my_vec = vec!["sun", "moon", "sun", "moon", "sun", "moon", "moon"];
+    my_vec.dedup();
     println!("{my_vec:?}");
 }
