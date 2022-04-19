@@ -7,5 +7,5 @@
 fn main() {
     let mut my_string = String::from("Hello there");
     let second_string = my_string.split_off(5);
-    println!("{second_string}");
+    println!("{my_string}, {second_string}");
 }
