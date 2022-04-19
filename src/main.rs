@@ -5,7 +5,5 @@
 // split_off
 
 fn main() {
-    let mut my_string = String::from("Hello there"); // 8, 9, 10 Vec<i32> .pop() -> i32
-    println!("{:?}", my_string.pop());
-    // Vec<u8> -> char
+    println!("{:?}", String::from_utf8(vec![8, 65]));
 }
