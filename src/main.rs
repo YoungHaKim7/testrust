@@ -5,5 +5,7 @@
 // split_off
 
 fn main() {
-    println!("{:?}", String::from_utf8_lossy(&[8, 65, 87, 87]));
+    let mut my_string = String::from("Hello there");
+    let second_string = my_string.split_off(5);
+    println!("{second_string}");
 }
