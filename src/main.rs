@@ -1,21 +1,11 @@
-// String, &str
-// CString, CStr
-// OsString, OsStr
-// FFI, Foreign function interface
+use std::mem::{size_of, size_of_val};
 
-// rand
-// cargo.toml ->
-// [dependencies]
-// rand = "0.8.1"
-
-#![no_implicit_prelude]
-
-extern crate std;
-use std::convert::From;
-use std::{println, string::String, vec};
-fn main() {
-    let my_vec = vec![8, 9, 10];
-    let my_string = String::from("This won't work");
-    println!("{my_vec:?}, {my_string:?}");
+struct MyStruct {
+    bunch_of_stuff: [u32; 1000],
 }
 
+
+
+fn main() {
+    println!("{} {}", size_of::<MyStruct>(), size_of_val("I am a &str"));
+}
