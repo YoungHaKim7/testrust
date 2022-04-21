@@ -1,9 +1,9 @@
-use std::mem::{size_of, size_of_val};
+use std::mem::align_of;
 
 struct MyStruct {
-    bunch_of_stuff: Box<[u32; 1000]>,
+    bunch_of_stuff: u8,
 }
 
 fn main() {
-    println!("{} {}", size_of::<MyStruct>(), size_of_val("I am a &str"));
+    println!("{}", align_of::<MyStruct>());
 }
