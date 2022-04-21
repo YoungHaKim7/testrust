@@ -1,12 +1,12 @@
 use std::mem::align_of;
 
 struct MyStruct {
-    bunch_of_stuff: u8, // 1 byte
-    more_stuff: u64,
-} // /9
+    bunch_of_stuff: u16, // 4 byte
+    more_stuff: u32,
+} // /8
 
-// ********
-// *///////
+// ****
+// *///
 
 fn main() {
     println!("{}", align_of::<MyStruct>());
