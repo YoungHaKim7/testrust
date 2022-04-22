@@ -13,8 +13,8 @@ use std::mem::{replace, swap, take, transmute};
 //     // transmute DON'T USE THIS ㅋㅋㅋㅋ
 
 fn main() {
-    let mut my_string = "I am a String".to_string();
-    let taking_thing = take(&mut my_string);
+    let my_numbers = [8u8, 9, 10, 11]; // [u8; 4] 4bytes
+    let new_number = unsafe { transmute::<[u8; 4], i32>(my_numbers) };
 
-    println!("{taking_thing}, old string: {my_string}");
+    println!("{new_number}");
 }
