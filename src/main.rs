@@ -13,10 +13,8 @@ use std::mem::{replace, swap, take, transmute};
 //     // transmute DON'T USE THIS ㅋㅋㅋㅋ
 
 fn main() {
-    let mut string_1 = String::from("I am String 1");
-    let mut string_2 = String::from("I am String 2");
+    let mut money = 60_000_000;
+    let mut old_money = replace(&mut money, 70_000_000);
 
-    swap(&mut string_1, &mut string_2);
-
-    println!("string_1: {string_1}, string_2: {string_2}");
+    println!("{money}, {old_money}");
 }
