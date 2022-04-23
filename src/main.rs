@@ -5,5 +5,11 @@
 
 fn main() {
     println!("{} {} {} {}", column!(), line!(), file!(), module_path!());
+
+    let my_file = include_str!(
+        "/Users/globalyoung/Documents/Project/Github/rust_project/testrust/txt_sort/rust_sort.txt"
+    );
+
+    println!("{my_file}");
 }
 
