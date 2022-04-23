@@ -4,6 +4,6 @@
 // module_path!()
 
 fn main() {
-    dbg!()
+    println!("{} {} {} {}", column!(), line!(), file!(), module_path!());
 }
 
