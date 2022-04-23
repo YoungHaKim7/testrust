@@ -10,6 +10,7 @@ fn main() {
         "/Users/globalyoung/Documents/Project/Github/rust_project/testrust/txt_sort/rust_sort.txt"
     );
 
-    println!("{my_file}");
+    println!("{:?}", include_bytes!("/Users/globalyoung/Documents/Project/Github/rust_project/testrust/txt_sort/rust_sort.txt"
+    ));
 }
 
