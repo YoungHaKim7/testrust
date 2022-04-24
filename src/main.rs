@@ -5,5 +5,6 @@ macro_rules! give_six {
 }
 
 fn main() {
-    // let six
+    let six = give_six!();
+    println!("{six}");
 }
