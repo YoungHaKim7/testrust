@@ -1,4 +1,4 @@
-macro_rules! six_or_printl {
+macro_rules! six_or_print {
     (6) => {
         6
     };
@@ -8,6 +8,6 @@ macro_rules! six_or_printl {
 }
 
 fn main() {
-    let my_num = six_or_printl!(6);
-    println!("{my_num}");
+    let my_num = six_or_print!();
+    println!("{my_num:?}");
 }
