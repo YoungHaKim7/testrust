@@ -8,5 +8,6 @@ macro_rules! six_or_printl {
 }
 
 fn main() {
-    six_or_printl!();
+    let my_num = six_or_printl!(6);
+    println!("{my_num}");
 }
