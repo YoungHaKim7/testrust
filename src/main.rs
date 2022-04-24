@@ -1,10 +1,12 @@
-macro_rules! give_six {
-    () => {
+macro_rules! six_or_printl {
+    (6) => {
         6
+    };
+    () => {
+        println!("You didn't give me six");
     };
 }
 
 fn main() {
-    let six = give_six!();
-    println!("{six}");
+    six_or_printl!();
 }
