@@ -1,13 +1,12 @@
-macro_rules! six_or_print {
-    (6) => {
-        6
+macro_rules! might_print {
+    (Hey there 하하하 will this still work? ) => {
+        println!("You guessed the secret message");
     };
     () => {
-        println!("You didn't give me six");
+        println!("You didn't guess it")
     };
 }
 
 fn main() {
-    let my_num = six_or_print!();
-    println!("{my_num:?}");
+    might_print!(Hey there 하하하 will this still work? );
 }
