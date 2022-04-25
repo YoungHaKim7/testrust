@@ -1,15 +1,12 @@
-macro_rules! check {
-    ($input1: ident, $input2:expr) => {
-        println!(
-            "Is {:?} equal to {:?}? {}",
-            $input1,
-            $input2,
-            $input1 == $input2
-        );
+macro_rules! print_anything {
+    ($input:tt) => {
+        let output = stringify!($input);
+        println!("{output}");
     };
 }
 
 fn main() {
-    let x = 8;
-    check!(x, 9);
+    print_anything!(9);
+    let my_string = String::from("I am a String");
+    print_anything!(my_string);
 }
