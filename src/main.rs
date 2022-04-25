@@ -1,6 +1,6 @@
 macro_rules! might_print {
-    (input) => {
-        println!("", input);
+    ($input:expr) => {
+        println!("{}", $input);
     };
 }
 
