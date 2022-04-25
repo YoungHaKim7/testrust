@@ -1,12 +1,15 @@
-macro_rules! might_print {
-    ($input:expr) => {
-        println!("{:?}", $input);
+macro_rules! check {
+    ($input1: ident, $input2:expr) => {
+        println!(
+            "Is {:?} equal to {:?}? {}",
+            $input1,
+            $input2,
+            $input1 == $input2
+        );
     };
 }
 
 fn main() {
-    might_print!(9);
-    might_print!("Hi there");
-    let my_vec = vec![8, 9, 10];
-    might_print!(my_vec);
+    let x = 8;
+    check!(x, 9);
 }
