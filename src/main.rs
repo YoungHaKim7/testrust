@@ -3,7 +3,8 @@
 
 macro_rules! print_anything {
     ($($input:tt),+) => {
-        let output = stringify!($input);
+        let output = stringify!($($input),+);
+        println!("{output}");
     };
 }
 
