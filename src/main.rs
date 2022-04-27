@@ -11,5 +11,5 @@ macro_rules! my_macro {
 }
 
 fn main() {
-    my_macro!(vec![8, 9, 10]);
+    my_macro!(98, 8, 6786, 7);
 }
