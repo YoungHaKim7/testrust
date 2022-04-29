@@ -7,7 +7,7 @@ const fn check() {
     let my_array = [8, 9, 10];
 }
 
-const MY_DURATION: Duration = get_my_duration(100, 10);
+static MY_DURATION: Duration = get_my_duration(10, 10);
 
 fn main() {
     println!("{MY_DURATION:?}");
