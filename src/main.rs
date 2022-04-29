@@ -4,7 +4,7 @@ const fn get_my_duration(seconds: u64, nanos: u32) -> Duration {
     Duration::new(seconds, nanos)
 }
 const fn check() {
-    let my_vec = vec![8, 9, 10];
+    let my_array = [8, 9, 10];
 }
 
 const MY_DURATION: Duration = get_my_duration(100, 10);
