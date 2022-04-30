@@ -1,5 +1,7 @@
 use lazy_static::lazy_static;
 
+include_str!();
+include_bytes!();
 lazy_static! {
     static ref ERROR_LISTENER: ErrorListener = ErrorListener {
         url: "www.nthdidjf.com".to_string(),
@@ -27,6 +29,7 @@ fn check_something_else() {
 }
 
 fn main() {
+    let some_bytes = include_bytes!(); // 5MB
     do_stuff();
     check_something_else();
 }
