@@ -1,15 +1,4 @@
-use std::time::Duration;
+const MY_VEC: Vec<i32> = vec![8, 9, 10];
 
-const fn get_my_duration(seconds: u64, nanos: u32) -> Duration {
-    Duration::new(seconds, nanos)
-}
-const fn check() {
-    let my_array = [8, 9, 10];
-}
+fn main() {}
 
-static MY_DURATION: Duration = get_my_duration(10, 10);
-
-fn main() {
-    println!("{MY_DURATION:?}");
-    let other_duration = get_my_duration(50, 100);
-}
