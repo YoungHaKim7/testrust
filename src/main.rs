@@ -1,12 +1,7 @@
 use lazy_static::lazy_static;
+use once_cell::sync::OnceCell;
 
-include_str!();
-include_bytes!();
-lazy_static! {
-    static ref ERROR_LISTENER: ErrorListener = ErrorListener {
-        url: "www.nthdidjf.com".to_string(),
-    };
-}
+static ERROR_LISTENER: OnceCell<ErrorListener> = OnceCell::new();
 
 #[derive(Debug)]
 struct ErrorListener {
@@ -14,23 +9,35 @@ struct ErrorListener {
 }
 
 impl ErrorListener {
+    // ErrorListener::get_listener()
     fn check_for_error(&self) -> Result<(), ()> {
         println!("Checking for error....");
         Ok(())
     }
+    fn get_listener() -> &'static ErrorListener {
+        ERROR_LISTENER
+            .get()
+            .expect("Huh? Where's the ErrorListener?!?")
+    }
 }
 
 fn do_stuff() {
-    ERROR_LISTENER.check_for_error();
+    let listener = ErrorListener::get_listener();
+    listener.check_for_error();
 }
 
 fn check_something_else() {
-    ERROR_LISTENER.check_for_error();
+    let listener = ErrorListener::get_listener();
+    listener.check_for_error();
 }
 
 fn main() {
-    let some_bytes = include_bytes!(); // 5MB
+    ERROR_LISTENER
+        .set(ErrorListener {
+            url: "www.thoenhoe.com".to_string(),
+        })
+        .expect("Couldn't set ErrorListener for some reason");
+
     do_stuff();
     check_something_else();
 }
-
