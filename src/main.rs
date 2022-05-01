@@ -22,7 +22,7 @@ impl ErrorListener {
 }
 
 fn do_stuff() {
-    let listener = ErrorListener::get_listener();
+    let listener = ErrorListener::get_listener(); //&'static ErrorListener
     listener.check_for_error();
 }
 
