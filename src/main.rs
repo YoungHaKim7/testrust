@@ -1,43 +1,14 @@
-use lazy_static::lazy_static;
-use once_cell::sync::OnceCell;
-
-static ERROR_LISTENER: OnceCell<ErrorListener> = OnceCell::new();
-
-#[derive(Debug)]
-struct ErrorListener {
-    url: String,
-}
-
-impl ErrorListener {
-    // ErrorListener::get_listener()
-    fn check_for_error(&self) -> Result<(), ()> {
-        println!("Checking for error....");
-        Ok(())
-    }
-    fn get_listener() -> &'static ErrorListener {
-        ERROR_LISTENER
-            .get()
-            .expect("Huh? Where's the ErrorListener?!?")
-    }
-}
-
-fn do_stuff() {
-    let listener = ErrorListener::get_listener(); //&'static ErrorListener
-    listener.check_for_error();
-}
-
-fn check_something_else() {
-    let listener = ErrorListener::get_listener();
-    listener.check_for_error();
-}
-
 fn main() {
-    ERROR_LISTENER
-        .set(ErrorListener {
-            url: "www.thoenhoe.com".to_string(),
-        })
-        .expect("Couldn't set ErrorListener for some reason");
+    let rng = rand::thread_rng();
 
-    do_stuff();
-    check_something_else();
+    println!("Hello, world");
+
+    let my_string = String::from("I am String");
+
+    let my_vec = vec![8, 9, 10];
+
+    let my_new_vec = my_vec
+        .iter() // iterators are lazy
+        .map(|number| number + 1)
+        .collect::<Vec<i32>>();
 }
