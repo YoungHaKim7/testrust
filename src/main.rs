@@ -1,3 +1,18 @@
+use lazy_static::lazy_static;
+use serde::{Deserialize, Serialize};
+
+// feature
+#[derive(Serialize, Deserialize)]
+struct ErrorListener {
+    url: String,
+}
+
+lazy_static! {
+    static ref ERROR_LISTENER: ErrorListener = ErrorListener {
+        url: "toheo".to_string()
+    };
+}
+
 fn main() {
     let rng = rand::thread_rng();
 
