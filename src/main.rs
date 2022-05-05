@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)] // JSON, YAML
+#[derive(Debug, Serialize, Deserialize)] // JSON, YAML
 struct City {
     title: String,
     location_type: String,
@@ -13,5 +13,7 @@ fn main() {
         .text()
         .unwrap();
 
-    println!("{body:?}");
+    let our_cities: Vec<City> = serde_json::from_str(&body).unwrap();
+
+    println!("{our_cities:#?}");
 }
