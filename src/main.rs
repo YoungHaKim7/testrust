@@ -1,4 +1,6 @@
-#[derive(Serialize, Deserialize)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize)] // JSON, YAML
 struct City {
     title: String,
     location_type: String,
