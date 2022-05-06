@@ -12,5 +12,5 @@ fn main() {
 
     let my_async_number = async_give_8();
 
-    my_async_number.nthid();
+    my_async_number.await;
 }
