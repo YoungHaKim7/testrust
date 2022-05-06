@@ -1,4 +1,7 @@
+use tokio;
+
 fn give_8() -> u8 {
+    // blocking function
     8
 }
 
@@ -7,10 +10,9 @@ async fn async_give_8() -> u8 {
     8
 }
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let my_number = give_8();
-
-    let my_async_number = async_give_8();
-
-    my_async_number.await;
+    let my_async_number = async_give_8().await;
+    println!("{my_async_number}");
 }
