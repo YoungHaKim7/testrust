@@ -15,9 +15,11 @@ async fn give_data_again() -> u8 {
 #[tokio::main]
 async fn main() {
     let now = time::Instant::now();
-    for _ in 0..10000 {
-        let x = 7;
-    }
+
+    let number_one = give_data(); // Did not poll yet
+    let number_two = give_data_again();
+
+    println!("{}", number_one);
 
     println!("{:?}", now.elapsed());
 }
