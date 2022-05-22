@@ -16,10 +16,9 @@ async fn give_data_again() -> u8 {
 async fn main() {
     let now = time::Instant::now();
 
-    let number_one = give_data(); // Did not poll yet
-    let number_two = give_data_again();
+    let number_one = give_data().await; // Did not poll yet let number_two = give_data_again();
 
-    println!("{}", number_one);
+    println!("{:?}", number_one);
 
     println!("{:?}", now.elapsed());
 }
