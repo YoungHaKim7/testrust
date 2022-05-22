@@ -24,7 +24,7 @@ async fn main() {
     let now = time::Instant::now();
 
     let number_one = give_data().await; // Did not poll yet let number_two = give_data_again();
-    let number_two = give_data_again();
+    let number_two = give_data_again().await;
 
     println!("{:?}", number_one);
 
