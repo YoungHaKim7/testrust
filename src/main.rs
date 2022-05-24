@@ -22,10 +22,10 @@ async fn give_data_again() -> u8 {
 async fn main() {
     let now = time::Instant::now();
 
-    let number_one_fut = give_data();
-    let number_two_fut = give_data_again();
+    let number_one_fut = give_data(); // impl Fure<Output = u8>
+    let number_two_fut = give_data_again(); // impl Fure<Output = u8>
 
-    let (number_one, number_two) = join!(number_one_fut, number_two_fut);
+    let (number_one, number_two) = join!(number_one_fut, number_two_fut); //Polling
 
     println!("{:?}", now.elapsed());
 }
