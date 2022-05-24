@@ -1,21 +1,19 @@
-// non-blocking
-// blocking thread blocking
 use std::time;
 use tokio;
 
-fn sleep(duration: u64) {
+async fn sleep(duration: u64) {
     // fn - blocking
-    std::thread::sleep(time::Duration::from_millis(duration));
+    tokio::time::sleep(time::Duration::from_millis(duration)).await;
 }
 
 async fn give_data() -> u8 {
     // impl Future<Output = u8>
-    sleep(1000); // 1sec
+    sleep(1000).await; // 1sec
     7
 }
 
 async fn give_data_again() -> u8 {
-    sleep(1000);
+    sleep(1000).await;
     7
 }
 
@@ -30,3 +28,4 @@ async fn main() {
 
     println!("{:?}", now.elapsed());
 }
+
