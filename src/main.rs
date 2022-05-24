@@ -1,3 +1,5 @@
+// reqwest 리퀘스트는 기본적으로  async다.
+
 use futures::join;
 use std::time;
 use tokio;
