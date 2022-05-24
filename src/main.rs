@@ -1,3 +1,4 @@
+use futures::join;
 use std::time;
 use tokio;
 
@@ -21,10 +22,10 @@ async fn give_data_again() -> u8 {
 async fn main() {
     let now = time::Instant::now();
 
-    let number_one = give_data().await; // Did not poll yet let number_two = give_data_again();
-    let number_two = give_data_again().await;
+    let number_one_fut = give_data();
+    let number_two_fut = give_data_again();
 
-    println!("{:?}", number_one);
+    let (number_one, number_two) = join!(number_one_fut, number_two_fut);
 
     println!("{:?}", now.elapsed());
 }
