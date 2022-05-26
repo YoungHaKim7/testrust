@@ -9,7 +9,7 @@ async fn sleep(duration: u64) {
 
 async fn listen_for_data() -> u8 {
     // impl Future<Output = u8>
-    sleep(100).await; // 1sec
+    sleep(200).await; // 1sec
     7
 }
 
