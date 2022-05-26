@@ -14,7 +14,7 @@ async fn listen_for_data() -> u8 {
 }
 
 async fn listen_for_error() {
-    sleep(100).await;
+    sleep(200).await;
     println!("Got an error")
 }
 
@@ -25,5 +25,6 @@ async fn main() {
         data = listen_for_data() => println!("Got some data: {data}"),
         error = listen_for_error() => error
         );
+        // join과 비슷하게 동시에 물어보고  tokio async는 먼저 나온것만 관심있다.
     }
 }
