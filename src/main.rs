@@ -1,12 +1,13 @@
 use std::io;
 
-fn main() -> Result<(), std::io::Error> {
+fn main() {
     println!("Please type something, or x to escape");
     let mut input_string = String::new(); // PartialEq<&str>
 
     while input_string != "x" {
         input_string.clear();
-        io::stdin().read_line(&mut input_string)?;
+        io::stdin().read_line(&mut input_string).unwrap();
+        println!("You wrote: {input_string}");
     }
-    Ok(())
+    println!("See you later!!!");
 }
