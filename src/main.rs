@@ -22,6 +22,7 @@ fn main() {
     // programname - capitalize
     for word in args().skip(2) {
         match changes {
+            // cargo run capital 하고 뒤에 영어 쓰면 대문자 나옴
             Letters::Capitalize => println!("{}", word.to_uppercase()),
             Letters::Lowerase => println!("{}", word.to_lowercase()),
             Letters::Nothing => println!("{word}"),
