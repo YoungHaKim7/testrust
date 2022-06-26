@@ -1,31 +1,21 @@
-use std::env::args;
+use lazy_static::lazy_static;
+use once_cell::sync::OnceCell;
+use std::sync::Mutex;
 
-enum Letters {
-    Capitalize,
-    Lowerase,
-    Nothing,
+lazy_static! {
+    static ref LAZY_STATIC_LOG_INFO: Mutex<String> = Mutex::new(String::new());
 }
 
+static ONCECELL_LOG_INFO: OnceCell<Mutex<String>> = OnceCell::new();
+
 fn main() {
-    let mut changes = Letters::Nothing;
-    let input: Vec<String> = args().collect();
+    *LAZY_STATIC_LOG_INFO.lock().unwrap() = "Important imformation".to_string();
+    ONCECELL_LOG_INFO.set(Mutex::new(String::new())).unwrap();
+    *ONCECELL_LOG_INFO.get().unwrap().lock().unwrap() = "Important information".to_string();
 
-    if input.len() > 1 {
-        match input[1].as_str() {
-            // PartialEq 랑 다른거임.
-            "capital" => changes = Letters::Capitalize,
-            "lowercase" => changes = Letters::Lowerase,
-            _ => {}
-        }
-    }
-
-    // programname - capitalize
-    for word in args().skip(2) {
-        match changes {
-            // cargo run capital 하고 뒤에 영어 쓰면 대문자 나옴
-            Letters::Capitalize => println!("{}", word.to_uppercase()),
-            Letters::Lowerase => println!("{}", word.to_lowercase()),
-            Letters::Nothing => println!("{word}"),
-        }
-    }
+    println!(
+        "One: {:?} \n Two: {:?}",
+        LAZY_STATIC_LOG_INFO.lock().expect("Could not lock mutes"),
+        ONCECELL_LOG_INFO
+    );
 }
