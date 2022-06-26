@@ -23,4 +23,10 @@ fn main() {
         LAZY_STATIC_LOG_INFO.lock().expect("Could not lock mutes"),
         ONCECELL_LOG_INFO
     );
+
+    // Rust 1.63 nightly code
+    *COOLER_LOG_INFO.lock().unwrap() = "Important information".to_string();
+    println!("{COOLER_LOG_INFO:?}");
+
+    // Rust 1.63 nightly code
 }
