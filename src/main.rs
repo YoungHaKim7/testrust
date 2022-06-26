@@ -8,6 +8,11 @@ lazy_static! {
 
 static ONCECELL_LOG_INFO: OnceCell<Mutex<String>> = OnceCell::new();
 
+// Rust 1.63 Good! awesome
+static COOLER_LOG_INFO: Mutex<String> = Mutex::new(String::new());
+
+// Rust 1.63 nightly code
+
 fn main() {
     *LAZY_STATIC_LOG_INFO.lock().unwrap() = "Important imformation".to_string();
     ONCECELL_LOG_INFO.set(Mutex::new(String::new())).unwrap();
