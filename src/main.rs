@@ -1,3 +1,13 @@
+struct User {
+    url: String,
+    language: Language,
+}
+
+enum Language {
+    Engilsh,
+    Korean,
+}
+
 fn main() {
     for v in std::env::vars() {
         println!("{v:?}")
