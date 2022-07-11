@@ -12,5 +12,9 @@ fn main() {
     thread::spawn(|| {
         println!("I am in thread 2");
     });
+
+    for _ in 0..110000 {
+        let _x = 1;
+    }
 }
 
