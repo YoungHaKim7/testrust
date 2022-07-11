@@ -1,18 +1,16 @@
-struct User {
-    url: String,
-    language: Language,
-}
-
-enum Language {
-    Engilsh,
-    Korean,
-}
+use std::thread;
 
 fn main() {
-    for v in std::env::vars() {
-        println!("{v:?}")
-    }
+    let num_1 = 0;
+    let num_2 = 0;
+    let num_3 = 0;
 
-    println!("{}", std::env::var("LANGUAGE").unwrap());
+    thread::spawn(|| {
+        println!("I am in thread 1");
+    });
+
+    thread::spawn(|| {
+        println!("I am in thread 2");
+    });
 }
 
