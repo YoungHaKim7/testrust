@@ -1,5 +1,6 @@
-use std::fs::File;
+use std::{fs::File, io::Write};
 
 fn main() {
-    let mut file = File::create("filee.txt").unwrap();
+    let mut file = File::create("file.txt").unwrap();
+    file.write_all(b"Hello there\n").unwrap();
 }
