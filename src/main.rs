@@ -18,6 +18,7 @@ fn main() {
     // let mut file_string = String::new();
     // file.read_to_string(&mut file_string).unwrap();
     // println!("{file_string}");
-    println!("{}", read_to_string("file.txt").unwrap());
-    // let my_str = include_str!("file.txt");
+    // println!("{}", read_to_string("file.txt").unwrap());
+    let my_str = include_str!("../file.txt");
+    println!("{my_str}");
 }
