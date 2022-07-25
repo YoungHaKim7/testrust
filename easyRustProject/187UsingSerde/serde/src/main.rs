@@ -1,15 +1,54 @@
-// https://serde.rs/container-attrs.html
-// serde
-// Serialization - JSON, YAML
-// Deserialization - into a Rust type
+use serde::{Deserialize, Serialize};
+use serde_json;
 
-r#"
-{
-    "id": "8787", 
-    "name": "Mr UserSon"
+#[derive(Serialize, Deserialize, Debug)]
+struct User {
+    name: String,
+    id: u32,
+    is_deleted: bool, // false
 }
-"#;
+
+#[derive(Serialize, Deserialize, Debug)]
+struct NewUserRequest {
+    name: String,
+    id: u32,
+}
+
+fn make_user(request: NewUserRequest) -> User {
+    User {
+        name: request.name,
+        id: request.id,
+        is_deleted: false,
+    }
+}
+
+fn handle_request(json_request: &str) {
+    match serde_json::from_str(json_request) {
+        Ok(good_request) => {
+            let new_user = make_user(good_request);
+            println!("Made a new user! {new_user:#?}"); //
+        }
+        Err(e) => {
+            println!("Got an error from {json_request}: {e}");
+        }
+    }
+}
 
 fn main() {
-    println!("Hello, world!");
+    let good_json_request = r#"
+    {
+        "name": "BillyTheUser",
+        "id": 6876
+    }
+    "#;
+
+    let bad_json_request = r#"
+    {
+        "name": "BillyTheUser",
+        "id": "6876"
+    }
+    "#;
+
+    handle_request(good_json_request);
+    handle_request(bad_json_request);
 }
