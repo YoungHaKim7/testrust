@@ -1,3 +1,5 @@
+// https://serde.rs/derive.html
+// https://docs.rs/serde_json/latest/serde_json/de/fn.from_str.html
 use serde::{Deserialize, Serialize};
 use serde_json;
 
@@ -45,7 +47,7 @@ fn main() {
     let bad_json_request = r#"
     {
         "name": "BillyTheUser",
-        "id": "6876"
+        "id": 6877
     }
     "#;
 
