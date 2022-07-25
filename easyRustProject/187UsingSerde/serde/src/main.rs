@@ -46,7 +46,7 @@ fn main() {
 
     let bad_json_request = r#"
     {
-        "name": "BillyTheUser",
+        "name": "BobbyTheUser",
         "id": 6877
     }
     "#;
