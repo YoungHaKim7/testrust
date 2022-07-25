@@ -1,3 +1,4 @@
+// https://serde.rs/container-attrs.html
 // serde
 // Serialization - JSON, YAML
 // Deserialization - into a Rust type
